@@ -1,0 +1,29 @@
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// webtools framework utility:
+//    default values, to be overwritten
+
+// screen size to have rendering depending on the screen size
+// using media queries, such as
+//     @media only screen and (min-width: $webtools-size-l-from) {
+//  small screen:   from 0px                    to  $webtools-size-m-from - 1px
+//  medium screen:  from $webtools-size-m-from  to  $webtools-size-l-from - 1px
+//  large screen:   from $webtools-size-l-from
+$webtools-size-m-from:    601px   !default;
+$webtools-size-l-from:    993px   !default;
+$webtools-size-s-to:      $webtools-size-m-from - 1;
+$webtools-size-m-to:      $webtools-size-l-from - 1;
+
+$webtools-max-width: 1024px !default;
+
+// default margins
+$webtools-default-margin-big: 24px !default;
+$webtools-default-margin-normal: 0.88rem !default;
+
+// default fonts and colors
+// - fonts: https://modernfontstacks.com/
+// - colors from https://html-color-codes.info/color-names/
+$webtools-primary-font-family: system-ui, sans-serif !default;
+$webtools-primary-color: Black !default;
+$webtools-primary-background-color: White !default;

@@ -1,0 +1,120 @@
+/*****************************************************************
+ * FORMS, by webtools
+ * Testing of forms from  https://codepen.io/chrisoncode/pen/IdGKH
+ *****************************************************************/
+
+form.webtools {
+  font-size: 1.21rem;
+
+  input, textarea {
+    // redefine the background color as the UA of the browser may set it to white
+    background-color: $webtools-primary-background-color;
+  }
+
+
+  .webtools-one-form {
+    position:relative;
+    margin-bottom:2.42rem;                /* margin between 2 inputs */
+    margin-left: 12ch;                    /* margin of 12 characters to shift "Téléphone" */
+                                          /* check the "left" property in input:focus ~label */
+    @media only screen and (max-width: $webtools-size-s-to) {
+      margin-left: 0;                       /* no margin on small screen so that the contact form is big enough */
+    }
+
+    &__no-display {   // used for honeypot technique, of for language switch
+      display:none;
+    }
+  }
+
+  input {
+    display: block;
+    padding-bottom: 0.605rem;             /* space between the text and the border-bottom */
+    outline:none;                         /* not to have a frame around the input */
+    border:none;                          /* not to have a frame around the input */
+    border-bottom:1px solid $webtools-secondary-color;      /* 1px width border */
+  }
+
+  input:hover {
+    border-bottom:2px solid $webtools-secondary-color;      /* 1px width bottom-line */
+  }
+
+  input:focus {
+    border-bottom:3px solid $webtools-secondary-color;      /* 3px width bottom-line */
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    height: 12.1rem;
+    outline:none;                         /* not to have a frame around the input */
+    border: 1px solid $webtools-secondary-color;            /* 1px width border */
+  }
+
+  textarea:hover {
+    border: 2px solid $webtools-secondary-color;            /* 2px width border */
+  }
+
+  textarea:focus {
+    border: 3px solid $webtools-secondary-color;            /* 3px width border */
+  }
+
+  label {
+    position: absolute;
+    pointer-events: none;
+    top: 0px;
+    transition:0.4s ease all;
+  }
+
+  input, input ~ label {
+    margin-left: 1ch;
+    width:calc(100% - 1ch);                 /* remove 1ch */
+  }
+
+  textarea, textarea ~ label {
+    padding: 1ch;                    /* not to be to close to the border. same as the margin of input */
+  }
+
+  /* :not(:placeholder-shown) to shift when something is written, even if invalid */
+  input:focus                       ~ label,
+  input:not(:placeholder-shown)     ~ label,
+  textarea:focus                    ~ label,
+  textarea:not(:placeholder-shown)  ~ label
+  {
+    left: -13ch;    /* shift by 13 characters. same as margin of webtools-one-form - 1*/
+    font-weight: bold;
+  }
+
+  // on IE11, use :-ms-input-placeholder instead of ::placeholder-shown
+  // do not merge it with the previous definition as the css will then be incorrect, and chrome will stop working
+  input:not(:-ms-input-placeholder)     ~ label,
+  textarea:not(:-ms-input-placeholder)  ~ label
+  {
+    left: -13ch;    /* shift by 13 characters. same as margin of webtools-one-form - 1*/
+    font-weight: bold;
+  }
+
+
+  .webtools-button {
+    box-shadow:inset 0px 1px 0px 0px #9acc85;
+    background:linear-gradient(to bottom, $webtools-secondary-background-color 5%, #68a54b 100%);
+    background-color:$webtools-secondary-background-color;
+    //border:1px solid #3b6e22;
+    display:inline-block;
+    cursor:pointer;
+    color: $webtools-primary-color;
+    font-weight:bold !important;
+    padding:6px 12px;
+    text-decoration:none;
+
+    // align the button with the textarea
+    margin-left: 0;
+    width: 100%;
+  }
+  .webtools-button:hover {
+    background:linear-gradient(to bottom, #68a54b 5%, $webtools-secondary-background-color 100%);
+  }
+  .webtools-button:active {
+    position:relative;
+    top:1px;
+  }
+}

@@ -1,0 +1,65 @@
+// (C) webtools
+//
+// atomic utilities
+
+.webtools-primary-color              { color: $webtools-primary-color; }
+.webtools-secondary-color            { color: $webtools-secondary-color; }
+.webtools-primary-background-color   { background-color: $webtools-primary-background-color; }
+.webtools-secondary-background-color { background-color: $webtools-secondary-background-color; }
+.webtools-tertiary-background-color  { background-color: $webtools-tertiary-background-color; }
+
+.webtools-secondary-font-family      { font-family: $webtools-secondary-font-family; }
+.webtools-tertiary-font-family       { font-family: $webtools-tertiary-font-family; }
+
+.webtools-font-size-190-bold         { font-size: 1.90rem; font-weight: bold; }
+.webtools-font-size-080              { font-size: 0.8rem; }
+
+.webtools-margin-0                   { margin: 0px; }
+.webtools-margin-top-0               { margin-top: 0; }
+.webtools-margin-top-2px             { margin-top: 2px; }
+.webtools-margin-big                 { margin: $webtools-default-margin-big 0; }
+
+.webtools-center-inline-block        { text-align: center; }
+.webtools-center-block               { display: flex; justify-content: center; align-items: center;}
+.webtools-list-style-none            { list-style: none; }
+
+.webtools-width-70                   { width: 70%; height: auto; }
+.webtools-width-100                  { width: 100%; height: auto;}
+.webtools-max-width-300              { max-width: 300px;}
+.webtools-max-width-200              { max-width: 200px;}
+
+strong { font-weight: bold; }
+
+// to display a phone number or email address, but hide it to avoid spam
+.webtools-concat-attr-05::before {
+  content: attr(data-a) attr(data-b) attr(data-c) attr(data-d) attr(data-e) ;
+}
+
+
+// Hide some parts of the html file
+@media only screen and (max-width: 512px) {
+  .hide-on-512-and-down {
+    display: none;
+  }
+}
+@media only screen and (min-width: 513px) {
+  .hide-on-513-and-up {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $webtools-size-l-from - 1px) {
+  .hide-on-med-and-down {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $webtools-size-m-from) {
+  .hide-on-med-and-up   { display: none; }
+}
+
+@media only screen and (max-width: $webtools-size-m-from - 1px) {
+  .hide-on-small-and-down {
+    display: none;
+  }
+}

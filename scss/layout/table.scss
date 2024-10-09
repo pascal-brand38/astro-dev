@@ -1,0 +1,37 @@
+/*
+ * (C) webtools
+ * Tables
+ * to be used with
+ *   <table class="webtools">
+ */
+
+table.webtools {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  margin-bottom: $webtools-default-margin-normal;
+
+  td,  th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    white-space: nowrap;            // title on s aingle line, whatever the size of the screen and the other cells content
+  }
+  th[scope="row"] {
+    padding-right: 0.4rem;          // title is on the row, so padding at right
+  }
+  td {
+    padding-left: 0.4rem;
+  }
+
+  tr {
+    border-bottom: 1px solid $webtools-secondary-color;
+  }
+}

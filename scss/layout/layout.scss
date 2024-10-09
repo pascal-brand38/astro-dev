@@ -1,0 +1,56 @@
+.webtools-container {
+  margin-top: $webtools-default-margin-big;       // "big" margin on top and bottom of containers
+  margin-bottom: $webtools-default-margin-big;
+  margin-left: auto; margin-right: auto;        // center the container on the page
+  padding: 0 1.1rem;                            // left and right padding so that the text does not start at the border of the screen
+  width: 100%;                                  // full width
+  max-width: $webtools-max-width;                 // but max width is limited (1024px by default)
+
+  text-align: left;
+  @media only screen and (min-width: $webtools-size-l-from) {
+      text-align: justify;
+      text-justify: inter-word;   // only supported in firefox
+  }
+
+  p {
+    margin-top: $webtools-default-margin-normal;
+    margin-bottom: $webtools-default-margin-normal;
+  }
+
+  ul {
+    list-style: disc;       // inside so that the disc is inside the div, not outside
+    margin-left: 1em;       // https://stackoverflow.com/questions/11556493/second-line-in-li-starts-under-the-bullet-after-css-reset
+    padding-left: 0.5ch;    // add 0.5ch, otherwise helf of the disc is outside the div
+    margin-bottom: $webtools-default-margin-normal;
+  }
+
+  &--no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.webtools-margin-p {
+  margin-top: $webtools-default-margin-normal;
+  margin-bottom: $webtools-default-margin-normal;
+}
+
+// Horizontal line
+// default is of secondary color, 2px width, and with a margin of 8px on top and bottom
+hr {
+  display: block;
+  margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid $webtools-secondary-color;
+}
+
+h1, h2, h3 {
+  font-family: $webtools-secondary-font-family;
+  font-size: 2.09rem;
+  font-weight: bold;
+  color:$webtools-secondary-color;
+  line-height: 110%;
+  text-align: left;
+  margin: 1.67rem 0 1.67rem 0;
+  margin-bottom: 1.67rem;
+}

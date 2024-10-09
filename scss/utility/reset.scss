@@ -1,0 +1,70 @@
+// (C) webtools
+//
+// Reset css values so that behavior is predictable on all browsers
+//
+// See https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/
+// to know, in css, on which browser we are
+
+
+// box-sizing reset
+// so that a width of a box include padding and borders, but not margin
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+
+// https://stackoverflow.com/questions/53203111/how-can-i-override-margin-block-start
+// margin and padding resetted to 0
+* {
+  margin-block-start:0; margin-block-end:0; margin-inline-start:0; margin-inline-end:0;
+  padding-block-start:0; padding-block-end:0; padding-inline-start:0; padding-inline-end:0;
+}
+
+
+img {
+    // https://codepen.io/anon/pen/gNeoQE
+    // helps to remove empty space below an image in some cases
+    // Note that as it becomes a block (and no more an inline-block), text-align:center does not work anymore
+    display: block;
+
+    // https://stackoverflow.com/questions/41297008/should-we-use-max-width-100-to-all-images-in-a-website
+    // responsive images
+    max-width: 100%;
+}
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+ a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+
+:root {
+  -webkit-text-size-adjust: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: $webtools-primary-font-family;
+  line-height: 1.5;
+  color: $webtools-primary-color;
+  background-color: $webtools-primary-background-color;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1rem;    /* read to know the difference of em vs rem: https://grafikart.fr/tutoriels/font-size-rem-em-px-477 */
+                        /* rem is a percentage of the root font size */
+                        /* em is a percentage of the parent font size */
+}
+
+// https://github.com/necolas/normalize.css
+input, textarea {
+  font-family: inherit;
+  color: inherit ;
+  font-size: inherit ;
+  font-weight: inherit ;
+  // background-color: inherit;  not inherited - cf. https://developer.mozilla.org/fr/docs/Web/CSS/background-color#sp%C3%A9cifications
+}

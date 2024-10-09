@@ -1,0 +1,26 @@
+// (c) webtools
+// Animated underline of of words
+// Example:
+//    <p>
+//      Hello <span class="webtools-underline"> World </span> !
+
+$webtools-underline-color: $webtools-secondary-color !default;
+$webtools-underline-speed: 1s !default;
+$webtools-underline-thickness: 0.3rem !default;
+
+
+.webtools-underline  {
+  background: linear-gradient($webtools-underline-color, $webtools-underline-color);
+  background-position: 50% 100%;   /* 50% for the middle of the word, 100% for the bottom of the word */
+  background-repeat: no-repeat;
+  animation: webtools-underline-animation $webtools-underline-speed ease-in-out infinite alternate;
+}
+
+@keyframes webtools-underline-animation {
+  0% {
+    background-size: 0% $webtools-underline-thickness;
+  }
+  100% {
+    background-size: 100% $webtools-underline-thickness;
+  }
+}
