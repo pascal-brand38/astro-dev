@@ -1,0 +1,19 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
+/*
+ * import common scss style
+ */
+@import "values.scss";     // get default and overloaded values
+
+@import "node_modules/webtools-helper/scss/utility/reset.scss";
+@import "node_modules/webtools-helper/scss/utility/atomic.scss";
+@import "node_modules/webtools-helper/scss/layout/layout.scss";
+
+$webtools-nav-purecss-hamburger-max-width: 700px;
+@import "node_modules/webtools-helper/scss/layout/nav-purecss.scss";
+
+// @import "webtools-neon.scss";
+@import "node_modules/webtools-helper/scss/layout/table.scss";
+@import "node_modules/webtools-helper/scss/layout/form.scss";
+@import "node_modules/webtools-helper//3rdparties/splide/splide-core.min";    // do not add .css, otherwise not included at all!
