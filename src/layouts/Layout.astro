@@ -1,50 +1,35 @@
 ---
-interface Props {
-	title: string;
-}
+// Copyright (c) Pascal Brand
+// MIT License
 
-const { title } = Astro.props;
+// import astroConfig from "../../astro.config.mjs"
+// console.log(astroConfig)
+
+const { pageHead } = Astro.props;
+
+import Header from "./Header.astro";
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
+
+import "../scss/style.scss";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<!DOCTYPE html>
+<html lang="fr-fr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=4.0"/>
+    <meta name="description" content={pageHead.description} />
+    <title> {pageHead.title} </title>
+  </head>
+
+  <body>
+    <Header />
+    <Nav />
+
+    <slot />
+
+    <Footer />
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
