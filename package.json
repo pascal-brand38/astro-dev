@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/pascal-brand38/astro-sprite/issues"
   },
-  "homepage": "https://github.com/pascal-brand38/astro-sprite#readme"
+  "homepage": "https://github.com/pascal-brand38/astro-sprite#readme",
+  "dependencies": {
+    "join-images": "^1.1.5",
+    "sharp": "^0.32.6"
+  }
 }

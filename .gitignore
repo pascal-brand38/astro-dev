@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # build output
 dist/
 
@@ -22,3 +23,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+=======
+node_modules
+>>>>>>> 7a81b7d (npm install sharp join-images)
