@@ -1,13 +1,11 @@
 import fs from 'fs'
 import path from 'path'
-import { joinImages } from 'join-images'
 import sharp from 'sharp'
 
 const config = {
   srcDir: 'data',
-  inputExtension: ['.png'],
+  inputExtension: ['.png', '.webp'],
   outputSprites: ['tmp/out.png', 'tmp/out.webp'],
-
 }
 
 let srcFiles = []
@@ -24,16 +22,30 @@ await Promise.all(fs.readdirSync(config.srcDir).map(async (file) => {
 }))
 
 let positions = []
+let left = 0
+let height = 0
 srcFiles.forEach(src => {
-  positions.push({ src: src.fullName, offsetX: 0, offsetY: 0 })
+  positions.push({ input: src.fullName, left: left, top: 0 })
+  left += src.width
+  if (height < src.height) {
+    height = src.height
+  }
 })
 
-joinImages(positions).then((img) => {
-  // Save image as file
-  config.outputSprites.forEach(output =>
-    img.toFile(output)
-  )
+const sprite = sharp({
+  create: {
+    background: { alpha: 0, b: 0, g: 0, r: 0 },
+    channels: 4,
+    height: height,
+    width: left,
+  },
 });
+
+sprite.composite(positions);
+config.outputSprites.forEach(output =>
+  sprite.toFile(output)
+)
+
 
 console.log(srcFiles)
 console.log('DONE')
