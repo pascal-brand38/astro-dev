@@ -2,8 +2,15 @@
   "compilerOptions": {
     "outDir": "./dist",
     "allowJs": true,
-    "target": "es5",
-    "esModuleInterop": true
+    "strict": true,
+
+    "module": "ES2022",
+    "target": "ES2021",
+
+    "allowImportingTsExtensions": false,
+    "emitDeclarationOnly": false,
+    "noEmit": false,
   },
+  "extends": "astro/tsconfigs/strict",
   "include": ["./src/**/*"]
 }
