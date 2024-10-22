@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url'
 interface srcType {
   dir: string,
   dirDev: string,
-  extensions: string[],    // TODO: list all accepted format
+  extension: string,
 }
 
 interface dstType {
@@ -23,7 +23,7 @@ interface dstType {
   cssSelector: string,
 }
 
-interface spriteConfigType {
+export interface spriteConfigType {
   src: srcType,
   dst: dstType,
 }
@@ -32,7 +32,7 @@ const defaultConfig: spriteConfigType = {
   src: {
     dir: 'assets/astro-sprite',
     dirDev: '',
-    extensions: [ '.png', 'webp' ],
+    extension: '.png',
   },
   dst: {
     spriteFile: 'img/astro-sprite.webp',
@@ -44,7 +44,6 @@ const defaultConfig: spriteConfigType = {
     cssSelector: '',
   }
 }
-let spriteConfig: spriteConfigType
 
 interface iconType {
   name: string,
@@ -60,7 +59,7 @@ async function getIcons(config: spriteConfigType) {
     const fullName = path.join(config.src.dirDev, file);
     if (fs.statSync(fullName).isFile()) {
       // it is a file. Checks it ends with inputExtension
-      if (config.src.extensions.some(ext => file.endsWith(ext))) {
+      if (file.endsWith(config.src.extension)) {
         const image = sharp(fullName);
         const metadata = await image.metadata()
         icons.push( {
@@ -138,22 +137,29 @@ async function runAstroSprite(config: spriteConfigType) {
   writeCss(positions, config)   // must write css after the sprite to know the sprite sha1
 }
 
-const AstroConfig = {
-  name: 'astro-sprite',
-  hooks: {
-    "astro:config:done": function ({ config: astroConfig }: { config: AstroConfig} ) {
-      spriteConfig.src.dirDev        = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.src.dir)
-      spriteConfig.dst.spriteFileDev = path.join(fileURLToPath(astroConfig.publicDir), spriteConfig.dst.spriteFile)
-      spriteConfig.dst.cssFileDev    = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.dst.cssFile)
-      runAstroSprite(spriteConfig)
-    },
-  },
-}
+
+// https://stackoverflow.com/questions/41980195/recursive-partialt-in-typescript
+type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};
 
 // initialize the astro sprite integration
-function astroSprite(config = {}): AstroIntegration {
-  spriteConfig = { ...defaultConfig, ...config}
-  return AstroConfig
+function astroSprite(config: RecursivePartial<spriteConfigType>): AstroIntegration {
+  let spriteConfig:spriteConfigType = defaultConfig
+  spriteConfig.src = { ...spriteConfig.src, ...config.src}
+  spriteConfig.dst = { ...spriteConfig.dst, ...config.dst}
+
+  return {
+    name: 'astro-sprite',
+    hooks: {
+      "astro:config:done": function ({ config: astroConfig }: { config: AstroConfig} ) {
+        spriteConfig.src.dirDev        = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.src.dir)
+        spriteConfig.dst.spriteFileDev = path.join(fileURLToPath(astroConfig.publicDir), spriteConfig.dst.spriteFile)
+        spriteConfig.dst.cssFileDev    = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.dst.cssFile)
+        runAstroSprite(spriteConfig)
+      },
+    },
+  }
 }
 
 export default astroSprite

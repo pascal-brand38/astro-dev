@@ -8,7 +8,7 @@ const defaultConfig = {
     src: {
         dir: 'assets/astro-sprite',
         dirDev: '',
-        extensions: ['.png', 'webp'],
+        extension: '.png',
     },
     dst: {
         spriteFile: 'img/astro-sprite.webp',
@@ -20,7 +20,6 @@ const defaultConfig = {
         cssSelector: '',
     }
 };
-let spriteConfig;
 // read all icons data
 async function getIcons(config) {
     let icons = [];
@@ -28,7 +27,7 @@ async function getIcons(config) {
         const fullName = path.join(config.src.dirDev, file);
         if (fs.statSync(fullName).isFile()) {
             // it is a file. Checks it ends with inputExtension
-            if (config.src.extensions.some(ext => file.endsWith(ext))) {
+            if (file.endsWith(config.src.extension)) {
                 const image = sharp(fullName);
                 const metadata = await image.metadata();
                 icons.push({
@@ -89,20 +88,21 @@ async function runAstroSprite(config) {
     writeSprite(positions, config);
     writeCss(positions, config); // must write css after the sprite to know the sprite sha1
 }
-const AstroConfig = {
-    name: 'astro-sprite',
-    hooks: {
-        "astro:config:done": function ({ config: astroConfig }) {
-            spriteConfig.src.dirDev = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.src.dir);
-            spriteConfig.dst.spriteFileDev = path.join(fileURLToPath(astroConfig.publicDir), spriteConfig.dst.spriteFile);
-            spriteConfig.dst.cssFileDev = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.dst.cssFile);
-            runAstroSprite(spriteConfig);
-        },
-    },
-};
 // initialize the astro sprite integration
-function astroSprite(config = {}) {
-    spriteConfig = { ...defaultConfig, ...config };
-    return AstroConfig;
+function astroSprite(config) {
+    let spriteConfig = defaultConfig;
+    spriteConfig.src = { ...spriteConfig.src, ...config.src };
+    spriteConfig.dst = { ...spriteConfig.dst, ...config.dst };
+    return {
+        name: 'astro-sprite',
+        hooks: {
+            "astro:config:done": function ({ config: astroConfig }) {
+                spriteConfig.src.dirDev = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.src.dir);
+                spriteConfig.dst.spriteFileDev = path.join(fileURLToPath(astroConfig.publicDir), spriteConfig.dst.spriteFile);
+                spriteConfig.dst.cssFileDev = path.join(fileURLToPath(astroConfig.srcDir), spriteConfig.dst.cssFile);
+                runAstroSprite(spriteConfig);
+            },
+        },
+    };
 }
 export default astroSprite;
