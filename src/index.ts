@@ -164,7 +164,7 @@ type RecursivePartial<T> = {
 };
 
 // initialize the astro sprite integration
-function astroSprite(config: RecursivePartial<spriteConfigType>): AstroIntegration {
+function sprite(config: RecursivePartial<spriteConfigType> = {}): AstroIntegration {
   let spriteConfig:spriteConfigType = defaultConfig
   spriteConfig.src = { ...spriteConfig.src, ...config.src}
   spriteConfig.dst = { ...spriteConfig.dst, ...config.dst}
@@ -179,4 +179,4 @@ function astroSprite(config: RecursivePartial<spriteConfigType>): AstroIntegrati
   }
 }
 
-export default astroSprite
+export default sprite

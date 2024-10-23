@@ -108,7 +108,7 @@ async function runAstroSprite(config, srcDir, publicDir) {
     writeCss(positions, config, srcDir, spriteFile); // must write css after the sprite to know the sprite sha1
 }
 // initialize the astro sprite integration
-function astroSprite(config) {
+function sprite(config = {}) {
     let spriteConfig = defaultConfig;
     spriteConfig.src = { ...spriteConfig.src, ...config.src };
     spriteConfig.dst = { ...spriteConfig.dst, ...config.dst };
@@ -121,4 +121,4 @@ function astroSprite(config) {
         },
     };
 }
-export default astroSprite;
+export default sprite;

@@ -50,7 +50,12 @@ For more information about sprites and their benefits, here is a link selection:
 
 ### Quick install
 
-TODO: implement ```npx astro add astro-sprite```
+To install astro-sprite, run the following from your project directory and follow the prompts:
+
+* Using NPM: ```npx astro add astro-sprite```
+* Using Yarn: ```yarn astro add astro-sprite```
+* Using PNPM: ```pnpx astro add astro-sprite```
+
 
 ### Manual install
 
@@ -68,7 +73,7 @@ import astroSprite from 'astro-sprite'
 
 export default defineConfig({
   integrations: [
-    astroSprite({})
+    sprite()
   ],
 });
 ```

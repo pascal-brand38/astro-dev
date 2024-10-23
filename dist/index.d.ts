@@ -17,5 +17,5 @@ export interface spriteConfigType {
 type RecursivePartial<T> = {
     [P in keyof T]?: RecursivePartial<T[P]>;
 };
-declare function astroSprite(config: RecursivePartial<spriteConfigType>): AstroIntegration;
-export default astroSprite;
+declare function sprite(config?: RecursivePartial<spriteConfigType>): AstroIntegration;
+export default sprite;
