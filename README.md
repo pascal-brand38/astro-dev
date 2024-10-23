@@ -30,9 +30,9 @@ as well as a .css file, that used by the html to display a small image from the 
 ```
 
 It is then rather easy to display the english flag in html, using for example:
-```
-    <div class="astro-sprite astro-sprite-english">
-    </div>
+```html
+<div class="astro-sprite astro-sprite-english">
+</div>
 ```
 
 For more information about sprites and their benefits, here is a link selection:
@@ -40,3 +40,62 @@ For more information about sprites and their benefits, here is a link selection:
 * [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
 * [w3schools](https://www.w3schools.com/css/css_image_sprites.asp)
 * [GTMetrix](https://gtmetrix.com/combine-images-using-css-sprites.html)
+
+
+<br>
+
+# Usage
+
+## Installation
+
+### Quick install
+
+TODO: implement ```npx astro add astro-sprite```
+
+### Manual install
+
+First, install the astro-sprite package using your package manager. If you're using npm, run this in the terminal:
+
+```bash
+npm install astro-sprite
+```
+
+Then, apply this integration to your astro.config.mjs file using the integrations property:
+
+```js
+import { defineConfig } from 'astro/config';
+import astroSprite from 'astro-sprite'
+
+export default defineConfig({
+  integrations: [
+    astroSprite({})
+  ],
+});
+```
+
+The default behavior of astro-sprite is the following:
+* Look for all ```.png``` images in ```assets/astro-sprite```
+located in the astro src directory
+* Save the resulting sprite image as ```img/astro-sprite.png```,
+in the astro public dir
+* Save the resulting css file as ```css/astro-sprite.css```
+in the astro src dir
+  * the class name containing the ```background-image```
+    css property is ```.astro-sprite```
+  * each icon in the sprite have a dedicated class name
+    that starts with ```.astro-sprite-```, followed by the
+    filename base. Typically, ```.astro-sprite-english```
+    reference icon in ```english.png```
+
+<br>
+
+# TODO
+
+## Add in readme
+* import css in scss file
+* adding ::before to have spans
+* extends to have good inline of flags, as in my website
+* main class being with a astro-sprite* selection
+
+## Add in code
+* how to add the hash to preload the sprite in the html head?

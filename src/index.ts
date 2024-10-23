@@ -32,7 +32,7 @@ const defaultConfig: spriteConfigType = {
     extension: '.png',
   },
   dst: {
-    spriteFile: 'img/astro-sprite.webp',
+    spriteFile: 'img/astro-sprite.png',
     cssMainClass: '.astro-sprite',
     cssFile: 'css/astro-sprite.css',
     cssPrefix: '.astro-sprite-',

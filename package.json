@@ -1,6 +1,6 @@
 {
   "name": "astro-sprite",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Sprite generation for astro framework",
   "type": "module",
   "scripts": {
@@ -29,5 +29,21 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
-  }
+  },
+  "keywords": [
+    "withastro",
+    "astro-integration",
+    "astro",
+    "astro-component",
+    "astro-sprite-component",
+    "sprite",
+    "generate sprite.png",
+    "generate sprite.webp",
+    "sprite png",
+    "sprite webp",
+    "css",
+    "html",
+    "spriter"
+  ],
+
 }
