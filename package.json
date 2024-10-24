@@ -1,7 +1,7 @@
 {
   "name": "astro-sprite",
-  "version": "1.0.0",
-  "description": "Sprite generation for astro framework",
+  "version": "1.0.1",
+  "description": "Sprite generation (png, webp,...) dedicated Astro framework",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json"
@@ -31,17 +31,14 @@
     }
   },
   "keywords": [
-    "withastro",
-    "astro-integration",
-    "astro",
-    "astro-component",
-    "astro-sprite-component",
+    "withastro", "astro-component",
+    "css", "icon", "icons", "image", "images",
+
     "sprite",
     "generate sprite.png",
     "generate sprite.webp",
-    "sprite png",
-    "sprite webp",
-    "css",
+    "png",
+    "webp",
     "html",
     "spriter"
   ]
