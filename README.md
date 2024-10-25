@@ -69,7 +69,7 @@ Then, apply this integration to your astro.config.mjs file using the integration
 
 ```js
 import { defineConfig } from 'astro/config';
-import astroSprite from 'astro-sprite'
+import sprite from 'astro-sprite'
 
 export default defineConfig({
   integrations: [
@@ -94,13 +94,114 @@ in the astro src dir
 
 <br>
 
+## Customizations
+
+```sprite-astro``` can be customized to better fit your need.
+Here are the default values that can be customized:
+
+```js
+import { defineConfig } from 'astro/config';
+import sprite from 'astro-sprite'
+
+export default defineConfig({
+  integrations: [
+    sprite({
+      src: {
+        dir: 'img/astro-sprite',
+        extension: '.png',
+      },
+      dst: {
+        spriteFile: 'img/astro-sprite.png',
+        cssFile: 'css/astro-sprite.css',
+        cssMainClass: '.astro-sprite',
+        cssPrefix: '.astro-sprite-',
+        cssSelector: '',
+      }
+    })
+  ],
+});
+```
+
+Customized properties are:
+* ```src```: properties related to the source icons:
+  * ```dir```: directory where the single icons are located, relative to the astro srcDir.
+  * ```extension```: all files in ```src.dir``` with the provided extension will be
+    used the sprite. ```.webp``` can be used
+* ```dst```: properties related to the output of the integration
+  * ```spriteFile```: the output sprite filename, relative to the astro publicDir
+    A ```.webp``` file can be used
+  * ```cssFile```: the output css filename, relative to the astro srcDir
+  * ```cssMainClass```: the css class that contains the property ```backgroud: url();```
+  * ```cssPrefix```: each icon will be related to a css class, prefixed by this
+    property, and suffixed by the icon file name
+  * ```cssSelector```: a css selector added to each icon class, such as ```::before```
+
+
+
+
+# Best practices
+
+## Scss
+
+Scss can be used to import the generated sprite css file in your
+scss file. Here is the
+[astro documentation about scss](https://docs.astro.build/fr/guides/styling/#sass-et-scss).
+
+In your main scss file, you may then add:
+```scss
+@import "../css/astro-sprite";
+```
+
+## Span
+
+```span``` is an easy way to add icons inlined your text, such as:
+
+```html
+<p>
+  <span class="astro-sprite astro-sprite-english"></span> the english flag
+</p>
+```
+
+To achieve a correct result, ```::before``` selector must be used, as with
+```js
+export default defineConfig({
+  integrations: [
+    sprite({
+      dst: {
+        cssMainClass: '.astro-sprite::before',
+        cssSelector: '::before',
+      }
+    })
+  ],
+});
+```
+
+And add in your main .css / .scss file the following:
+```scss
+.astro-sprite::before {
+  content: "";
+  display:inline-block;
+  vertical-align:middle;
+}
+```
+
+
+## Get rid of ```.astro-sprite``` css class
+Instead of using both ```astro-sprite astro-sprite-english``` to specify an
+icon, this is possible to specify only ```astro-sprite-english``` by using the following
+(```cssMainClass``` applies to any css class containing ```astro-sprite-```):
+```js
+export default defineConfig({
+  integrations: [
+    sprite({
+      dst: {
+        cssMainClass: '[class*="astro-sprite-"]',
+      }
+    })
+  ],
+});
+```
+
+
 # TODO
-
-## Add in readme
-* import css in scss file
-* adding ::before to have spans
-* extends to have good inline of flags, as in my website
-* main class being with a astro-sprite* selection
-
-## Add in code
-* how to add the hash to preload the sprite in the html head?
+* Add the hash to preload the sprite in the html head?
