@@ -21,23 +21,24 @@ const defaultConfig = {
 // read all icons data
 async function getIcons(config, srcDir) {
     const dirIcons = path.join(srcDir, config.src.dir);
-    let icons = [];
-    await Promise.all(fs.readdirSync(dirIcons).map(async (file) => {
+    let maps = await Promise.all(fs.readdirSync(dirIcons).map(async (file) => {
         const fullName = path.join(dirIcons, file);
-        if (fs.statSync(fullName).isFile()) {
-            // it is a file. Checks it ends with inputExtension
-            if (file.endsWith(config.src.extension)) {
-                const image = sharp(fullName);
-                const metadata = await image.metadata();
-                icons.push({
-                    name: path.parse(file).name,
-                    fullName,
-                    width: metadata.width ? metadata.width : 0,
-                    height: metadata.height ? metadata.height : 0,
-                });
-            }
+        if (fs.statSync(fullName).isFile() && file.endsWith(config.src.extension)) {
+            const image = sharp(fullName);
+            const metadata = await image.metadata();
+            const icon = {
+                name: path.parse(file).name,
+                fullName,
+                width: metadata.width ? metadata.width : 0,
+                height: metadata.height ? metadata.height : 0,
+            };
+            return icon;
+        }
+        else {
+            return undefined;
         }
     }));
+    const icons = maps.filter(map => map !== undefined);
     return icons;
 }
 // get the positions of all icons in the sprite
