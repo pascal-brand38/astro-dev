@@ -1,7 +1,7 @@
 {
   "name": "astro-sprite",
-  "version": "1.0.1",
-  "description": "Sprite generation (png, webp,...) dedicated Astro framework",
+  "version": "1.1.0",
+  "description": "Sprite generation (png, webp, avif...) dedicated Astro framework",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json"
@@ -37,8 +37,10 @@
     "sprite",
     "generate sprite.png",
     "generate sprite.webp",
+    "generate sprite.avif",
     "png",
     "webp",
+    "avif",
     "html",
     "spriter"
   ]

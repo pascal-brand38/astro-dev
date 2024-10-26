@@ -2,9 +2,9 @@
 
 **astro-sprite** is a npm package aimed at building a sprite from small images/icons,
 to be used with [Astro](https://astro.build/).
-The sprite is created as a png or a webp image.
+The sprite is created as a png, webp, or avif image.
 
-Typically, from single small images/icons (png or webp)
+Typically, from single small images/icons (png, webp, avif)
 ![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/english.png) and
 ![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/france.png) and
 ![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/facebook.png) and
@@ -127,10 +127,10 @@ Customized properties are:
 * ```src```: properties related to the source icons:
   * ```dir```: directory where the single icons are located, relative to the astro srcDir.
   * ```extension```: all files in ```src.dir``` with the provided extension will be
-    used the sprite. ```.webp``` can be used
+    used the sprite. ```.webp``` and ```.avif``` can be used
 * ```dst```: properties related to the output of the integration
   * ```spriteFile```: the output sprite filename, relative to the astro publicDir
-    A ```.webp``` file can be used
+    A ```.webp``` or ```.avif``` file can be used
   * ```cssFile```: the output css filename, relative to the astro srcDir
   * ```preloadFile```: an astro component, to be use in the head section of the html,
     in order to preload the sprite, not waiting for the css to be loaded.
