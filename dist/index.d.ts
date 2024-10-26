@@ -12,6 +12,7 @@ export interface spriteConfigType {
         cssSelector: string;
         preloadFile: string | undefined;
     };
+    verbose: boolean;
 }
 type RecursivePartial<T> = {
     [P in keyof T]?: RecursivePartial<T[P]>;

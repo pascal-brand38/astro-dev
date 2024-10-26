@@ -17,7 +17,8 @@ const defaultConfig = {
         cssMainClass: '.astro-sprite',
         cssPrefix: '.astro-sprite-',
         cssSelector: '',
-    }
+    },
+    verbose: true,
 };
 // read all icons data
 async function getIcons(config, srcDir) {
@@ -41,6 +42,11 @@ async function getIcons(config, srcDir) {
     }));
     const icons = maps.filter(map => map !== undefined);
     return icons;
+}
+function verbose(config, text) {
+    if (config.verbose) {
+        console.log(`[astro-sprite] ${text}`);
+    }
 }
 // get the positions of all icons in the sprite
 function getPositions(icons) {
@@ -70,6 +76,7 @@ function writeCss(positions, config, srcDir, hash) {
     const cssFile = path.join(srcDir, config.dst.cssFile);
     createDirOfFile(cssFile);
     fs.writeFileSync(cssFile, cssText);
+    verbose(config, `Generate ${cssFile}`);
     return cssFile;
 }
 async function writeSprite(positions, config, publicDir) {
@@ -92,6 +99,8 @@ async function writeSprite(positions, config, publicDir) {
     await sprite.toFile(spriteFile);
     const { data, info } = await sprite.toBuffer({ resolveWithObject: true });
     const hash = getHash(data);
+    verbose(config, `Generate ${spriteFile}`);
+    verbose(config, `         hash=${hash}`);
     return { spriteFile, hash };
 }
 function writePreload(config, srcDir, hash) {
@@ -103,9 +112,11 @@ function writePreload(config, srcDir, hash) {
         const preloadFile = path.join(srcDir, config.dst.preloadFile);
         createDirOfFile(preloadFile);
         fs.writeFileSync(preloadFile, preloadText);
+        verbose(config, `Generate ${preloadFile}`);
         return preloadFile;
     }
     else {
+        verbose(config, `No preload component created`);
         return undefined;
     }
 }

@@ -117,7 +117,8 @@ export default defineConfig({
         cssMainClass: '.astro-sprite',
         cssPrefix: '.astro-sprite-',
         cssSelector: '',
-      }
+      },
+      verbose: true,
     })
   ],
 });
@@ -139,6 +140,7 @@ Customized properties are:
   * ```cssPrefix```: each icon will be related to a css class, prefixed by this
     property, and suffixed by the icon file name
   * ```cssSelector```: a css selector added to each icon class, such as ```::before```
+* ```verbose```: verbose mode on or off
 
 
 

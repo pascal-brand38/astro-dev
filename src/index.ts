@@ -21,6 +21,7 @@ export interface spriteConfigType {
     cssSelector: string,
     preloadFile: string | undefined,
   },
+  verbose: boolean,
 }
 
 const defaultConfig: spriteConfigType = {
@@ -35,7 +36,8 @@ const defaultConfig: spriteConfigType = {
     cssMainClass: '.astro-sprite',
     cssPrefix: '.astro-sprite-',
     cssSelector: '',
-  }
+  },
+  verbose: true,
 }
 
 interface iconType {
@@ -77,6 +79,12 @@ interface positionType {
   width: number,
 }
 
+function verbose(config:spriteConfigType, text: string) {
+  if (config.verbose) {
+    console.log(`[astro-sprite] ${text}`)
+  }
+}
+
 // get the positions of all icons in the sprite
 function getPositions(icons: iconType[]) {
   let positions: positionType[] = []
@@ -108,6 +116,7 @@ function writeCss(positions: positionType[], config: spriteConfigType, srcDir: s
   const cssFile = path.join(srcDir, config.dst.cssFile)
   createDirOfFile(cssFile)
   fs.writeFileSync(cssFile, cssText)
+  verbose(config, `Generate ${cssFile}`)
   return cssFile
 }
 
@@ -134,6 +143,8 @@ async function writeSprite(positions: positionType[], config: spriteConfigType, 
   await sprite.toFile(spriteFile)
   const { data, info } = await sprite.toBuffer({resolveWithObject: true})
   const hash = getHash(data)
+  verbose(config, `Generate ${spriteFile}`)
+  verbose(config, `         hash=${hash}`)
   return { spriteFile, hash }
 }
 
@@ -147,8 +158,10 @@ function writePreload(config: spriteConfigType, srcDir: string, hash: string): s
     const preloadFile = path.join(srcDir, config.dst.preloadFile)
     createDirOfFile(preloadFile)
     fs.writeFileSync(preloadFile, preloadText)
+    verbose(config, `Generate ${preloadFile}`)
     return preloadFile
   } else {
+    verbose(config, `No preload component created`)
     return undefined
   }
 }
