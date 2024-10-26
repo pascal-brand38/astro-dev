@@ -1,19 +1,17 @@
 import type { AstroIntegration } from 'astro';
-interface srcType {
-    dir: string;
-    extension: string;
-}
-interface dstType {
-    spriteFile: string;
-    cssMainClass: string;
-    cssFile: string;
-    cssPrefix: string;
-    cssSelector: string;
-    preloadFile: string | undefined;
-}
 export interface spriteConfigType {
-    src: srcType;
-    dst: dstType;
+    src: {
+        dir: string;
+        extension: string;
+    };
+    dst: {
+        spriteFile: string;
+        cssMainClass: string;
+        cssFile: string;
+        cssPrefix: string;
+        cssSelector: string;
+        preloadFile: string | undefined;
+    };
 }
 type RecursivePartial<T> = {
     [P in keyof T]?: RecursivePartial<T[P]>;

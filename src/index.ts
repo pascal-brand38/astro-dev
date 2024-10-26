@@ -8,23 +8,19 @@ import type { AstroConfig, AstroIntegration } from 'astro';
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
-interface srcType {
-  dir: string,
-  extension: string,
-}
-
-interface dstType {
-  spriteFile: string,
-  cssMainClass: string,
-  cssFile: string,
-  cssPrefix: string,
-  cssSelector: string,
-  preloadFile: string | undefined,
-}
-
 export interface spriteConfigType {
-  src: srcType,
-  dst: dstType,
+  src: {
+    dir: string,
+    extension: string,
+  },
+  dst: {
+    spriteFile: string,
+    cssMainClass: string,
+    cssFile: string,
+    cssPrefix: string,
+    cssSelector: string,
+    preloadFile: string | undefined,
+  },
 }
 
 const defaultConfig: spriteConfigType = {
