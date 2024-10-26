@@ -226,7 +226,3 @@ export default defineConfig({
   ],
 });
 ```
-
-
-# TODO
-* Add the hash to preload the sprite in the html head?
