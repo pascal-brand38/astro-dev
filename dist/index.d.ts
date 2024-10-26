@@ -9,6 +9,7 @@ interface dstType {
     cssFile: string;
     cssPrefix: string;
     cssSelector: string;
+    preloadFile: string | undefined;
 }
 export interface spriteConfigType {
     src: srcType;

@@ -113,6 +113,7 @@ export default defineConfig({
       dst: {
         spriteFile: 'img/astro-sprite.png',
         cssFile: 'css/astro-sprite.css',
+        preloadFile: 'components/SpritePreload.astro',
         cssMainClass: '.astro-sprite',
         cssPrefix: '.astro-sprite-',
         cssSelector: '',
@@ -131,6 +132,9 @@ Customized properties are:
   * ```spriteFile```: the output sprite filename, relative to the astro publicDir
     A ```.webp``` file can be used
   * ```cssFile```: the output css filename, relative to the astro srcDir
+  * ```preloadFile```: an astro component, to be use in the head section of the html,
+    in order to preload the sprite, not waiting for the css to be loaded.
+    Set it to ```undefined``` not to generate this file.
   * ```cssMainClass```: the css class that contains the property ```backgroud: url();```
   * ```cssPrefix```: each icon will be related to a css class, prefixed by this
     property, and suffixed by the icon file name
@@ -150,6 +154,25 @@ scss file. Here is the
 In your main scss file, you may then add:
 ```scss
 @import "../css/astro-sprite";
+```
+
+## Preload
+
+In order not to wait the css to be loaded to load the associated sprite,
+an astro component is created. Its name is ```dst.preloadFile```, which equals
+```components/SpritePreload.astro``` by default.
+
+In order to preload the sprite, add in the head section this code:
+
+```astro
+---
+import SpritePreload from "../components/SpritePreload.astro";
+---
+<head>
+   ...
+   <SpritePreload/>
+   ...
+</head>
 ```
 
 ## Span
