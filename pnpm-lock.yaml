@@ -22,6 +22,8 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
+  packages/astro-webtools: {}
+
   sites/astro-proto:
     dependencies:
       '@astrojs/check':
@@ -37,8 +39,8 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
       webtools-helper:
-        specifier: github:pascal-brand38/webtools-helper
-        version: https://codeload.github.com/pascal-brand38/webtools-helper/tar.gz/47384719c434c2a792a0639ad5b7d8738a748c58
+        specifier: link:..\..\packages\astro-webtools
+        version: link:../../packages/astro-webtools
 
 packages:
 
@@ -2017,10 +2019,6 @@ packages:
 
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
-
-  webtools-helper@https://codeload.github.com/pascal-brand38/webtools-helper/tar.gz/47384719c434c2a792a0639ad5b7d8738a748c58:
-    resolution: {tarball: https://codeload.github.com/pascal-brand38/webtools-helper/tar.gz/47384719c434c2a792a0639ad5b7d8738a748c58}
-    version: 1.0.0
 
   which-pm-runs@1.1.0:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}
@@ -4393,8 +4391,6 @@ snapshots:
   vscode-uri@3.0.8: {}
 
   web-namespaces@2.0.1: {}
-
-  webtools-helper@https://codeload.github.com/pascal-brand38/webtools-helper/tar.gz/47384719c434c2a792a0639ad5b7d8738a748c58: {}
 
   which-pm-runs@1.1.0: {}
 

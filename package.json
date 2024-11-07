@@ -1,0 +1,5 @@
+{
+	"scripts": {
+		"preinstall": "npx only-allow pnpm"
+	}
+}
