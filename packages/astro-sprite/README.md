@@ -5,16 +5,16 @@ to be used with [Astro](https://astro.build/).
 The sprite is created as a png, webp, or avif image.
 
 Typically, from single small images/icons (png, webp, avif)
-![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/english.png) and
-![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/france.png) and
-![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/facebook.png) and
-![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/youtube.png) and
-![](https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/src/play_20x20.png),
+![](https://raw.githubusercontent.com/pascal-brand38/astro-dev/main/packages/astro-sprite/src/data/src/english.png) and
+![](https://raw.githubusercontent.com/pascal-brand38/astro-dev/main/packages/astro-sprite/src/data/src/france.png) and
+![](https://raw.githubusercontent.com/pascal-brand38/astro-dev/main/packages/astro-sprite/src/data/src/facebook.png) and
+![](https://raw.githubusercontent.com/pascal-brand38/astro-dev/main/packages/astro-sprite/src/data/src/youtube.png) and
+![](https://raw.githubusercontent.com/pascal-brand38/astro-dev/main/packages/astro-sprite/src/data/src/play_20x20.png),
 astro-sprite integration creates the following bigger image
 (the sprite), that contains all small icons:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/pascal-brand38/astro-sprite/main/src/data/dst/astro-sprite.png" />
+  <img src="https://raw.githubusercontent.com/pascal-brand38/astro-dev/main/packages/astro-sprite/src/data/dst/astro-sprite.png" />
 </p>
 
 
