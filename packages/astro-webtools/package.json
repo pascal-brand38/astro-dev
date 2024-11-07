@@ -4,6 +4,7 @@
   "description": "Helpers (scss, js,...) for webtools",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

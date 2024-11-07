@@ -4,6 +4,7 @@
   "description": "Sprite generation (png, webp, avif...) dedicated Astro framework",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "tsc -p tsconfig.json"
   },
   "repository": {

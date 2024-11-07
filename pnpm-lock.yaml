@@ -6,6 +6,8 @@ settings:
 
 importers:
 
+  .: {}
+
   packages/astro-sprite:
     dependencies:
       sharp:
