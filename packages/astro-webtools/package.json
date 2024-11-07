@@ -1,12 +1,30 @@
 {
-  "name": "webtools-helper",
-  "version": "1.0.0",
-  "description": "Helpers (scss, js,...) for webtools",
-  "main": "index.js",
+  "name": "astro-webtools",
+  "version": "0.0.1",
+  "description": "Helpers (scss, js,...) for webtools dedicated Astro framework",
+  "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.json"
   },
-  "author": "",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pascal-brand38/astro-dev.git",
+    "directory": "packages/astro-webtools"
+  },
+  "author": "Pascal Brand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pascal-brand38/astro-dev/issues"
+  },
+  "homepage": "https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-webtools#readme",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "keywords": [
+    "astro", "webtools"
+  ]
 }
