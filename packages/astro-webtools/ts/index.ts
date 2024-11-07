@@ -2,7 +2,7 @@
 // MIT License
 
 const now = new Date()
-const _digits2 = (number) => number < 10 ? '0' + number : '' + number
+const _digits2 = (number: number) => number < 10 ? '0' + number : '' + number
 
 export const WEBTOOLS_CONSTANTS = {
   SECOND: _digits2(now.getSeconds()),
