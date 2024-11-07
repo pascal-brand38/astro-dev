@@ -8,14 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pascal-brand38/astro-sprite.git"
+    "url": "git+https://github.com/pascal-brand38/astro-dev.git",
+    "directory": "packages/astro-sprite"
   },
   "author": "Pascal Brand",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pascal-brand38/astro-sprite/issues"
+    "url": "https://github.com/pascal-brand38/astro-dev/issues"
   },
-  "homepage": "https://github.com/pascal-brand38/astro-sprite#readme",
+  "homepage": "https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-sprite#readme",
   "dependencies": {
     "sharp": "^0.32.6"
   },
