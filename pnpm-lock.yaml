@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      astro-social-share:
+        specifier: ^2.0.2
+        version: 2.0.2
 
   packages/astro-sprite:
     dependencies:
@@ -24,7 +28,14 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/astro-webtools: {}
+  packages/astro-webtools:
+    devDependencies:
+      astro:
+        specifier: ^4.16.10
+        version: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
 
   sites/astro-proto:
     dependencies:
@@ -34,6 +45,9 @@ importers:
       astro:
         specifier: ^4.16.5
         version: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
+      astro-webtools:
+        specifier: link:..\..\packages\astro-webtools
+        version: link:../../packages/astro-webtools
       sass:
         specifier: ^1.79.5
         version: 1.80.6
@@ -774,6 +788,9 @@ packages:
 
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
+
+  astro-social-share@2.0.2:
+    resolution: {integrity: sha512-bPeZUOzOTuXIJjVYmRrnsP8bK+qv3aviey+F8tFgG30rR1npc4SkyOb05hsp2BLuDci9kbuoHFW6Vr3L4ozjSw==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -2791,6 +2808,8 @@ snapshots:
   aria-query@5.3.2: {}
 
   array-iterate@2.0.1: {}
+
+  astro-social-share@2.0.2: {}
 
   astro@4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3):
     dependencies:
