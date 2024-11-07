@@ -1,26 +1,29 @@
-# Installation
+# astro-dev
+
+Development on [Astro](https://astro.build).
+
+If you find this useful, please star the repo.
+
+## Installation
 
 ```bash
-npm install https://github.com/pascal-brand38/webtools-helper.git
+pnpm install
+
+cd packages/astro-sprite
+pnpm build
+
+cd sites/astro-proto
+pnpm run dev
 ```
 
-<br>
+## Packages
 
-# Use scss file
+### [astro-sprite](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-sprite#readme)
 
-```scss
-@import "node_modules/webtools-helper/scss/utility/reset.scss";
-```
+Sprites for astro
 
-# Astro
+## Sites
 
-In order to help new astro sites, this is possible to run
-```
-source ./node_modules/webtools-helper/astro-helper/bin/populate-astro.sh
-```
-It creates:
-* sccs styles, based on webtools scss
-* index.astro page
-* layouts: main layout, header, nav, and footer
+### astro-proto
 
-Users may also use webtools-constants.js to know the compilation date,...
+Some prototyping
