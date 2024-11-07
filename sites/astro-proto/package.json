@@ -15,7 +15,6 @@
     "astro": "^4.16.5",
     "astro-webtools": "link:..\\..\\packages\\astro-webtools",
     "sass": "^1.79.5",
-    "typescript": "^5.6.3",
-    "webtools-helper": "link:..\\..\\packages\\astro-webtools"
+    "typescript": "^5.6.3"
   }
 }
