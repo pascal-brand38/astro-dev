@@ -20,7 +20,13 @@ pnpm run dev
 
 ### [astro-sprite](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-sprite#readme)
 
-Sprites for astro
+[![NPM Version](https://img.shields.io/npm/v/astro-sprite.svg)](https://npmjs.com/package/astro-sprite)
+[![NPM Downloads](https://img.shields.io/npm/dy/astro-sprite.svg)](https://npmjs.com/package/astro-sprite)
+[![NPM Type Definitions](https://img.shields.io/npm/types/astro-sprite)](https://npmjs.com/package/astro-sprite)
+[![NPM Last Update](https://img.shields.io/npm/last-update/astro-sprite)](https://npmjs.com/package/astro-sprite)
+
+__Sprite generation (png, webp, avif...) dedicated to Astro framework__
+
 
 ## Sites
 
