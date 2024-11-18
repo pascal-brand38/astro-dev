@@ -1,12 +1,12 @@
-<div align="center">
+<div align="center" style="background-color: black; padding: 16px;">
   <a href="https://splidejs.com" target="_blank">
       <img width="70" src="images/logo.svg">
   </a>
-  &nbsp
-  &nbsp
-  &nbsp
-  &nbsp
-  &nbsp
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
   <a href="https://astro.build/" target="_blank">
       <img height="70" src="images/astro-logo.svg">
   </a>
