@@ -3,8 +3,11 @@
 // MIT License
 
 // TODO: align to react-splide (see docs at https://splidejs.com/integration/react-splide/)
-// TODO: use type of options from splides
 
+import type { Options } from '@splidejs/splide';
+interface Props {
+  options?: Options,
+}
 const { options } = Astro.props;
 ---
 
