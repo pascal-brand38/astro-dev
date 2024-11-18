@@ -1,7 +1,7 @@
 {
   "name": "astro-splide",
-  "version": "0.0.1",
-  "description": "The Astro component for the Splide slider/carousel.",
+  "version": "1.0.0",
+  "description": "The native Astro component for the Splide slider/carousel.",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -32,7 +32,10 @@
     "./SplideSplide": "./src/SplideSplide.astro"
   },
   "files": [ "src" ],
-  "keywords": [],
+  "keywords": [
+    "withastro", "astro-component",
+    "splide", "splidejs", "@splidejs/splide"
+  ],
   "dependencies": {
     "@splidejs/splide": "^4.1.4"
   }
