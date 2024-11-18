@@ -24,7 +24,10 @@
     "typescript": "^5.6.3"
   },
   "exports": {
-    ".": "./src/index.js",
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
     "./Splide": "./src/Splide.astro",
     "./SplideSplide": "./src/SplideSplide.astro"
   },
