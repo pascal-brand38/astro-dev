@@ -20,11 +20,58 @@
 
 </div>
 
-## Quick Start
+# Installation
 Get the latest version from NPM:
 ```
 $ npm install astro-splide
 ```
+
+# Usage
+
+## Components
+
+Import Splide and SplideSlide components:
+
+```jsx
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+```
+
+...and render them like this:
+
+```jsx
+<Splide aria-label="My Favorite Images">
+  <SplideSlide>
+    <img src="image1.jpg" alt="Image 1"/>
+  </SplideSlide>
+  <SplideSlide>
+    <img src="image2.jpg" alt="Image 2"/>
+  </SplideSlide>
+</Splide>
+```
+
+If you have the visible heading for the carousel,
+use ```aria-labelledby``` instead of ```aria-label```.
+See [this page](https://splidejs.com/guides/structure/) for more details.
+
+
+TODO: implement ```aria-label``` and ```aria-labelledby```
+
+## CSS
+Select a CSS file you want to use in frontmatter, and import it:
+
+```jsx
+// Default theme
+import '@splidejs/react-splide/css';
+
+// or other themes
+import '@splidejs/react-splide/css/skyblue';
+import '@splidejs/react-splide/css/sea-green';
+
+// or only core styles
+import '@splidejs/react-splide/css/core';
+```
+
+
 
 Import Components:
 
@@ -43,7 +90,7 @@ import { Splide, SplideSlide } from 'astro-splide';
 ```
 
 
-## Support Splide
+# Support Splide
 
 Please support the project if you like it!
 - [Github Star astro-splide](https://github.com/pascal-brand38/astro-dev), a package of astro-dev
