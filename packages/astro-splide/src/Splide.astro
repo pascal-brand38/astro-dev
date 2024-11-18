@@ -1,0 +1,37 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+// TODO: make options optionnal
+// TODO: align to react-splide (see docs at https://splidejs.com/integration/react-splide/)
+// TODO: use type of options from splides
+
+const { options } = Astro.props;
+---
+
+<astro-splide data-options={JSON.stringify(options)}>
+  <div class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <slot />
+      </ul>
+    </div>
+  </div>
+</astro-splide>
+
+<script>
+  import "@splidejs/splide/css";
+  import Splide from "@splidejs/splide";
+
+  // define custom element to get splide options
+  class AstroSplides extends HTMLElement {
+    connectedCallback() {
+      // Read the options from the data attribute of astro-splide.
+      const options = JSON.parse(this.dataset.options);
+      let splide = new Splide(".splide", options);
+      splide.mount();
+      console.log('LOUNTED')
+    }
+  }
+  customElements.define("astro-splide", AstroSplides);
+</script>

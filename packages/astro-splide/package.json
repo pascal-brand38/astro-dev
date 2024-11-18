@@ -1,0 +1,36 @@
+{
+  "name": "astro-splide",
+  "version": "0.0.1",
+  "description": "The Astro component for the Splide slider/carousel.",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "echo exporting src as is"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pascal-brand38/astro-dev.git",
+    "directory": "packages/astro-splide"
+  },
+  "author": "Pascal Brand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pascal-brand38/astro-dev/issues"
+  },
+  "homepage": "https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide#readme",
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "astro": "^4.16.7",
+    "typescript": "^5.6.3"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./Splide": "./src/Splide.astro",
+    "./SplideSplide": "./src/SplideSplide.astro"
+  },
+  "files": [ "src" ],
+  "keywords": [],
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
+  }
+}
