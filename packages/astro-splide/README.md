@@ -54,8 +54,6 @@ use ```aria-labelledby``` instead of ```aria-label```.
 See [this page](https://splidejs.com/guides/structure/) for more details.
 
 
-TODO: implement ```aria-label``` and ```aria-labelledby```
-
 ## CSS
 Select a CSS file you want to use in frontmatter, and import it:
 
