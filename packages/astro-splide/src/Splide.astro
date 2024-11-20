@@ -27,7 +27,7 @@ type props = SplideHtmlAttributes
 
 const {
   class: className ="",   // the class to add to "splide"
-  tag="div",
+  tag: Root ="div",
   options={},
   hasTrack=true,
   ...props      // the other props, which are SplideHtmlAttributes, such as aria-label,... but not class as already get
@@ -36,10 +36,10 @@ const {
 ---
 
 <astro-splide data-options={JSON.stringify(options)}>
-  <div class={"splide " + className} {...props}>
+  <Root class={"splide " + className} {...props}>
     { hasTrack  &&  (<SplideTrack> <slot /> </SplideTrack>) }
     { !hasTrack &&  (<slot />) }
-  </div>
+  </Root>
 </astro-splide>
 
 <script>

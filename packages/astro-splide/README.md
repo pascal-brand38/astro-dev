@@ -30,7 +30,7 @@ $ npm install astro-splide
 
 ## Components
 
-Import Splide and SplideSlide components:
+Import Splide and SplideSlide components in frontmatter:
 
 ```jsx
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -69,22 +69,132 @@ import '@splidejs/react-splide/css/sea-green';
 import '@splidejs/react-splide/css/core';
 ```
 
-
-
-Import Components:
+# Custom Structure
+Although ```<Splide>``` renders a track element by default, you can handle them respectively with the hasTrack prop and the ```<SplideTrack>``` component. In a nutshell, following 2 components render the same HTML:
 
 ```jsx
 ---
-import { Splide, SplideSlide } from 'astro-splide';
+import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 ---
-<Splide options={ { rewind: true } }>
-  <SplideSlide>
-    <img src="image1.jpg" alt="Image 1"/>
-  </SplideSlide>
-  <SplideSlide>
-    <img src="image2.jpg" alt="Image 2"/>
-  </SplideSlide>
+<Splide>
+  <SplideSlide>...</SplideSlide>
 </Splide>
+
+<Splide hasTrack={ false }>
+  <SplideTrack>
+    <SplideSlide>...</SplideSlide>
+  </SplideTrack>
+</Splide>
+```
+
+Separating ```<SplideTrack>``` from ```<Splide>``` allows you to place arrows, pagination or other controls anywhere outside the track in the similar way of vanilla Splide. For example, Splide renders arrows before a track by default, but you are able to specify the location with a placeholder:
+
+```jsx
+<Splide hasTrack={ false } aria-label="...">
+  <div class="custom-wrapper">
+    <SplideTrack>
+      <SplideSlide>...</SplideSlide>
+    </SplideTrack>
+
+    <div class="splide__arrows" />
+  </div>
+</Splide>
+```
+
+...or with custom arrows:
+```jsx
+<Splide hasTrack={ false } aria-label="...">
+  <SplideTrack>
+    <SplideSlide>...</SplideSlide>
+  </SplideTrack>
+
+  <div class="splide__arrows">
+    <button class="splide__arrow splide__arrow--prev">Prev</button>
+    <button class="splide__arrow splide__arrow--next">Next</button>
+  </div>
+</Splide>
+```
+
+In the same way, you can add an autoplay toggle button and progress bar like so:
+
+```jsx
+<Splide hasTrack={ false } aria-label="...">
+  <SplideTrack>
+    <SplideSlide>...</SplideSlide>
+  </SplideTrack>
+
+  <div class="splide__progress">
+    <div class="splide__progress__bar" />
+  </div>
+
+  <button class="splide__toggle" type="button">
+ 	  <span class="splide__toggle__play">Play</span>
+ 	  <span class="splide__toggle__pause">Pause</span>
+  </button>
+</Splide>
+```
+
+...or:
+
+```jsx
+<Splide hasTrack={ false } aria-label="...">
+  <div class="custom-wrapper">
+    <button class="splide__toggle" type="button">
+      <span class="splide__toggle__play">Play</span>
+      <span class="splide__toggle__pause">Pause</span>
+    </button>
+
+    <div class="splide__progress">
+      <div class="splide__progress__bar" />
+    </div>
+
+    <SplideTrack>
+      <SplideSlide>...</SplideSlide>
+    </SplideTrack>
+  </div>
+</Splide>
+```
+
+# Props
+```<Splide>``` accepts HTMLAttributes that will be assigned to a carousel root element, except for DOMAttributes. For instance, class and 'aria-label' are acceptable:
+
+
+```jsx
+<Splide class="my-carousel" aria-label="My Favorite Images">
+</Splide>
+```
+
+Additionally, it takes a few more props.
+
+## options
+```jsx
+options: Options
+```
+
+Splide options as an object:
+
+```jsx
+<Splide
+  options={ {
+    rewind: true,
+    width : 800,
+    gap   : '1rem',
+  } }
+>
+</Splide>
+```
+
+## tag
+```jsx
+tag: 'div' | 'section' | 'header' | 'footer' | 'nav' = 'div'
+```
+
+Allows you to specify the tag name used for the root element. Although the default value is div for backward compatibility, 'section' is recommended.
+
+If you are using header, footer, or nav, you have to provide the most appropriate landmark role together. Otherwise, your accessibility tree will be invalid.
+
+```jsx
+<Splide tag="section"></Splide>
 ```
 
 
