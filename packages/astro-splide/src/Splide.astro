@@ -7,14 +7,11 @@
 
 import type { HTMLAttributes } from 'astro/types';
 import type { Options } from '@splidejs/splide';
+import SplideTrack from './SplideTrack.astro'
 
-interface SplideHTMLAttributes extends HTMLAttributes<"div">
-// TODO Partial<Omit<HTMLAttributes<HTMLElement>, keyof DOMAttributes<HTMLElement>>> {}
-{
-}
-
-interface Props extends
-  SplideHTMLAttributes
+// TODO: cf react-splide\src\js\types\props.ts
+interface SplideHtmlAttributes extends HTMLAttributes<"div">
+  // TODO Partial<Omit<HTMLAttributes<HTMLElement>, keyof DOMAttributes<HTMLElement>>> {}
   // TODO ,Partial<SplideEventHandlers>
   // TODO Partial<Omit<HTMLAttributes<HTMLElement>, keyof DOMAttributes<HTMLElement>>>
 {
@@ -26,8 +23,10 @@ interface Props extends
   // TODO children?: React.ReactNode;
 }
 
+type props = SplideHtmlAttributes
+
 const {
-  class: className,   // the class to add to "splide"
+  class: className ="",   // the class to add to "splide"
   tag="div",
   options={},
   hasTrack=true,
@@ -37,12 +36,9 @@ const {
 ---
 
 <astro-splide data-options={JSON.stringify(options)}>
-  <div class={(className ? ("splide " + className) : "splide")} {...props}>
-    <div class="splide__track">
-      <ul class="splide__list">
-        <slot />
-      </ul>
-    </div>
+  <div class={"splide " + className} {...props}>
+    { hasTrack  &&  (<SplideTrack> <slot /> </SplideTrack>) }
+    { !hasTrack &&  (<slot />) }
   </div>
 </astro-splide>
 

@@ -4,9 +4,15 @@
 
 // TODO: align to react-splide (see docs at https://splidejs.com/integration/react-splide/)
 
+import type { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<"li">
+
+const {
+  class: className = "",   // the class to add to "splide"
+  ...props                 // the other props, such as aria-label,... but not class as already get
+} = Astro.props;
 
 ---
-
-<li class="splide__slide">
+<li class={"splide__slide " + className} {...props}>
   <slot />
 </li>
