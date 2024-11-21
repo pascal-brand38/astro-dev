@@ -231,6 +231,11 @@ import { Splide, SplideSlide } from 'astro-splide';
 </Splide>
 ```
 
+You can see working examples in [this page](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components) and their sources here:
+
+* [Basic](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/BasicExample.astro)
+* [Autoplay](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/AutoplayExample.astro)
+
 
 # Support Splide
 
