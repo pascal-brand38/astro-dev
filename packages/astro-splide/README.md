@@ -23,7 +23,7 @@
 # Installation
 Get the latest version from NPM:
 ```
-$ npm install astro-splide
+$ npm install astro-splide splidejs/splide
 ```
 
 # Usage
