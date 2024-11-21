@@ -54,15 +54,33 @@ importers:
       '@astrojs/check':
         specifier: ^0.9.4
         version: 0.9.4(typescript@5.6.3)
+      '@splidejs/splide':
+        specifier: github:splidejs/splide
+        version: https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6
       astro:
         specifier: ^4.16.5
         version: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
+      astro-splide:
+        specifier: ^1.1.0
+        version: 1.1.0
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
       sass:
         specifier: ^1.79.5
         version: 1.80.6
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+
+  sites/demo-astro-splide:
+    dependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(typescript@5.6.3)
+      astro:
+        specifier: ^4.16.13
+        version: 4.16.13(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -693,6 +711,10 @@ packages:
   '@splidejs/splide@4.1.4':
     resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
 
+  '@splidejs/splide@https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6':
+    resolution: {tarball: https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6}
+    version: 4.1.4
+
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
 
@@ -801,8 +823,16 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
+  astro-splide@1.1.0:
+    resolution: {integrity: sha512-pfzM0WKxSOVg3VHr+jxASpgvhnpC0z0RKn+SiqwkWH/oKmg14t3m14ZTxfwGm0d7D+1Qv+p1aGj/y1odrsp8nQ==}
+
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
+    hasBin: true
+
+  astro@4.16.13:
+    resolution: {integrity: sha512-Mtd76+BC0zLWqoXpf9xc731AhdH4MNh5JFHYdLRvSH0Nqn48hA64dPGh/cWsJvh/DZFmC0NTZusM1Qq2gyNaVg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2686,6 +2716,8 @@ snapshots:
 
   '@splidejs/splide@4.1.4': {}
 
+  '@splidejs/splide@https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6': {}
+
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.26.2
@@ -2820,7 +2852,90 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
+  astro-splide@1.1.0:
+    dependencies:
+      '@splidejs/splide': 4.1.4
+
   astro@4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3):
+    dependencies:
+      '@astrojs/compiler': 2.10.3
+      '@astrojs/internal-helpers': 0.4.1
+      '@astrojs/markdown-remark': 5.3.0
+      '@astrojs/telemetry': 3.1.0
+      '@babel/core': 7.26.0
+      '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.26.0)
+      '@babel/types': 7.26.0
+      '@oslojs/encoding': 1.1.0
+      '@rollup/pluginutils': 5.1.3(rollup@4.24.4)
+      '@types/babel__core': 7.20.5
+      '@types/cookie': 0.6.0
+      acorn: 8.14.0
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      boxen: 8.0.1
+      ci-info: 4.0.0
+      clsx: 2.1.1
+      common-ancestor-path: 1.0.1
+      cookie: 0.7.2
+      cssesc: 3.0.0
+      debug: 4.3.7
+      deterministic-object-hash: 2.0.2
+      devalue: 5.1.1
+      diff: 5.2.0
+      dlv: 1.1.3
+      dset: 3.1.4
+      es-module-lexer: 1.5.4
+      esbuild: 0.21.5
+      estree-walker: 3.0.3
+      fast-glob: 3.3.2
+      flattie: 1.1.1
+      github-slugger: 2.0.0
+      gray-matter: 4.0.3
+      html-escaper: 3.0.3
+      http-cache-semantics: 4.1.1
+      js-yaml: 4.1.0
+      kleur: 4.1.5
+      magic-string: 0.30.12
+      magicast: 0.3.5
+      micromatch: 4.0.8
+      mrmime: 2.0.0
+      neotraverse: 0.6.18
+      ora: 8.1.1
+      p-limit: 6.1.0
+      p-queue: 8.0.1
+      preferred-pm: 4.0.0
+      prompts: 2.4.2
+      rehype: 13.0.2
+      semver: 7.6.3
+      shiki: 1.22.2
+      tinyexec: 0.3.1
+      tsconfck: 3.1.4(typescript@5.6.3)
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
+      vite: 5.4.10(@types/node@22.9.0)(sass@1.80.6)
+      vitefu: 1.0.3(vite@5.4.10(@types/node@22.9.0)(sass@1.80.6))
+      which-pm: 3.0.0
+      xxhash-wasm: 1.0.2
+      yargs-parser: 21.1.1
+      zod: 3.23.8
+      zod-to-json-schema: 3.23.5(zod@3.23.8)
+      zod-to-ts: 1.2.0(typescript@5.6.3)(zod@3.23.8)
+    optionalDependencies:
+      sharp: 0.33.5
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - rollup
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - typescript
+
+  astro@4.16.13(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1

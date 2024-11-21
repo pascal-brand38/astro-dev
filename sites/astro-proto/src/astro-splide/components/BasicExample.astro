@@ -1,0 +1,55 @@
+---
+
+import "../styles/style.css"
+
+import "@splidejs/splide/css"
+import { Splide, SplideSlide } from 'astro-splide';
+
+const imgUrls = [
+  'https://picsum.photos/512/256?astro=1',
+  'https://picsum.photos/512/256?astro=2',
+  'https://picsum.photos/512/256?astro=3',
+  'https://picsum.photos/512/256?astro=5',
+  'https://picsum.photos/512/256?astro=6',
+]
+
+/* TODO: add the following to Splide
+onMoved={ ( splide, newIndex ) => {
+      // eslint-disable-next-line
+      console.log( 'moved', newIndex );
+
+      // eslint-disable-next-line
+      console.log( 'length', splide.length );
+    } }
+*/
+---
+
+<div class="wrapper">
+  <h2 id="basic-example-heading">Basic Example</h2>
+
+  <Splide
+    options={ {
+      perPage: 2,
+      height : '10rem',
+      rewind : true,
+      gap    : '1rem',
+      toto: true,     // TODO: should be wrong!
+    } }
+    aria-labelledby="basic-example-heading"
+    onMoved={ ( splide:any, newIndex:number ) => {
+      // eslint-disable-next-line
+      console.log( 'moved', newIndex );
+
+      // eslint-disable-next-line
+      console.log( 'length', splide.length );
+    } }
+  >
+    {
+      imgUrls.map(url => (
+        <SplideSlide>
+          <img src={url} alt=''/>
+        </SplideSlide>
+      ))
+    }
+  </Splide>
+</div>
