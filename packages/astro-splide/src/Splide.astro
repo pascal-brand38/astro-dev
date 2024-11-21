@@ -24,17 +24,20 @@ interface SplideHtmlAttributes extends HTMLAttributes<"div">
 type Props = SplideHtmlAttributes
 
 const {
-  class: className ="",   // the class to add to "splide"
+  class: className = "",   // the class to add to "splide"
+  id: idName = "",
   tag: Root ="div",
   options={},
   hasTrack=true,
-  ...props      // the other props, which are SplideHtmlAttributes, such as aria-label,... but not class as already get
+  ...props      // the other props, which are SplideHtmlAttributes, such as aria-label,... but not class and id as already get
 } = Astro.props;
+
+const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
 
 ---
 
-<astro-splide data-options={JSON.stringify(options)}>
-  <Root class={"splide " + className} {...props}>
+<astro-splide data-splideid={splideId} data-options={JSON.stringify(options)} >
+  <Root id={splideId + idName} class={'splide ' + className} {...props}>
     { hasTrack  &&  (<SplideTrack> <slot /> </SplideTrack>) }
     { !hasTrack &&  (<slot />) }
   </Root>
@@ -47,8 +50,10 @@ const {
   class AstroSplides extends HTMLElement {
     connectedCallback() {
       // Read the options from the data attribute of astro-splide.
+      const splideId = this.dataset.splideid || '';
       const options = JSON.parse(this.dataset.options || '');
-      let splide = new Splide(".splide", options);
+      console.log(`splideId = ${splideId}`)
+      let splide = new Splide('#'+splideId, options);
       splide.mount();
     }
   }
