@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "echo exporting src as is"
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "cp src/*.astro dist && concat dist/index.js src/components.d.ts -o dist/index.js && concat dist/index.d.ts src/components.d.ts -o dist/index.d.ts"
   },
   "repository": {
     "type": "git",
@@ -25,19 +26,28 @@
   },
   "exports": {
     ".": {
-      "types": "./src/index.d.ts",
-      "default": "./src/index.js"
+      "types": [
+        "./dist/index.d.ts",
+        "./dist/components.d.ts"
+      ],
+      "default": "./dist/index.js"
     },
-    "./Splide": "./src/Splide.astro",
-    "./SplideTrack": "./src/SplideTrack.astro",
-    "./SplideSplide": "./src/SplideSplide.astro"
+    "./Splide": "./dist/Splide.astro",
+    "./SplideTrack": "./dist/SplideTrack.astro",
+    "./SplideSplide": "./dist/SplideSplide.astro"
   },
-  "files": [ "src" ],
+  "files": [
+    "dist"
+  ],
   "keywords": [
-    "withastro", "astro-component",
-    "splide", "splidejs", "@splidejs/splide"
+    "withastro",
+    "astro-component",
+    "splide",
+    "splidejs",
+    "@splidejs/splide"
   ],
   "dependencies": {
-    "@splidejs/splide": "^4.1.4"
+    "@splidejs/splide": "^4.1.4",
+    "concat": "^1.0.3"
   }
 }
