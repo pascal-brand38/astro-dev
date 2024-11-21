@@ -29,6 +29,7 @@
       "default": "./src/index.js"
     },
     "./Splide": "./src/Splide.astro",
+    "./SplideTrack": "./src/SplideTrack.astro",
     "./SplideSplide": "./src/SplideSplide.astro"
   },
   "files": [ "src" ],
