@@ -3,24 +3,22 @@
 // MIT License
 
 // TODO: align to react-splide (see docs at https://splidejs.com/integration/react-splide/)
+// - events
+// - extensions?: Record<string, ComponentConstructor>;
+// - transition?: ComponentConstructor;
+// - children?: React.ReactNode;
+
 // TODO: check 2 slides in the same page
 
 import type { HTMLAttributes } from 'astro/types';
 import type { Options } from '@splidejs/splide';
 import SplideTrack from './SplideTrack.astro'
 
-// TODO: cf react-splide\src\js\types\props.ts
 interface SplideHtmlAttributes extends HTMLAttributes<"div">
-  // TODO Partial<Omit<HTMLAttributes<HTMLElement>, keyof DOMAttributes<HTMLElement>>> {}
-  // TODO ,Partial<SplideEventHandlers>
-  // TODO Partial<Omit<HTMLAttributes<HTMLElement>, keyof DOMAttributes<HTMLElement>>>
 {
   options?: Options;
   hasTrack?: boolean;
   tag?: 'div' | 'section' | 'header' | 'footer' | 'nav';
-  // TODO extensions?: Record<string, ComponentConstructor>;
-  // TODO transition?: ComponentConstructor;
-  // TODO children?: React.ReactNode;
 }
 
 type Props = SplideHtmlAttributes
