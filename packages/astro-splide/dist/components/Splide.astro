@@ -3,22 +3,24 @@
 // MIT License
 
 // TODO: align to react-splide (see docs at https://splidejs.com/integration/react-splide/)
-// - events
 // - extensions?: Record<string, ComponentConstructor>;
 // - transition?: ComponentConstructor;
 // - children?: React.ReactNode;
 
-// TODO: check 2 slides in the same page
-
 import type { HTMLAttributes } from 'astro/types';
 import type { Options } from '@splidejs/splide';
+import type { SplideEventHandlers } from '../js/types/events';
+
 import SplideTrack from './SplideTrack.astro'
 
-interface SplideHtmlAttributes extends HTMLAttributes<"div">
+interface SplideHtmlAttributes extends
+  HTMLAttributes<"div">,
+  Partial<SplideEventHandlers>
 {
   options?: Options;
   hasTrack?: boolean;
   tag?: 'div' | 'section' | 'header' | 'footer' | 'nav';
+  toto?:boolean;
 }
 
 type Props = SplideHtmlAttributes
@@ -37,13 +39,14 @@ const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
 ---
 
 <astro-splide data-splideid={splideId} data-options={JSON.stringify(options)} >
-  <Root id={splideId + idName} class={'splide ' + className} {...props}>
+  <Root id={splideId + idName} class={'PASCAL splide ' + className} {...props}>
     { hasTrack  &&  (<SplideTrack> <slot /> </SplideTrack>) }
     { !hasTrack &&  (<slot />) }
   </Root>
 </astro-splide>
 
 <script>
+  import { EVENTS } from "../js/constants/events.js"
   import Splide from "@splidejs/splide";
 
   // define custom element to get splide options
@@ -52,10 +55,23 @@ const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
       // Read the options from the data attribute of astro-splide.
       const splideId = this.dataset.splideid || '';
       const options = JSON.parse(this.dataset.options || '');
-      console.log(`splideId = ${splideId}`)
-      let splide = new Splide('#'+splideId, options);
+      let splide = new Splide('#' + splideId, options);
+
+      const attributes: any = splide.root.attributes
+      EVENTS.forEach( ( [ event, name ] ) => {
+        // event=moved   name=onMoved
+        const attr = attributes[name]
+        if (attr) {
+          const value:string = attr.nodeValue
+          const handler = Function('return ' + value)
+          // Typically, handler is now:
+          // handler() { return (splide, index, prev, dest) => { console.log("splide:", splide); } }
+          splide.on(event, (...args: any[]) => handler()(splide, ...args ));
+        }
+      } );
       splide.mount();
     }
   }
+
   customElements.define("astro-splide", AstroSplides);
 </script>

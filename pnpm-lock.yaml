@@ -57,15 +57,12 @@ importers:
       '@astrojs/check':
         specifier: ^0.9.4
         version: 0.9.4(typescript@5.6.3)
-      '@splidejs/splide':
-        specifier: github:splidejs/splide
-        version: https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6
       astro:
         specifier: ^4.16.5
         version: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
       astro-splide:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.2.0
+        version: 1.2.0
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
@@ -702,10 +699,6 @@ packages:
   '@splidejs/splide@4.1.4':
     resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
 
-  '@splidejs/splide@https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6':
-    resolution: {tarball: https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6}
-    version: 4.1.4
-
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
 
@@ -814,8 +807,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro-splide@1.1.0:
-    resolution: {integrity: sha512-pfzM0WKxSOVg3VHr+jxASpgvhnpC0z0RKn+SiqwkWH/oKmg14t3m14ZTxfwGm0d7D+1Qv+p1aGj/y1odrsp8nQ==}
+  astro-splide@1.2.0:
+    resolution: {integrity: sha512-Bpe13KTgOQd4cE1qiHeA9DH+XHB1uBMigdwyxx+4xWow4E6+EIHoln2lovCPkFKHIyHP8MI1R+MysLiFdpOxiA==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -2710,8 +2703,6 @@ snapshots:
 
   '@splidejs/splide@4.1.4': {}
 
-  '@splidejs/splide@https://codeload.github.com/splidejs/splide/tar.gz/d7e1f08e6b4f4b02a7c6ccbfbeb2d569d85715e6': {}
-
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.26.2
@@ -2846,7 +2837,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro-splide@1.1.0:
+  astro-splide@1.2.0:
     dependencies:
       '@splidejs/splide': 4.1.4
 

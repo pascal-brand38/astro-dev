@@ -38,6 +38,13 @@ onMoved={ ( splide, newIndex ) => {
       gap    : '1rem',
     } }
     aria-labelledby="basic-example-heading"
+    onMoved={ (splide: Splide, index: number, prev: number, dest: number) => {
+      console.log('splide:', splide);
+      console.log('index:', index);
+      console.log('prev:', prev);
+      console.log('dest:', dest);
+
+    }}
   >
     {
       imgUrls.map(url => (
