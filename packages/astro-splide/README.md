@@ -219,7 +219,8 @@ converting the format to the camelcase and removing colons. For example,
 
 Note that the handler always takes the splide instance as the first argument, and original arguments after it.
 
-
+# Not implemented
+```Transitions``` and ```Extensions``` are not implemented.
 
 # Example
 Here is a small example:

@@ -1,5 +1,7 @@
-import type { EventMap, Splide } from '@splidejs/splide';
+// Copyright (c) Pascal Brand
+// MIT License
 
+import type { EventMap, Splide } from '@splidejs/splide';
 
 export type SplideEventHandlerMap = {
   onMounted: 'mounted';

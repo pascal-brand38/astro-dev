@@ -1,3 +1,6 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
 import {
   EVENT_ACTIVE,
   EVENT_ARROWS_MOUNTED,
@@ -30,7 +33,6 @@ import {
 } from '@splidejs/splide';
 import type { EventMap } from '@splidejs/splide';
 import type { SplideEventHandlerMap } from '../types/events';
-
 
 export const EVENTS: Array<[ keyof EventMap, keyof SplideEventHandlerMap ]> = [
   [ EVENT_MOUNTED, 'onMounted' ],
