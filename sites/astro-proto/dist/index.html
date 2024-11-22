@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=4.0">
     <meta name="description" content="Descriptions of this page">
     <title> Title of the page </title>
-  <link rel="stylesheet" href="/_astro/index.BPzujkg9.css"><script type="module" src="/_astro/hoisted.DcEG__qo.js"></script></head>
+  <link rel="stylesheet" href="/_astro/index.BPzujkg9.css"><script type="module" src="/_astro/hoisted.BEku76dL.js"></script></head>
 
   <body>
     <!-- Horizontal line - width="device-width" not to have a line+padding longer than the width--><hr>
@@ -37,39 +37,82 @@
     <div class="wrapper">
   <h2 id="basic-example-heading">Basic Example</h2>
 
-  <astro-splide data-splideid="astro-splide-90f4usyt0" data-options="{&#34;perPage&#34;:2,&#34;height&#34;:&#34;10rem&#34;,&#34;rewind&#34;:true,&#34;gap&#34;:&#34;1rem&#34;}">
-  <div id="astro-splide-90f4usyt0" class="PASCAL splide " aria-labelledby="basic-example-heading" onMoved="(splide, newIndex) => {
-    console.log(&#34;moved&#34;, newIndex);
-    console.log(&#34;length&#34;, splide.length);
-    console.log(&#34;splide&#34;, splide);
+  <astro-splide data-splideid="astro-splide-da5id6xku" data-options="{&#34;perPage&#34;:2,&#34;height&#34;:&#34;10rem&#34;,&#34;rewind&#34;:true,&#34;gap&#34;:&#34;1rem&#34;}">
+  <div id="astro-splide-da5id6xku" class="splide " aria-labelledby="basic-example-heading" onMoved="(splide, index, prev, dest) => {
+    console.log(&#34;splide:&#34;, splide);
+    console.log(&#34;index:&#34;, index);
+    console.log(&#34;prev:&#34;, prev);
+    console.log(&#34;dest:&#34;, dest);
   }"><div class="splide__track ">
   <ul class="splide__list">
      <li class="splide__slide ">
   
-          <img src="https://picsum.photos/512/256?astro=ns5ehfd1m" alt="">
+          <img src="https://picsum.photos/512/256?astro=o8lbl7qrd" alt="">
         
 </li><li class="splide__slide ">
   
-          <img src="https://picsum.photos/512/256?astro=revqr6vz5" alt="">
+          <img src="https://picsum.photos/512/256?astro=5xdlryo8q" alt="">
         
 </li><li class="splide__slide ">
   
-          <img src="https://picsum.photos/512/256?astro=hlebo901m" alt="">
+          <img src="https://picsum.photos/512/256?astro=yass171g9" alt="">
         
 </li><li class="splide__slide ">
   
-          <img src="https://picsum.photos/512/256?astro=aq9ceae8o" alt="">
+          <img src="https://picsum.photos/512/256?astro=8wmz9l4bd" alt="">
         
 </li><li class="splide__slide ">
   
-          <img src="https://picsum.photos/512/256?astro=80bwo2rjb" alt="">
+          <img src="https://picsum.photos/512/256?astro=syp4cb78i" alt="">
         
 </li> 
   </ul>
 </div></div>
 </astro-splide>
 </div>
-    <!-- <AutoplayExample/> -->
+    <div class="wrapper">
+  <h2 id="autoplay-example-heading">Autoplay</h2>
+  <astro-splide data-splideid="astro-splide-5oqxx2jyg" data-options="{&#34;type&#34;:&#34;loop&#34;,&#34;gap&#34;:&#34;1rem&#34;,&#34;autoplay&#34;:true,&#34;pauseOnHover&#34;:false,&#34;resetProgress&#34;:false,&#34;height&#34;:&#34;15rem&#34;}">
+  <div id="astro-splide-5oqxx2jyg" class="splide " aria-labelledby="autoplay-example-heading">
+    <div style="position:relative">
+      <div class="splide__track ">
+  <ul class="splide__list">
+    <li class="splide__slide ">
+  
+              <img src="https://picsum.photos/512/256?astro=od09f5s2t" alt="">
+            
+</li><li class="splide__slide ">
+  
+              <img src="https://picsum.photos/512/256?astro=er9nz5s10" alt="">
+            
+</li><li class="splide__slide ">
+  
+              <img src="https://picsum.photos/512/256?astro=sel15eagt" alt="">
+            
+</li><li class="splide__slide ">
+  
+              <img src="https://picsum.photos/512/256?astro=6pebki1g0" alt="">
+            
+</li><li class="splide__slide ">
+  
+              <img src="https://picsum.photos/512/256?astro=ddep16hih" alt="">
+            
+</li>
+  </ul>
+</div>
+    </div>
+
+    <div class="splide__progress">
+      <div class="splide__progress__bar"></div>
+    </div>
+
+    <button class="splide__toggle">
+      <span class="splide__toggle__play">Play</span>
+      <span class="splide__toggle__pause">Pause</span>
+    </button>
+  </div>
+</astro-splide>
+</div>
 
   </section>
 

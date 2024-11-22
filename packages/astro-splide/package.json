@@ -1,6 +1,6 @@
 {
   "name": "astro-splide",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "The Astro component for Splide.",
   "type": "module",
   "scripts": {
