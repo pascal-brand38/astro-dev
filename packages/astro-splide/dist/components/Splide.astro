@@ -34,7 +34,7 @@ const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
 ---
 
 <astro-splide data-splideid={splideId} data-options={JSON.stringify(options)} >
-  <Root id={splideId + idName} class={'PASCAL splide ' + className} {...props}>
+  <Root id={splideId + idName} class={'splide ' + className} {...props}>
     { hasTrack  &&  (<SplideTrack> <slot /> </SplideTrack>) }
     { !hasTrack &&  (<slot />) }
   </Root>
