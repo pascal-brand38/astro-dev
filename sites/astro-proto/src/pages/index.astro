@@ -3,6 +3,10 @@
 // MIT License
 
 import '../scss/style.scss'
+import '../scss/prism-vsc-dark-plus.css'
+
+import { Prism } from '@astrojs/prism';
+
 import Layout from "../layouts/Layout.astro"
 import BasicExample from '../../../../packages/astro-splide/examples/components/BasicExample.astro'
 import AutoplayExample from '../../../../packages/astro-splide/examples/components/AutoplayExample.astro'
@@ -11,6 +15,12 @@ const pageHead = {
   title: 'Title of the page',
   description: "Descriptions of this page",
 }
+
+const code = `---
+const foo = 'bar';
+---
+<Prism lang="astro" code={code} />
+`
 
 ---
 
@@ -21,6 +31,9 @@ const pageHead = {
     <h1>Astro Page example using Webtools </h1>
 
     <BasicExample/>
+    <Prism lang="astro" code={code} />
+
+
     <AutoplayExample/>
 
   </section>
