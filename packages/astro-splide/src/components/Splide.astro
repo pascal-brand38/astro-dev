@@ -54,13 +54,13 @@ const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
 
       const attributes: any = splide.root.attributes
       EVENTS.forEach( ( [ event, name ] ) => {
-        // event=moved   name=onMoved
+        // Typically:  event=moved   name=onMoved
         const attr = attributes[name]
         if (attr) {
           const value:string = attr.nodeValue
           const handler = Function('return ' + value)
           // Typically, handler is now:
-          // handler() { return (splide, index, prev, dest) => { console.log("splide:", splide); } }
+          // function handler() { return (splide, index, prev, dest) => { console.log("splide:", splide); } }
           splide.on(event, (...args: any[]) => handler()(splide, ...args ));
         }
       } );
