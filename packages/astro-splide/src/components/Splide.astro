@@ -41,32 +41,15 @@ const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
 </astro-splide>
 
 <script>
-  import { EVENTS } from "../js/constants/events.js"
-  import Splide from "@splidejs/splide";
+  import { splideConnectedCallback } from "../js/splideScriptUtils"
 
   // define custom element to get splide options
-  class AstroSplides extends HTMLElement {
+  class AstroSplide extends HTMLElement {
     connectedCallback() {
-      // Read the options from the data attribute of astro-splide.
-      const splideId = this.dataset.splideid || '';
-      const options = JSON.parse(this.dataset.options || '');
-      let splide = new Splide('#' + splideId, options);
-
-      const attributes: any = splide.root.attributes
-      EVENTS.forEach( ( [ event, name ] ) => {
-        // Typically:  event=moved   name=onMoved
-        const attr = attributes[name]
-        if (attr) {
-          const value:string = attr.nodeValue
-          const handler = Function('return ' + value)
-          // Typically, handler is now:
-          // function handler() { return (splide, index, prev, dest) => { console.log("splide:", splide); } }
-          splide.on(event, (...args: any[]) => handler()(splide, ...args ));
-        }
-      } );
+      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
       splide.mount();
     }
   }
 
-  customElements.define("astro-splide", AstroSplides);
+  customElements.define("astro-splide", AstroSplide);
 </script>
