@@ -4,7 +4,7 @@
 import { EVENTS } from "./constants/events.js"
 import Splide from "@splidejs/splide";
 
-export function splideConnectedCallback(splideId: string|undefined, options: string|undefined) {
+function splideConnectedCallback(splideId: string|undefined, options: string|undefined) {
   // Read the options from the data attribute of astro-splide.
   const id = splideId || '';
   const opt = JSON.parse(options || '');
@@ -24,4 +24,28 @@ export function splideConnectedCallback(splideId: string|undefined, options: str
   } );
 
   return splide
+}
+
+export function initSplideExtension(extension: any) {
+  // define custom element to get splide options
+  class AstroSplideExtension extends HTMLElement {
+    connectedCallback() {
+      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
+      splide.mount(extension);
+    }
+  }
+
+  customElements.define("astro-splide-extension", AstroSplideExtension);
+}
+
+export function initSplide() {
+  // define custom element to get splide options
+  class AstroSplide extends HTMLElement {
+    connectedCallback() {
+      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
+      splide.mount();
+    }
+  }
+
+  customElements.define("astro-splide", AstroSplide);
 }

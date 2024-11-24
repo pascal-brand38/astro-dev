@@ -245,18 +245,9 @@ const options = {
 </SplideExtension>
 
 <script>
-  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';    // update with your extension
-  import { splideConnectedCallback } from "astro-splide/js/splideExtensionUtils"
-
-  // define custom element to get splide options
-  class AstroSplideExtension extends HTMLElement {
-    connectedCallback() {
-      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
-      splide.mount({ AutoScroll });  // update with your extension
-    }
-  }
-
-  customElements.define("astro-splide-extension", AstroSplideExtension);
+  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';  // update with your extension
+  import { initSplideExtension } from "astro-splide/js/splideExtensionUtils"
+  initSplideExtension({AutoScroll})  // update with your extension
 </script>
 ```
 

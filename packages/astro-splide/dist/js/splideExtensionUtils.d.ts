@@ -1,2 +1,2 @@
-import Splide from "@splidejs/splide";
-export declare function splideConnectedCallback(splideId: string | undefined, options: string | undefined): Splide;
+export declare function initSplideExtension(extension: any): void;
+export declare function initSplide(): void;
