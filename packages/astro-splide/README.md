@@ -219,6 +219,51 @@ converting the format to the camelcase and removing colons. For example,
 
 Note that the handler always takes the splide instance as the first argument, and original arguments after it.
 
+# Extensions
+
+Using an extension requires some more code from the developer:
+* Use ```SplideExtension``` instead of ```Splide```
+* define the script part as follows. Note the ```mount``` instruction,
+that use the extension as a parameter
+
+Typical code would be, here being the [@splidejs/splide-extension-auto-scroll](https://splidejs.com/extensions/auto-scroll) extension:
+```jsx
+---
+import "@splidejs/splide/css"
+import { SplideExtension, SplideSlide } from 'astro-splide';
+const options = {
+  ...,   // regular options of splide
+  autoScroll: {   // specific options of the used extension
+    speed: 1,
+  },
+}
+---
+<SplideExtension options={options}>
+  <SplideSlide>...</SplideSlide>
+  <SplideSlide>...</SplideSlide>
+  ...
+</SplideExtension>
+
+<script>
+  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';    // update with your extension
+  import { splideConnectedCallback } from "astro-splide/js/splideExtensionUtils"
+
+  // define custom element to get splide options
+  class AstroSplideExtension extends HTMLElement {
+    connectedCallback() {
+      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
+      splide.mount({ AutoScroll });  // update with your extension
+    }
+  }
+
+  customElements.define("astro-splide-extension", AstroSplideExtension);
+</script>
+```
+
+Note that it is the user responsability to install the splide extension
+
+Limitations: a single extension can be used in a rendered page
+
 # Not implemented
 ```Transitions``` and ```Extensions``` are not implemented.
 
@@ -251,8 +296,9 @@ import { Splide, SplideSlide } from 'astro-splide';
 
 You can see working examples in [this page](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components) and their sources here:
 
-* [Basic](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/BasicExample.astro)
-* [Autoplay](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/AutoplayExample.astro)
+* [Basic](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/BasicExample.astro): 2 splides per page, with console log when sliding
+* [Autoplay](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/AutoplayExample.astro): play and pause button
+* [Extension](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/ExtensionExample.astro): using [@splidejs/splide-extension-auto-scroll](https://splidejs.com/extensions/auto-scroll) extension
 
 
 # Support Splide
