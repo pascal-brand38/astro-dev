@@ -2,18 +2,13 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import "../styles/style.css"
-
+// Splide configuration  -  require npm install astro-splide
 import "@splidejs/splide/css"
 import { Splide, SplideTrack, SplideSlide } from 'astro-splide';
 
-const imgUrls = [
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-]
+// Misc import for this demo
+import "./style.css"
+import { imgUrls } from './imgUrls'
 
 const options = {
   type         : 'loop',

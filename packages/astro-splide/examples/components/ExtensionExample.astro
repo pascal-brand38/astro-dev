@@ -2,39 +2,32 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import "../styles/style.css"
-
-import type { Splide as SplideInterface } from '@splidejs/splide'
+// Splide configuration  -  require npm install astro-splide @splidejs/splide-extension-auto-scroll
 import "@splidejs/splide/css"
 import { SplideExtension, SplideSlide } from 'astro-splide';
 
-const imgUrls = [
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
-]
+const options = {
+  type   : 'loop',
+  drag   : 'free',
+  focus  : 'center',
+  perPage: 3,
+  autoScroll: {
+    speed: 1,
+  },
+}
+
+// Misc import for this demo
+import "./style.css"
+import { imgUrls } from './imgUrls'
 
 ---
 
 <div class="wrapper">
-  <h2 id="basic-example-heading">Extension Example</h2>
+  <h2 id="basic-example-heading">Extension Example: using @splidejs/splide-extension-auto-scroll</h2>
 
   <SplideExtension
-    options={ {
-      perPage: 2,
-      height : '10rem',
-      rewind : true,
-      gap    : '1rem',
-    } }
-    aria-labelledby="basic-example-heading"
-    onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
-      console.log('splide:', splide);
-      console.log('index:', index);
-      console.log('prev:', prev);
-      console.log('dest:', dest);
-    }}
+    options={options}
+    aria-labelledby="extension-example-heading"
   >
     {
       imgUrls.map(url => (
@@ -48,13 +41,14 @@ const imgUrls = [
 
 
 <script>
+  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
   import { splideConnectedCallback } from "astro-splide/js/splideExtensionUtils"
 
   // define custom element to get splide options
   class AstroSplideExtension extends HTMLElement {
     connectedCallback() {
       const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
-      splide.mount();
+      splide.mount({ AutoScroll });
     }
   }
 
