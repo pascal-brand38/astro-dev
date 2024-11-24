@@ -33,23 +33,9 @@ const splideId = 'astro-splide-' + Math.random().toString(36).slice(2, 11)
 
 ---
 
-<astro-splide data-splideid={splideId} data-options={JSON.stringify(options)} >
+<astro-splide-extension data-splideid={splideId} data-options={JSON.stringify(options)} >
   <Root id={splideId + idName} class={'splide ' + className} {...props}>
     { hasTrack  &&  (<SplideTrack> <slot /> </SplideTrack>) }
     { !hasTrack &&  (<slot />) }
   </Root>
-</astro-splide>
-
-<script>
-  import { splideConnectedCallback } from "../js/splideExtensionUtils"
-
-  // define custom element to get splide options
-  class AstroSplide extends HTMLElement {
-    connectedCallback() {
-      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
-      splide.mount();
-    }
-  }
-
-  customElements.define("astro-splide", AstroSplide);
-</script>
+</astro-splide-extension>

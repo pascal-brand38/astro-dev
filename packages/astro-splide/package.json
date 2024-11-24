@@ -34,7 +34,8 @@
     },
     "./Splide": "./dist/components/Splide.astro",
     "./SplideTrack": "./dist/components/SplideTrack.astro",
-    "./SplideSplide": "./dist/components/SplideSplide.astro"
+    "./SplideSplide": "./dist/components/SplideSplide.astro",
+    "./js/splideExtensionUtils": "./dist/js/splideExtensionUtils"
   },
   "files": [
     "dist"

@@ -1,0 +1,62 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import "../styles/style.css"
+
+import type { Splide as SplideInterface } from '@splidejs/splide'
+import "@splidejs/splide/css"
+import { SplideExtension, SplideSlide } from 'astro-splide';
+
+const imgUrls = [
+  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/512/256?astro=${Math.random().toString(36).slice(2, 11)}`,
+]
+
+---
+
+<div class="wrapper">
+  <h2 id="basic-example-heading">Extension Example</h2>
+
+  <SplideExtension
+    options={ {
+      perPage: 2,
+      height : '10rem',
+      rewind : true,
+      gap    : '1rem',
+    } }
+    aria-labelledby="basic-example-heading"
+    onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
+      console.log('splide:', splide);
+      console.log('index:', index);
+      console.log('prev:', prev);
+      console.log('dest:', dest);
+    }}
+  >
+    {
+      imgUrls.map(url => (
+        <SplideSlide>
+          <img src={url} alt=''/>
+        </SplideSlide>
+      ))
+    }
+  </SplideExtension>
+</div>
+
+
+<script>
+  import { splideConnectedCallback } from "astro-splide/js/splideExtensionUtils"
+
+  // define custom element to get splide options
+  class AstroSplideExtension extends HTMLElement {
+    connectedCallback() {
+      const splide = splideConnectedCallback(this.dataset.splideid, this.dataset.options)
+      splide.mount();
+    }
+  }
+
+  customElements.define("astro-splide-extension", AstroSplideExtension);
+</script>
