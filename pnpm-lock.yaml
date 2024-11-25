@@ -67,8 +67,8 @@ importers:
         specifier: ^4.16.5
         version: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
       astro-splide:
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.4.0
+        version: 1.4.0
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
@@ -816,8 +816,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro-splide@1.2.0:
-    resolution: {integrity: sha512-Bpe13KTgOQd4cE1qiHeA9DH+XHB1uBMigdwyxx+4xWow4E6+EIHoln2lovCPkFKHIyHP8MI1R+MysLiFdpOxiA==}
+  astro-splide@1.4.0:
+    resolution: {integrity: sha512-zvxoqQ9zH6O5BPYEZ6Fq9tFinOVEZGVdj++U18zjB02988YDPcV6gv6YkB62L6HOX7nyumi6FjHOb0Olj7WmmQ==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -2848,9 +2848,10 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro-splide@1.2.0:
+  astro-splide@1.4.0:
     dependencies:
       '@splidejs/splide': 4.1.4
+      concat: 1.0.3
 
   astro@4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3):
     dependencies:
