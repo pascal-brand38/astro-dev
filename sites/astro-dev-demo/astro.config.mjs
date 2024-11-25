@@ -6,21 +6,19 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'astro-dev',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/pascal-brand38/astro-dev',
 			},
+			tableOfContents: false,
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Packages',
+					autogenerate: { directory: 'packages' },
+					// items: [
+					// 	// Each item here is one entry in the navigation menu.
+					// 	{ label: 'Packages', slug: 'guides/example' },
+					// ],
 				},
 			],
 		}),
