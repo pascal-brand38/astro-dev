@@ -1,0 +1,9 @@
+:root {
+  --sl-sidebar-width: 10rem;
+  --sl-content-width: 1024px;
+  --sl-text-5xl: 33.5rem;
+}
+
+.sl-markdown-content .inline-icon {
+  display: inline;
+}

@@ -15,21 +15,37 @@ hero:
       icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Icon, Card } from '@astrojs/starlight/components';
 
-## Next steps
+import BasicExample from '../../../components/astro-splide/BasicExample.astro'
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+## Examples
+
+<Card title="Basic Example" icon="pencil">
+	Basic splide example: 2 slides per page, and log on the console
+	on slide changes. See this example at
+	[this page](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/BasicExample.astro)
+
+	<BasicExample/>
+
+	#### <Icon name="astro" class="inline-icon"/> Code Snippet
+
+	```jsx
+	---
+	import "@splidejs/splide/css"
+	import { Splide, SplideSlide } from 'astro-splide';
+	import type { Splide as SplideInterface } from '@splidejs/splide'
+	---
+  <Splide
+    options={ { perPage: 2, rewind : true, gap: '1rem', } }
+    aria-labelledby="basic-example-heading"
+    onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
+      console.log('splide:', splide);
+    }}
+  >
+		<SplideSlide> ...  </SplideSlide>
+		<SplideSlide> ...  </SplideSlide>
+		<SplideSlide> ...  </SplideSlide>
+  </Splide>
+	```
+</Card>
