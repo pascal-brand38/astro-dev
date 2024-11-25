@@ -18,6 +18,8 @@ hero:
 import { Icon, Card } from '@astrojs/starlight/components';
 
 import BasicExample from '../../../components/astro-splide/BasicExample.astro'
+import AutoplayExample from '../../../components/astro-splide/AutoplayExample.astro'
+import ExtensionExample from '../../../components/astro-splide/ExtensionExample.astro'
 
 ## Examples
 
@@ -28,7 +30,10 @@ import BasicExample from '../../../components/astro-splide/BasicExample.astro'
 
 	<BasicExample/>
 
-	#### <Icon name="astro" class="inline-icon"/> Code Snippet
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
 
 	```jsx
 	---
@@ -48,4 +53,106 @@ import BasicExample from '../../../components/astro-splide/BasicExample.astro'
 		<SplideSlide> ...  </SplideSlide>
   </Splide>
 	```
+	</details>
+</Card>
+
+
+<Card title="Autoplay Example" icon="pencil">
+	Play/Pause button, and options in the frontmatter.
+
+	See this example at
+	[this page](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/AutoplayExample.astro)
+
+	<AutoplayExample/>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```jsx
+	---
+	// Splide configuration  -  require npm install astro-splide
+	import "@splidejs/splide/css"
+	import { Splide, SplideTrack, SplideSlide } from 'astro-splide';
+	const options = {
+		type         : 'loop',
+		gap          : '1rem',
+		autoplay     : true,
+		pauseOnHover : false,
+		resetProgress: false,
+		height       : '15rem',
+	};
+	---
+	<Splide
+		options={ options }
+		aria-labelledby="autoplay-example-heading"
+		hasTrack={ false }
+	>
+		<SplideTrack>
+			<SplideSlide> ...  </SplideSlide>
+			<SplideSlide> ...  </SplideSlide>
+			<SplideSlide> ...  </SplideSlide>
+		</SplideTrack>
+
+		<div class="splide__progress">
+			<div class="splide__progress__bar" />
+		</div>
+
+		<button class="splide__toggle">
+			<span class="splide__toggle__play">Play</span>
+			<span class="splide__toggle__pause">Pause</span>
+		</button>
+	</Splide>
+	```
+	</details>
+</Card>
+
+
+<Card title="Extension Example" icon="pencil">
+	Extension splide example: Uses
+	[@splidejs/splide-extension-auto-scroll](https://splidejs.com/extensions/auto-scroll/)
+	extension.
+
+	:::caution
+	There are some steps to take care of:
+	* This is your responsability to install https://splidejs.com/extensions/auto-scroll/
+		```bash
+		npm install @splidejs/splide-extension-auto-scroll
+		```
+	* Note that ```<SplideExtension>``` is used instead of ```<Splide>```
+	* Note that the script part must indicate which extension you are using
+	* Limitation: a single extension can be used per page
+	:::
+
+
+	See this example at
+	[this page](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/ExtensionExample.astro)
+
+	<ExtensionExample/>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```diff lang="jsx" "<SplideExtension" del="AutoScroll"
+	---
+	import "@splidejs/splide/css"
+	import { SplideExtension, SplideSlide } from 'astro-splide';
+	const options = { ... }
+	---
+	<SplideExtension options={options}>
+		<SplideSlide> ...  </SplideSlide>
+		<SplideSlide> ...  </SplideSlide>
+		<SplideSlide> ...  </SplideSlide>
+	</SplideExtension>
+
++	<script>
++		import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
++		import { initSplideExtension } from "astro-splide/js/splideExtensionUtils"
++		initSplideExtension({AutoScroll})
++	</script>
+	```
+	</details>
 </Card>

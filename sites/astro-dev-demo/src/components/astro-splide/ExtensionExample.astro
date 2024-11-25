@@ -22,23 +22,18 @@ import { imgUrls } from './imgUrls'
 
 ---
 
-<div class="wrapper">
-  <h2 id="basic-example-heading">Extension Example: using @splidejs/splide-extension-auto-scroll</h2>
-
-  <SplideExtension
-    options={options}
-    aria-labelledby="extension-example-heading"
-  >
-    {
-      imgUrls.map(url => (
-        <SplideSlide>
-          <img src={url} alt=''/>
-        </SplideSlide>
-      ))
-    }
-  </SplideExtension>
-</div>
-
+<SplideExtension
+  options={options}
+  aria-labelledby="extension-example-heading"
+>
+  {
+    imgUrls.map(url => (
+      <SplideSlide>
+        <img src={url} alt=''/>
+      </SplideSlide>
+    ))
+  }
+</SplideExtension>
 
 <script>
   import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';

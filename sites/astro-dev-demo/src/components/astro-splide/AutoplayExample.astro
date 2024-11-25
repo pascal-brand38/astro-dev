@@ -21,32 +21,29 @@ const options = {
 
 ---
 
-<div class="wrapper">
-  <h2 id="autoplay-example-heading">Autoplay</h2>
-  <Splide
-    options={ options }
-    aria-labelledby="autoplay-example-heading"
-    hasTrack={ false }
-  >
-    <div style={ { position: 'relative' } }>
-      <SplideTrack>
-        {
-          imgUrls.map(url => (
-            <SplideSlide>
-              <img src={url} alt=''/>
-            </SplideSlide>
-          ))
-        }
-      </SplideTrack>
-    </div>
+<Splide
+  options={ options }
+  aria-labelledby="autoplay-example-heading"
+  hasTrack={ false }
+>
+  <div style={ { position: 'relative' } }>
+    <SplideTrack>
+      {
+        imgUrls.map(url => (
+          <SplideSlide>
+            <img src={url} alt=''/>
+          </SplideSlide>
+        ))
+      }
+    </SplideTrack>
+  </div>
 
-    <div class="splide__progress">
-      <div class="splide__progress__bar" />
-    </div>
+  <div class="splide__progress">
+    <div class="splide__progress__bar" />
+  </div>
 
-    <button class="splide__toggle">
-      <span class="splide__toggle__play">Play</span>
-      <span class="splide__toggle__pause">Pause</span>
-    </button>
-  </Splide>
-</div>
+  <button class="splide__toggle">
+    <span class="splide__toggle__play">Play</span>
+    <span class="splide__toggle__pause">Pause</span>
+  </button>
+</Splide>
