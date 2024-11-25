@@ -1,15 +1,7 @@
 <div align="center" style="background-color: black; padding: 16px;">
-  <a href="https://splidejs.com" target="_blank">
-      <img width="70" src="images/logo.svg">
-  </a>
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  <a href="https://astro.build/" target="_blank">
-      <img height="70" src="images/astro-logo.svg">
-  </a>
+  <a href="https://splidejs.com" target="_blank"><img width="70" src="images/logo.svg"></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://astro.build/" target="_blank"><img height="70" src="images/astro-logo.png"></a>
 
   <h1>Astro Splide</h1>
 
@@ -223,8 +215,8 @@ Note that the handler always takes the splide instance as the first argument, an
 
 Using an extension requires some more code from the developer:
 * Use ```SplideExtension``` instead of ```Splide```
-* define the script part as follows. Note the ```mount``` instruction,
-that use the extension as a parameter
+* define the script part as follows. Note that it contains part related to the extension.
+Modify it accordingly.
 
 Typical code would be, here being the [@splidejs/splide-extension-auto-scroll](https://splidejs.com/extensions/auto-scroll) extension:
 ```jsx
@@ -245,8 +237,8 @@ const options = {
 </SplideExtension>
 
 <script>
-  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';  // update with your extension
   import { initSplideExtension } from "astro-splide/js/splideExtensionUtils"
+  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';  // update with your extension
   initSplideExtension({AutoScroll})  // update with your extension
 </script>
 ```
@@ -255,8 +247,6 @@ Note that it is the user responsability to install the splide extension
 
 Limitations: a single extension can be used in a rendered page
 
-# Not implemented
-```Transitions``` and ```Extensions``` are not implemented.
 
 # Example
 Here is a small example:
