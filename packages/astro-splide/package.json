@@ -32,10 +32,13 @@
       ],
       "default": "./dist/index.js"
     },
+    "./js/splideExtensionUtils": {
+      "types": "./dist/js/splideExtensionUtils.d.ts",
+      "import": "./dist/js/splideExtensionUtils.js"
+    },
     "./Splide": "./dist/components/Splide.astro",
     "./SplideTrack": "./dist/components/SplideTrack.astro",
     "./SplideSplide": "./dist/components/SplideSplide.astro",
-    "./js/splideExtensionUtils": "./dist/js/splideExtensionUtils"
   },
   "files": [
     "dist"
