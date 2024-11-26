@@ -75,7 +75,8 @@ import ExtensionExample from '../../../components/astro-splide/ExtensionExample.
 	// Splide configuration  -  require npm install astro-splide
 	import "@splidejs/splide/css"
 	import { Splide, SplideTrack, SplideSlide } from 'astro-splide';
-	const options = {
+	import type { Options } from '@splidejs/splide';
+	const options: Options = {
 		type         : 'loop',
 		gap          : '1rem',
 		autoplay     : true,
@@ -140,7 +141,8 @@ import ExtensionExample from '../../../components/astro-splide/ExtensionExample.
 	---
 	import "@splidejs/splide/css"
 	import { SplideExtension, SplideSlide } from 'astro-splide';
-	const options = { ... }
+	import type { Options } from '@splidejs/splide';
+	const options: Options = { ... }
 	---
 	<SplideExtension options={options}>
 		<SplideSlide> ...  </SplideSlide>
