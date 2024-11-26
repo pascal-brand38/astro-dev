@@ -1,36 +1,54 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: astro-dev
+description: Doc of https://github.com/pascal-brand38/astro-dev
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Documentation of astro oriented packages from https://github.com/pascal-brand38/astro-dev
   image:
-    file: ../../assets/astro-splide.png
+    file: ../../assets/pascal-brand38.png
   actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+    - text: Github
+      link: https://github.com/pascal-brand38/astro-dev
+      icon: github
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
+import IndexExample from '../../components/astro-splide/IndexExample.astro'
 
-## Next steps
+## Packages
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+
+	<Card title="Astro Splide" icon="pencil">
+		Using @splidejs/splide in astro
+
+		<IndexExample/>
+
+		<details>
+		<summary>
+		<Icon name="astro" class="inline-icon"/> Code Snippet
+		</summary>
+
+		```jsx
+		---
+		import { Splide, SplideSlide } from 'astro-splide';
+		---
+		<Splide>
+			<SplideSlide> ...  </SplideSlide>
+			<SplideSlide> ...  </SplideSlide>
+			<SplideSlide> ...  </SplideSlide>
+		</Splide>
+		```
+		</details>
+
+		<LinkButton href="astro-dev/packages/astro-splide" icon="external">
+			Go to the doc
+		</LinkButton>
+
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+
+	<Card title="Astro Sprite" icon="pencil">
+		Work-in-progress
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+
 </CardGrid>

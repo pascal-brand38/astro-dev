@@ -1,0 +1,31 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+// Splide configuration  -  require npm install astro-splide
+import "@splidejs/splide/css"
+import { Splide, SplideTrack, SplideSlide } from 'astro-splide';
+import type { Splide as SplideInterface } from '@splidejs/splide'
+
+// Misc import for this demo
+import "./style.css"
+import { imgUrls } from './imgUrls'
+
+---
+
+<Splide hasTrack={ false }, options={{autoplay: true, type: 'loop',}}>
+
+  <SplideTrack>
+  {
+    imgUrls.map(url => (
+      <SplideSlide>
+        <img src={url} alt=''/>
+      </SplideSlide>
+    ))
+  }
+      </SplideTrack>
+      <div class="splide__progress">
+        <div class="splide__progress__bar" />
+      </div>
+
+</Splide>
