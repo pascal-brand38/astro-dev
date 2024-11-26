@@ -13,30 +13,21 @@ import { imgUrls } from './imgUrls'
 
 ---
 
-<div class="wrapper">
-  <h2 id="basic-example-heading">Basic Example</h2>
-
-  <Splide
-    options={ {
-      perPage: 2,
-      height : '10rem',
-      rewind : true,
-      gap    : '1rem',
-    } }
-    aria-labelledby="basic-example-heading"
-    onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
-      console.log('splide:', splide);
-      console.log('index:', index);
-      console.log('prev:', prev);
-      console.log('dest:', dest);
-    }}
-  >
-    {
-      imgUrls.map(url => (
-        <SplideSlide>
-          <img src={url} alt=''/>
-        </SplideSlide>
-      ))
-    }
-  </Splide>
-</div>
+<Splide
+  options={ { perPage: 2, rewind : true, gap: '1rem', } }
+  aria-labelledby="basic-example-heading"
+  onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
+    console.log('splide:', splide);
+    console.log('index:', index);
+    console.log('prev:', prev);
+    console.log('dest:', dest);
+  }}
+>
+  {
+    imgUrls.map(url => (
+      <SplideSlide>
+        <img src={url} alt=''/>
+      </SplideSlide>
+    ))
+  }
+</Splide>
