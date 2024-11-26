@@ -5,12 +5,13 @@
 // Splide configuration  -  require npm install astro-splide
 import "@splidejs/splide/css"
 import { Splide, SplideTrack, SplideSlide } from 'astro-splide';
+import type { Options } from '@splidejs/splide';
 
 // Misc import for this demo
 import "./style.css"
 import { imgUrls } from './imgUrls'
 
-const options = {
+const options: Options = {
   type         : 'loop',
   gap          : '1rem',
   autoplay     : true,
