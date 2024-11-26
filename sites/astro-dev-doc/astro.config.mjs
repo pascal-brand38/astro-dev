@@ -4,6 +4,10 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	// used to deploy on github pages gh-pages
+	site: 'https://pascal-brand38.github.io',
+  base: 'astro-dev',
+
 	integrations: [
 		starlight({
 			title: 'astro-dev',
