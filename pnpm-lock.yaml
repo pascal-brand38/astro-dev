@@ -52,7 +52,7 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  sites/astro-dev-demo:
+  sites/astro-dev-doc:
     dependencies:
       '@astrojs/check':
         specifier: ^0.9.4
