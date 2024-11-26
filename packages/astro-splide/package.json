@@ -1,6 +1,6 @@
 {
   "name": "astro-splide",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "The Astro component for Splide.",
   "type": "module",
   "scripts": {
@@ -38,7 +38,7 @@
     },
     "./Splide": "./dist/components/Splide.astro",
     "./SplideTrack": "./dist/components/SplideTrack.astro",
-    "./SplideSplide": "./dist/components/SplideSplide.astro",
+    "./SplideSplide": "./dist/components/SplideSplide.astro"
   },
   "files": [
     "dist"
