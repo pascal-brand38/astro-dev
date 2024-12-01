@@ -10,6 +10,7 @@
     <a href="https://github.com/Splidejs/splide">Splide</a> slider/carousel.
   </p>
 
+  [Demo](https://pascal-brand38.github.io/astro-dev/packages/astro-splide)
 </div>
 
 # Installation
