@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+const googleAnalyticsId = 'G-4Z4PN6KMH7'
+
 // https://astro.build/config
 export default defineConfig({
 	// used to deploy on github pages gh-pages
@@ -29,6 +31,27 @@ export default defineConfig({
 						{ label: 'astro-splide', slug: 'packages/astro-splide' },
 					],
 				},
+			],
+
+
+			head: [
+				// Adding google analytics
+        {
+          tag: 'script',
+          attrs: {
+            src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`,
+          },
+        },
+        {
+          tag: 'script',
+          content: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', ${googleAnalyticsId});
+          `,
+        },
 			],
 		}),
 	],
