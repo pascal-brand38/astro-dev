@@ -11,6 +11,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'astro-dev',
+			favicon: '/favicon.png',
 			social: {
 				github: 'https://github.com/pascal-brand38/astro-dev',
 			},
