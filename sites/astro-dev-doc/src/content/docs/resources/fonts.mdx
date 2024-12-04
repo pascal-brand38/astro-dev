@@ -1,0 +1,64 @@
+---
+title: Fonts
+description: Fonts
+template: doc
+hero:
+  tagline: Fonts Resources
+  image:
+    file: ./fonts/adobe-fonts.svg
+  actions:
+    - text: Astro
+      link: https://docs.astro.build/en/guides/fonts/
+      icon: external
+    - text: FontSource
+      link: https://fontsource.org/
+      icon: external
+---
+
+import { Tabs, TabItem, LinkButton, Icon, LinkCard } from '@astrojs/starlight/components';
+
+## Google fonts in Astro
+
+<LinkButton href="https://fontsource.org" icon="seti:font">
+	Choose Fonts
+</LinkButton>
+Go to https://fontsource.org/ to select the font you want, for example Kalam
+
+<Tabs>
+  <TabItem label="Install">
+		```bash
+		npm install @fontsource/kalam
+		```
+	</TabItem>
+  <TabItem label="Astro">
+		```jsx
+		---
+		import '@fontsource/Kalam';
+		---
+		```
+	</TabItem>
+  <TabItem label="CSS">
+		```css
+		font-family: "Kalam", cursive
+		```
+	</TabItem>
+  <TabItem label="JS">
+	</TabItem>
+</Tabs>
+
+
+## Misc Resources
+
+<LinkCard
+	title="Handling fonts in Astro"
+	href="https://docs.astro.build/en/guides/fonts/"
+	/>
+<LinkCard
+	title="Modern Font Stack"
+	description='Use modern font family, such as font-family: system-ui, sans-serif;'
+	href="https://modernfontstacks.com"
+	/>
+<LinkCard
+	title="Google Fonts"
+	href="https://fonts.google.com"
+	/>

@@ -31,6 +31,14 @@ export default defineConfig({
 						{ label: 'astro-splide', slug: 'packages/astro-splide' },
 					],
 				},
+				{
+					label: 'Resources',
+					autogenerate: { directory: 'resources' },
+					// items: [
+					// 	// Each item here is one entry in the navigation menu.
+					// 	{ label: 'astro-splide', slug: 'packages/astro-splide' },
+					// ],
+				},
 			],
 
 
