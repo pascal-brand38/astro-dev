@@ -1,0 +1,55 @@
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// webtools framework:
+//    neon effect on text
+//
+// Example:
+// TODO
+//
+// from https://freefrontend.com/css-glow-text-effects/
+// and https://codepen.io/markheggan/pen/LjrVYN
+
+$webtools-neon-color: red !default;     // color
+$webtools-neon-speed: 0.25s !default;     // blinking speed
+$webtools-neon-rotate: -20deg !default;   // text rotation angle
+
+.webtools-neon {
+  transform: rotate($webtools-neon-rotate);
+  color: $webtools-neon-color;
+  animation:
+    webtools-neon-keyframes
+    $webtools-neon-speed
+    ease-in-out infinite alternate;
+
+  &__container {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+}
+
+
+
+// animation
+// TODO: text-shadow introduce performance issue
+@keyframes webtools-neon-keyframes {
+  from {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba($webtools-neon-color, 0.32),
+    0 0 21px rgba($webtools-neon-color, 0.72),
+    0 0 34px rgba($webtools-neon-color, 0.58),
+    0 0 54px rgba($webtools-neon-color, 0.72);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba($webtools-neon-color, 0.58),
+    0 0 22px rgba($webtools-neon-color, 0.84),
+    0 0 38px rgba($webtools-neon-color, 0.88),
+    0 0 60px rgba($webtools-neon-color, 1);
+  }
+}

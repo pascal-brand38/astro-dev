@@ -1,0 +1,8 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
+@use './webtools-neon.scss' with (
+  $webtools-neon-speed: 1s,
+  $webtools-neon-rotate: -15deg,
+  $webtools-neon-color: blue,
+);
