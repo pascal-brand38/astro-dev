@@ -13,13 +13,28 @@ hero:
 #     - text: FontSource
 #       link: https://fontsource.org/
 #       icon: external
+
 ---
 
 import { Tabs, TabItem, LinkButton, Icon, LinkCard } from '@astrojs/starlight/components';
 
 ## Neon Effect
-import Neon from './css-effects/neon/neon.astro'
+import Neon from './css-effects/neon/webtools-neon.astro'
 
-<Neon>
-  Neon <br/> Effect
+<Neon
+  style="font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive; font-weight: 900; font-size: 3rem;"
+  colorR='255'
+>
+  Neon
+</Neon>
+
+<Neon
+  style="font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive; font-weight: 900; font-size: 3rem;"
+  colorR='0'
+  colorG='0'
+  colorB='255'
+  rotate='-10deg'
+  speed='0.5s'
+>
+  Effect
 </Neon>
