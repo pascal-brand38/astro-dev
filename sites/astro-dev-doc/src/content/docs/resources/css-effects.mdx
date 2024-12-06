@@ -16,25 +16,22 @@ hero:
 
 ---
 
-import { Tabs, TabItem, LinkButton, Icon, LinkCard } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
+import DemoNeon from './css-effects/neon/demo-neon.astro'
 
-## Neon Effect
-import Neon from './css-effects/neon/webtools-neon.astro'
 
-<Neon
-  style="font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive; font-weight: 900; font-size: 3rem;"
-  colorR='255'
->
-  Neon
-</Neon>
+<CardGrid>
 
-<Neon
-  style="font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive; font-weight: 900; font-size: 3rem;"
-  colorR='0'
-  colorG='0'
-  colorB='255'
-  rotate='-10deg'
-  speed='0.5s'
->
-  Effect
-</Neon>
+	<Card title='Neon Effect'>
+    A Neon effect, as an astro component. Color, speed and rotation angle can be provided.
+
+    <LinkButton href="https://github.com/pascal-brand38/astro-dev/tree/main/sites/astro-dev-doc/src/content/docs/resources/css-effects/neon" icon="external">
+      Full code
+    </LinkButton>
+  </Card>
+
+	<Card >
+    <DemoNeon />
+	</Card>
+
+</CardGrid>
