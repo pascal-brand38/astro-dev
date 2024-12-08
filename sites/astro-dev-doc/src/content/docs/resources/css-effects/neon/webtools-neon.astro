@@ -2,6 +2,8 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
+import './webtools-neon.scss'
+
 import type { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<"div"> {
   colorR ?: string,
@@ -14,32 +16,23 @@ interface Props extends HTMLAttributes<"div"> {
 const {
   class: className = '',
   style = '',
-  colorR = '0',
-  colorG = '0',
-  colorB = '0',
-  speed = '0.25s',
-  rotate = '-20deg',
+  colorR: webtoolsNeonR = '0',
+  colorG: webtoolsNeonG = '0',
+  colorB: webtoolsNeonB = '0',
+  speed: webtoolsNeonSpeed = '0.25s',
+  rotate: webtoolsNeonRotate = '-20deg',
   ...props
 } = Astro.props;
 
 ---
 
 <div
-  class={className + " webtools-neon webtools-neon__container"}
   style=`${style}`
+  class={className + " webtools-neon webtools-neon__container"}
   {...props}>
     <slot/>
 </div>
 
 
-<style lang="scss" define:vars={{ colorR, colorG, colorB, speed, rotate }}>
-
-@use './webtools-neon.scss' with (
-  $webtools-neon-color-R: var(--colorR),
-  $webtools-neon-color-G: var(--colorG),
-  $webtools-neon-color-B: var(--colorB),
-  $webtools-neon-speed: var(--speed),
-  $webtools-neon-rotate: var(--rotate),
-);
-
+<style define:vars={{ webtoolsNeonR, webtoolsNeonG, webtoolsNeonB, webtoolsNeonSpeed, webtoolsNeonRotate }}>
 </style>

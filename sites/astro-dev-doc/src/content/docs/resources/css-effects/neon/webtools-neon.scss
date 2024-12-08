@@ -7,11 +7,11 @@
 // from https://freefrontend.com/css-glow-text-effects/
 // and https://codepen.io/markheggan/pen/LjrVYN
 
-$webtools-neon-color-R: 0 !default;       // color - cannot use color directly as cannot use rgba with variables var(--color)
-$webtools-neon-color-G: 0 !default;
-$webtools-neon-color-B: 0 !default;
-$webtools-neon-speed: 0.25s !default;     // blinking speed
-$webtools-neon-rotate: -20deg !default;   // text rotation angle
+$webtools-neon-color-R: var(--webtoolsNeonR, 0) !default;       // color - cannot use color directly as cannot use rgba with variables var(--color)
+$webtools-neon-color-G: var(--webtoolsNeonG, 0) !default;
+$webtools-neon-color-B: var(--webtoolsNeonB, 0) !default;
+$webtools-neon-speed: var(--webtoolsNeonSpeed, 0.25s) !default;     // blinking speed
+$webtools-neon-rotate: var(--webtoolsNeonRotate, -20deg) !default;   // text rotation angle
 
 .webtools-neon {
   transform: rotate($webtools-neon-rotate);
