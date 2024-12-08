@@ -84,18 +84,9 @@ importers:
       '@astrojs/check':
         specifier: ^0.9.4
         version: 0.9.4(typescript@5.6.3)
-      '@splidejs/splide':
-        specifier: ^4.1.4
-        version: 4.1.4
-      '@splidejs/splide-extension-auto-scroll':
-        specifier: ^0.5.3
-        version: 0.5.3
       astro:
         specifier: ^4.16.5
         version: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.6.3)
-      astro-splide:
-        specifier: ^1.4.0
-        version: 1.4.0
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
@@ -942,9 +933,6 @@ packages:
     resolution: {integrity: sha512-Tvdc7RV0G92BbtyEOsfJtXU35w41CkM94fOAzxbQP67Wj5jArfserJ321FO4XA7WG9QMV0GIBmQq77NBIRDzpQ==}
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
-
-  astro-splide@1.4.0:
-    resolution: {integrity: sha512-zvxoqQ9zH6O5BPYEZ6Fq9tFinOVEZGVdj++U18zjB02988YDPcV6gv6YkB62L6HOX7nyumi6FjHOb0Olj7WmmQ==}
 
   astro-splide@1.4.1:
     resolution: {integrity: sha512-st2IB1mxttHhdj+FdiVRFTmaH1rbjQqkx1oKpAnHLa7u4v+Vj+83SmT5bWOkqGKJtWhwDXZ4JetyW0/cD1wAfQ==}
@@ -3412,11 +3400,6 @@ snapshots:
     dependencies:
       astro: 4.16.10(@types/node@22.9.0)(rollup@4.24.4)(sass@1.80.6)(typescript@5.7.2)
       rehype-expressive-code: 0.38.3
-
-  astro-splide@1.4.0:
-    dependencies:
-      '@splidejs/splide': 4.1.4
-      concat: 1.0.3
 
   astro-splide@1.4.1:
     dependencies:
