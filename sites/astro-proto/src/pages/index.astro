@@ -4,15 +4,14 @@
 
 import '../scss/style.scss'
 import Layout from "../layouts/Layout.astro"
-import BasicExample from '../components/astro-splide/BasicExample.astro'
-import AutoplayExample from '../components/astro-splide/AutoplayExample.astro'
-import ExtensionExample from '../components/astro-splide/ExtensionExample.astro'
 
 const pageHead = {
   title: 'Title of the page',
   description: "Descriptions of this page",
 }
 
+// import DemoNeon from './css-effects/neon/demo-neon.astro'
+import DemoNeon from '../../../astro-dev-doc/src/content/docs/resources/css-effects/neon/demo-neon.astro'
 ---
 
 <Layout pageHead={pageHead}>
@@ -21,9 +20,7 @@ const pageHead = {
 
     <h1>Astro Page example using Webtools </h1>
 
-    <BasicExample/>
-    <AutoplayExample/>
-    <ExtensionExample/>
+    <DemoNeon />
 
   </section>
 
