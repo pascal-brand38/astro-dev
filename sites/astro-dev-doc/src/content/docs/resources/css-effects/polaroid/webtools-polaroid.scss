@@ -1,23 +1,21 @@
 // Copyright (c) Pascal Brand
 // MIT License
-//
 
 $webtools-polaroid-rotate: var(--webtoolsPolaroidRotate, -5deg) !default;   // text rotation angle
-$webtools-polaroid-up: var(--webtoolsPolaroidUp, 0px) !default;   // text rotation angle
+$webtools-polaroid-up: var(--webtoolsPolaroidUp, 0px) !default;   // text position
 
 .webtools-polaroid {
-  display: block;
-
   background: #fff;
-  padding: 10px 10px 15px;
-  text-align: center;
-  text-decoration: none;
+  padding: 15px 15px 0px 15px;
 
   box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
 
   transform: rotate($webtools-polaroid-rotate) translate(0px, $webtools-polaroid-up);
   transition: transform .15s linear;
-  line-height: 110%;
+
+  &__text {
+    text-align: center;
+  }
 
   img {
     display: block;

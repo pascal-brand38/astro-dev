@@ -14,6 +14,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+.demo-col {
+  min-width: 0;  /* col without shrinking */
+}
 
 .demo-handwritting {
   font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;

@@ -24,12 +24,13 @@ const {
 
 
 ---
-
 <div
   style=`${style}`
   class={className + " webtools-polaroid"}>
     <img src={img} alt="Polaroid"/>
-    {text}
+    <div class="webtools-polaroid__text">
+      {text}
+    </div>
 </div>
 
 <style define:vars={{ webtoolsPolaroidUp, webtoolsPolaroidRotate }}>

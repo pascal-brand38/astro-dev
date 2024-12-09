@@ -7,20 +7,32 @@ import '../../../../../styles/custom.css'
 
 
 ---
+<!-- reset margin-top as set by astro starlight -->
 
 <div class="demo-2cols demo-handwritting demo-font-xl">
-  <WebtoolsPolaroid
-    style="color: red;"
-    img="https://picsum.photos/256/256?polaroid=1"
-    text="Polaroid"
-    rotate=`${16*Math.random()-8}deg`
-    up=`${16*Math.random()-8}px`
-  />
-  <WebtoolsPolaroid
-    style="color: blue;"
-    img="https://picsum.photos/256/256?polaroid=2"
-    text="Effect"
-    rotate=`${16*Math.random()-8}deg`
-    up=`${16*Math.random()-8}px`
-  />
+  <div class="demo-col">  <!-- use this div as cells have the same size -->
+    <WebtoolsPolaroid
+      style="color: red;"
+      img="https://picsum.photos/256/256?polaroid=1"
+      text="Polaroid"
+      rotate=`${16*Math.random()-8}deg`
+      up=`${16*Math.random()-8}px`
+    />
+  </div>
+
+  <div class="demo-col">
+    <WebtoolsPolaroid
+      style="color: blue;"
+      img="https://picsum.photos/256/256?polaroid=2"
+      text="Effect"
+      rotate=`${16*Math.random()-8}deg`
+      up=`${16*Math.random()-8}px`
+    />
+  </div>
 </div>
+
+<style is:global>
+  .webtools-polaroid__text {
+    margin-top: 0 !important;
+  }
+</style>
