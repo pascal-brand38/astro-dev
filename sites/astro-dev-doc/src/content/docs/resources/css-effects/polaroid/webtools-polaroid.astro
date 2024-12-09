@@ -1,0 +1,36 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import './webtools-polaroid.scss'
+
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<"div"> {
+  img: string,
+  text: string,
+  up ?: string,
+  rotate ?: string,
+}
+
+const {
+  class: className = '',
+  style = '',
+  img,
+  text,
+  up: webtoolsPolaroidUp = '0px',
+  rotate: webtoolsPolaroidRotate = '-5deg',
+  ...props
+} = Astro.props;
+
+
+---
+
+<div
+  style=`${style}`
+  class={className + " webtools-polaroid"}>
+    <img src={img} alt="Polaroid"/>
+    {text}
+</div>
+
+<style define:vars={{ webtoolsPolaroidUp, webtoolsPolaroidRotate }}>
+</style>

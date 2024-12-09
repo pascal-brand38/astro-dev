@@ -7,3 +7,18 @@
 .sl-markdown-content .inline-icon {
   display: inline;
 }
+
+
+.demo-2cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.demo-handwritting {
+  font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+}
+.demo-font-xl {
+  font-weight: 900;
+  font-size: 2rem;
+}

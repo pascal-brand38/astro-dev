@@ -1,0 +1,26 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import WebtoolsPolaroid from './webtools-polaroid.astro'
+import '../../../../../styles/custom.css'
+
+
+---
+
+<div class="demo-2cols demo-handwritting demo-font-xl">
+  <WebtoolsPolaroid
+    style="color: red;"
+    img="https://picsum.photos/256/256?polaroid=1"
+    text="Polaroid"
+    rotate=`${16*Math.random()-8}deg`
+    up=`${16*Math.random()-8}px`
+  />
+  <WebtoolsPolaroid
+    style="color: blue;"
+    img="https://picsum.photos/256/256?polaroid=2"
+    text="Effect"
+    rotate=`${16*Math.random()-8}deg`
+    up=`${16*Math.random()-8}px`
+  />
+</div>

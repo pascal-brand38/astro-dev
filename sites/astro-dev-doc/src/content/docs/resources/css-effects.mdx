@@ -18,9 +18,9 @@ hero:
 
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 import DemoNeon from './css-effects/neon/demo-neon.astro'
+import DemoPolaroid from './css-effects/polaroid/demo-polaroid.astro'
 
 <CardGrid>
-
 	<Card title='Neon Effect'>
     A Neon effect, as an astro component. Color, speed and rotation angle can be provided.
 
@@ -32,5 +32,18 @@ import DemoNeon from './css-effects/neon/demo-neon.astro'
 	<Card >
     <DemoNeon />
 	</Card>
+</CardGrid>
 
+<CardGrid>
+	<Card title='Polaroid'>
+    A polaroid effect, as an astro component.
+
+    <LinkButton href="https://github.com/pascal-brand38/astro-dev/tree/main/sites/astro-dev-doc/src/content/docs/resources/css-effects/polaroid" icon="external">
+      Full code
+    </LinkButton>
+  </Card>
+
+	<Card >
+    <DemoPolaroid />
+	</Card>
 </CardGrid>
