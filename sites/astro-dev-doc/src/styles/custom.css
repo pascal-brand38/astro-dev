@@ -15,7 +15,8 @@
   gap: 1rem;
 }
 .demo-col {
-  min-width: 0;  /* col without shrinking */
+  margin-top: 0 !important;
+  min-width: 0;  /* col without shrinking - ensure all cols have same width */
 }
 
 .demo-handwritting {
@@ -23,5 +24,5 @@
 }
 .demo-font-xl {
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }

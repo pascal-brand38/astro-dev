@@ -26,7 +26,8 @@ const {
 ---
 <div
   style=`${style}`
-  class={className + " webtools-polaroid"}>
+  class={className + " webtools-polaroid"}
+  {...props}>
     <img src={img} alt="Polaroid"/>
     <div class="webtools-polaroid__text">
       {text}

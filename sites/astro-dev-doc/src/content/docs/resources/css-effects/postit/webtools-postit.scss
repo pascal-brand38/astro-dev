@@ -1,0 +1,30 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
+/* Post-it - pure-css
+ * Come from  https://code.tutsplus.com/tutorials/create-a-sticky-note-effect-in-5-easy-steps-with-css3-and-html5--net-13934
+*/
+/* used to force the use of min form css, not from scss, in order to use min(25vw, 25vh) */
+
+$webtools-postit-width: var(--webtoolsPostitWidth, 100%) !default;
+$webtools-postit-color: var(--webtoolsPostitColor, lightgoldenrodyellow) !default;
+$webtools-postit-rotate: var(--webtoolsPostitRotate, 4deg) !default;   // text rotation angle
+$webtools-postit-up: var(--webtoolsPostitUp, 0px) !default;   // text position
+
+.webtools-postit {
+  aspect-ratio: 1;
+  width: $webtools-postit-width;
+  background-color: $webtools-postit-color;
+  padding:1rem;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transition: transform .15s linear;
+
+  transform: rotate($webtools-postit-rotate) translate(0px, $webtools-postit-up);
+  transition: transform .15s linear;
+
+  &:hover {
+    box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    transform: scale(1.25);
+    z-index:1;
+  }
+}

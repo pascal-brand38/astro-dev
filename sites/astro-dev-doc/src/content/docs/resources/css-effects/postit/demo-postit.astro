@@ -1,0 +1,39 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import WebtoolsPostit from './webtools-postit.astro'
+import '../../../../../styles/custom.css'
+
+
+---
+<!-- reset margin-top as set by astro starlight -->
+
+<div class="demo-2cols demo-handwritting demo-font-xl">
+  <div class="demo-col">  <!-- use this div as cells have the same size -->
+    <WebtoolsPostit
+      style="color: red;"
+      text='Awesome effect'
+      rotate=`${16*Math.random()-8}deg`
+      up=`${16*Math.random()-8}px`
+      width='90%'
+    />
+  </div>
+
+  <div class="demo-col">
+    <WebtoolsPostit
+      style="color: blue;"
+      text="using astro and webtools!"
+      rotate=`${16*Math.random()-8}deg`
+      up=`${16*Math.random()-8}px`
+      width='90%'
+      color="lightcyan"
+    />
+  </div>
+</div>
+
+<style is:global>
+  .webtools-postit {
+    margin-top: unset !important;
+  }
+</style>
