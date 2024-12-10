@@ -12,5 +12,5 @@
     "declaration": true,
   },
   "extends": "astro/tsconfigs/strict",
-  "include": ["ts/**/*.ts"]
+  "include": ["src/ts/**/*.ts"]
 }
