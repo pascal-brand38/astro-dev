@@ -5,11 +5,9 @@
 import WebtoolsPolaroid from './webtools-polaroid.astro'
 import '../../../../../styles/custom.css'
 
-
 ---
-<!-- reset margin-top as set by astro starlight -->
 
-<div class="demo-2cols demo-handwritting demo-font-xl">
+<div class="not-content demo-2cols demo-handwritting demo-font-xl">
   <div class="demo-col">  <!-- use this div as cells have the same size -->
     <WebtoolsPolaroid
       style="color: red;"
@@ -30,9 +28,3 @@ import '../../../../../styles/custom.css'
     />
   </div>
 </div>
-
-<style is:global>
-  .webtools-polaroid__text {
-    margin-top: 0 !important;
-  }
-</style>

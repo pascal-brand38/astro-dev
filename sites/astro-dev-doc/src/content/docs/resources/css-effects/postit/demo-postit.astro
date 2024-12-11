@@ -5,11 +5,9 @@
 import WebtoolsPostit from './webtools-postit.astro'
 import '../../../../../styles/custom.css'
 
-
 ---
-<!-- reset margin-top as set by astro starlight -->
 
-<div class="demo-2cols demo-handwritting demo-font-xl">
+<div class="not-content demo-2cols demo-handwritting demo-font-xl">
   <div class="demo-col">  <!-- use this div as cells have the same size -->
     <WebtoolsPostit
       style="color: red;"
@@ -31,9 +29,3 @@ import '../../../../../styles/custom.css'
     />
   </div>
 </div>
-
-<style is:global>
-  .webtools-postit {
-    margin-top: unset !important;
-  }
-</style>

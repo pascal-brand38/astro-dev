@@ -20,6 +20,7 @@ import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components'
 import DemoNeon from './css-effects/neon/demo-neon.astro'
 import DemoPolaroid from './css-effects/polaroid/demo-polaroid.astro'
 import DemoPostit from './css-effects/postit/demo-postit.astro'
+import DemoGarland from './css-effects/garland/demo-garland.astro'
 
 <CardGrid>
 	<Card title='Neon Effect'>
@@ -60,6 +61,22 @@ import DemoPostit from './css-effects/postit/demo-postit.astro'
 
 	<Card >
     <DemoPostit />
+	</Card>
+</CardGrid>
+
+<CardGrid>
+	<Card title='Garland'>
+    A garland effect, as an astro component.
+
+    <LinkButton href="https://github.com/pascal-brand38/astro-dev/tree/main/sites/astro-dev-doc/src/content/docs/resources/css-effects/garland" icon="external">
+      Full code
+    </LinkButton>
+  </Card>
+
+	<Card>
+    <DemoGarland>
+      Garland Effect
+    </DemoGarland>
 	</Card>
 </CardGrid>
 

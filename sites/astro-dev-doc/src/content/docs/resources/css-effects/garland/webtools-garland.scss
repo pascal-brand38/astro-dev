@@ -1,0 +1,31 @@
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// from https://codepen.io/Imapo/pen/jrxpYv
+
+$webtools-garland-url-hor: var(--wt-garland-url-hor);
+
+.webtools-garland {
+  position: absolute;
+  background-image: $webtools-garland-url-hor;
+  height: 36px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 99;
+
+  &_0 { background-position: 0 0 }
+  &_1 { background-position: 0 -36px }
+  &_2 { background-position: 0 -72px }
+  &_3 { background-position: 0 -108px }
+}
+
+#webtools-garland_top {
+  top: 0;
+  left: 0;
+}
+
+#webtools-garland_bottom {
+  bottom: 0;
+  left: 0;
+  transform: rotate(180deg);
+}
