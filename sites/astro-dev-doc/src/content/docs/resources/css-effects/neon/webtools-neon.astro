@@ -5,7 +5,16 @@
 import './webtools-neon.scss'
 
 import type { HTMLAttributes } from 'astro/types';
-interface Props extends HTMLAttributes<"div"> {
+
+type propsToVarsT = {var: string, prop:string}[]
+const propsToVars: propsToVarsT = [
+  { var: '--wt-neon-R',      prop: "colorR"},
+  { var: '--wt-neon-G',      prop: "colorG"},
+  { var: '--wt-neon-B',      prop: "colorB"},
+  { var: '--wt-neon-speed',  prop: "speed" },
+  { var: '--wt-neon-rotate', prop: "rotate"},
+]
+interface PrivateProps {
   colorR ?: string,
   colorG ?: string,
   colorB ?: string,
@@ -13,36 +22,30 @@ interface Props extends HTMLAttributes<"div"> {
   rotate ?: string,
 }
 
+interface Props extends HTMLAttributes<"div">, PrivateProps {}
+
 const {
   class: className = '',
-  style: styleProps = '',
-  colorR,
-  colorG,
-  colorB,
-  speed,
-  rotate,
+  style = '',
   ...props
 } = Astro.props;
 
-
-function createVarStyle(styleProps:any, varsDesc:any) {
+// props is updated
+function webtoolsCreateVarStyle(styleProps:string | astroHTML.JSX.CSSProperties | null, props:any, propsToVars:propsToVarsT) {
   let style = styleProps;
-  varsDesc.forEach((varDesc:any) => varDesc.value && (style+=`${varDesc.var}:${varDesc.value};`))
+  propsToVars.forEach((propToVar:any) => {
+    if (props[propToVar.prop]) {
+      style += `${propToVar.var}:${props[propToVar.prop]};`
+      delete props[propToVar.prop]
+    }
+  })
   return style
 }
-
-const style = createVarStyle(styleProps, [
-  { var: '--wt-neon-R', value: colorR},
-  { var: '--wt-neon-G', value: colorG},
-  { var: '--wt-neon-B', value: colorB},
-  { var: '--wt-neon-speed', value: speed},
-  { var: '--wt-neon-rotate', value: rotate},
-])
 
 ---
 
 <div
-  style=`${style}`
+  style=`${webtoolsCreateVarStyle(style, props, propsToVars)}`
   class={className + " webtools-neon webtools-neon__container"}
   {...props}>
     <slot/>
