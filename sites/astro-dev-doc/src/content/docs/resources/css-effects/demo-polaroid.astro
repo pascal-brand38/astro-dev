@@ -2,14 +2,13 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import WebtoolsPolaroid from './webtools-polaroid.astro'
-import '../../../../../styles/custom.css'
+import { Polaroid } from 'astro-webtools'
 
 ---
 
 <div class="not-content demo-2cols demo-handwritting demo-font-xl">
   <div class="demo-col">  <!-- use this div as cells have the same size -->
-    <WebtoolsPolaroid
+    <Polaroid
       style="color: red;"
       img="https://picsum.photos/256/256?polaroid=1"
       text="Polaroid"
@@ -19,7 +18,7 @@ import '../../../../../styles/custom.css'
   </div>
 
   <div class="demo-col">
-    <WebtoolsPolaroid
+    <Polaroid
       style="color: blue;"
       img="https://picsum.photos/256/256?polaroid=2"
       text="Effect"

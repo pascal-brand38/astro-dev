@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "cp -r src/components dist && concat dist/index.js src/components.d.ts -o dist/index.js && concat dist/index.d.ts src/components.d.ts -o dist/index.d.ts"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   ],
   "devDependencies": {
     "astro": "^4.16.10",
+    "concat": "^1.0.3",
     "typescript": "^5.6.3"
   }
 }

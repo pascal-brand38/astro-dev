@@ -1,0 +1,40 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import './webtools-neon.scss'
+import { webtools } from '../../index'
+
+import type { HTMLAttributes } from 'astro/types';
+
+const propsToVars: webtools.PropsToVars = [
+  { var: '--wt-neon-R',      prop: "colorR"},
+  { var: '--wt-neon-G',      prop: "colorG"},
+  { var: '--wt-neon-B',      prop: "colorB"},
+  { var: '--wt-neon-speed',  prop: "speed" },
+  { var: '--wt-neon-rotate', prop: "rotate"},
+]
+interface PrivateProps {
+  colorR ?: string,
+  colorG ?: string,
+  colorB ?: string,
+  speed ?: string,
+  rotate ?: string,
+}
+
+interface Props extends HTMLAttributes<"div">, PrivateProps {}
+
+const {
+  class: className = '',
+  style = '',
+  ...props
+} = Astro.props;
+
+---
+
+<div
+  style=`${webtools.createVarStyle(style, props, propsToVars)}`
+  class={className + " webtools-neon webtools-neon__container"}
+  {...props}>
+    <slot/>
+</div>
