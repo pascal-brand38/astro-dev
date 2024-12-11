@@ -3,35 +3,37 @@
 // MIT License
 
 import './webtools-postit.scss'
-
+import { webtools } from '../../index'
 import type { HTMLAttributes } from 'astro/types';
-interface Props extends HTMLAttributes<"div"> {
+
+const propsToVars: webtools.PropsToVars = [
+  { var: '--wt-polaroid-R',      prop: "up"},
+  { var: '--wt-polaroid-rotate', prop: "rotate"},
+  { var: '--wt-polaroid-width',  prop: "width"},
+  { var: '--wt-polaroid-color',  prop: "color"},
+]
+
+interface PrivateProps {
   text: string,
   up?: string,
   rotate?: string,
   width?: string,
-  color?: string,
+  color?: string | undefined | null,
 }
+
+interface Props extends HTMLAttributes<"div">, PrivateProps {}
 
 const {
   class: className = '',
   style = '',
-  title,
   text,
-  up: webtoolsPostitUp = '0px',
-  rotate: webtoolsPostitRotate = '4deg',
-  width: webtoolsPostitWidth = '100%',
-  color: webtoolsPostitColor = 'lightgoldenrodyellow',
   ...props
 } = Astro.props;
 
 ---
 <div
-  style=`${style}`
+  style=`${webtools.createVarStyle(style, props, propsToVars)}`
   class={className + " webtools-postit"}
   {...props}>
     {text}
 </div>
-
-<style define:vars={{ webtoolsPostitUp, webtoolsPostitRotate, webtoolsPostitWidth, webtoolsPostitColor }}>
-</style>

@@ -3,29 +3,33 @@
 // MIT License
 
 import './webtools-polaroid.scss'
-
+import { webtools } from '../../index'
 import type { HTMLAttributes } from 'astro/types';
-interface Props extends HTMLAttributes<"div"> {
+
+const propsToVars: webtools.PropsToVars = [
+  { var: '--wt-polaroid-R',      prop: "up"},
+  { var: '--wt-polaroid-rotate', prop: "rotate"},
+]
+interface PrivateProps {
   img: string,
   text: string,
   up ?: string,
   rotate ?: string,
 }
 
+interface Props extends HTMLAttributes<"div">, PrivateProps {}
+
 const {
   class: className = '',
   style = '',
   img,
   text,
-  up: webtoolsPolaroidUp = '0px',
-  rotate: webtoolsPolaroidRotate = '-5deg',
   ...props
 } = Astro.props;
 
-
 ---
 <div
-  style=`${style}`
+  style=`${webtools.createVarStyle(style, props, propsToVars)}`
   class={className + " webtools-polaroid"}
   {...props}>
     <img src={img} alt="Polaroid"/>
@@ -33,6 +37,3 @@ const {
       {text}
     </div>
 </div>
-
-<style define:vars={{ webtoolsPolaroidUp, webtoolsPolaroidRotate }}>
-</style>

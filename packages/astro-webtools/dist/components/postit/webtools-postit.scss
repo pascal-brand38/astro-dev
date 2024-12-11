@@ -1,10 +1,10 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-$webtools-postit-width: var(--webtoolsPostitWidth, 100%) !default;
-$webtools-postit-color: var(--webtoolsPostitColor, lightgoldenrodyellow) !default;
-$webtools-postit-rotate: var(--webtoolsPostitRotate, 4deg) !default;   // text rotation angle
-$webtools-postit-up: var(--webtoolsPostitUp, 0px) !default;   // text position
+$webtools-postit-width: var(--wt-postit-width, 100%) !default;
+$webtools-postit-color: var(--wt-postit-color, lightgoldenrodyellow) !default;
+$webtools-postit-rotate: var(--wt-postit-rotate, 4deg) !default;   // text rotation angle
+$webtools-postit-up: var(--wt-postit-up, 0px) !default;   // text position
 
 .webtools-postit {
   aspect-ratio: 1;

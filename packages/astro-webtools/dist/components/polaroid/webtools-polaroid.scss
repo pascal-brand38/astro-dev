@@ -1,8 +1,8 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-$webtools-polaroid-rotate: var(--webtoolsPolaroidRotate, -5deg) !default;   // text rotation angle
-$webtools-polaroid-up: var(--webtoolsPolaroidUp, 0px) !default;   // text position
+$webtools-polaroid-rotate: var(--wt-polaroid-rotate, -5deg) !default;   // text rotation angle
+$webtools-polaroid-up: var(--wt-polaroid-up, 0px) !default;   // text position
 
 .webtools-polaroid {
   background: #fff;
