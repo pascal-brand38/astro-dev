@@ -3,11 +3,11 @@
 // MIT License
 
 import './webtools-neon.scss'
+import { webtools } from 'astro-webtools'
 
 import type { HTMLAttributes } from 'astro/types';
 
-type propsToVarsT = {var: string, prop:string}[]
-const propsToVars: propsToVarsT = [
+const propsToVars: webtools.PropsToVars = [
   { var: '--wt-neon-R',      prop: "colorR"},
   { var: '--wt-neon-G',      prop: "colorG"},
   { var: '--wt-neon-B',      prop: "colorB"},
@@ -30,22 +30,10 @@ const {
   ...props
 } = Astro.props;
 
-// props is updated
-function webtoolsCreateVarStyle(styleProps:string | astroHTML.JSX.CSSProperties | null, props:any, propsToVars:propsToVarsT) {
-  let style = styleProps;
-  propsToVars.forEach((propToVar:any) => {
-    if (props[propToVar.prop]) {
-      style += `${propToVar.var}:${props[propToVar.prop]};`
-      delete props[propToVar.prop]
-    }
-  })
-  return style
-}
-
 ---
 
 <div
-  style=`${webtoolsCreateVarStyle(style, props, propsToVars)}`
+  style=`${webtools.createVarStyle(style, props, propsToVars)}`
   class={className + " webtools-neon webtools-neon__container"}
   {...props}>
     <slot/>
