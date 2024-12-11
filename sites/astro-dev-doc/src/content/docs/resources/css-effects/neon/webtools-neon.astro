@@ -15,14 +15,29 @@ interface Props extends HTMLAttributes<"div"> {
 
 const {
   class: className = '',
-  style = '',
-  colorR: webtoolsNeonR = '0',
-  colorG: webtoolsNeonG = '0',
-  colorB: webtoolsNeonB = '0',
-  speed: webtoolsNeonSpeed = '0.25s',
-  rotate: webtoolsNeonRotate = '-20deg',
+  style: styleProps = '',
+  colorR,
+  colorG,
+  colorB,
+  speed,
+  rotate,
   ...props
 } = Astro.props;
+
+
+function createVarStyle(styleProps:any, varsDesc:any) {
+  let style = styleProps;
+  varsDesc.forEach((varDesc:any) => varDesc.value && (style+=`${varDesc.var}:${varDesc.value};`))
+  return style
+}
+
+const style = createVarStyle(styleProps, [
+  { var: '--wt-neon-R', value: colorR},
+  { var: '--wt-neon-G', value: colorG},
+  { var: '--wt-neon-B', value: colorB},
+  { var: '--wt-neon-speed', value: speed},
+  { var: '--wt-neon-rotate', value: rotate},
+])
 
 ---
 
@@ -32,7 +47,3 @@ const {
   {...props}>
     <slot/>
 </div>
-
-
-<style define:vars={{ webtoolsNeonR, webtoolsNeonG, webtoolsNeonB, webtoolsNeonSpeed, webtoolsNeonRotate }}>
-</style>
