@@ -1,0 +1,14 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
+// screen size to have rendering depending on the screen size
+// using media queries, such as
+//     @media only screen and (min-width: $wt-size-l-from) {
+//  small screen:   from 0px               to  $wt-size-m-from - 1px
+//  medium screen:  from $wt-size-m-from  to  $wt-size-l-from - 1px
+//  large screen:   from $wt-size-l-from
+// Cannot use css variable (var(--xxx)) as css variables cannot be used in media query
+$wt-size-s-to:      600px !default;
+$wt-size-m-from:    601px !default;
+$wt-size-m-to:      1023 !default;
+$wt-size-l-from:    1024 !default;

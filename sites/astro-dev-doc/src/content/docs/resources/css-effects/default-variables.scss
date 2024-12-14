@@ -1,0 +1,37 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
+body {
+  // screen size to have rendering depending on the screen size
+  // using media queries, such as
+  //     @media only screen and (min-width: --wt-size-l-from) {
+  //  small screen:   from 0px               to  --wt-size-m-from - 1px
+  //  medium screen:  from --wt-size-m-from  to  --wt-size-l-from - 1px
+  //  large screen:   from --wt-size-l-from
+  --wt-size-s-to:      600px;
+  --wt-size-m-from:    601px;
+  --wt-size-m-to:      1023;
+  --wt-size-l-from:    1024;
+
+  --wt-max-width: 1024px;
+
+  // default margins
+  --wt-default-margin-big: 1.5rem;
+  --wt-default-margin-normal: 1rem;
+
+  // default fonts and colors
+  // - fonts: https://modernfontstacks.com/
+  // - colors from https://html-color-codes.info/color-names/
+  --wt-primary-font-family: system-ui, sans-serif ;
+  --wt-primary-color: Black;
+  --wt-primary-background-color: FloralWhite;
+
+  /* colors */
+  --wt-secondary-font-family: (font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive);
+  --wt-secondary-color: #95bd0f;
+  --wt-secondary-background-color: #95bd0f;
+
+  --wt-tertiary-font-family: (font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive);
+  --wt-tertiary-color: #95bd0f;
+  --wt-tertiary-background-color: #95bd0f;
+}

@@ -1,0 +1,24 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+// import { NavPureCss } from 'astro-webtools'
+import NavPureCss from './NavPureCss.astro'
+
+---
+
+<NavPureCss class="not-content demo-navpurecss">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Contact</a></li>
+</NavPureCss>
+
+<style is:global lang="scss">
+  @use './breakpoints.scss';
+  @use './webtools-navpurecss.scss' with (
+    $webtools-navpurecss-hamburger-max-width: breakpoints.$wt-size-s-to,
+  );
+
+  .demo-navpurecss {
+  }
+</style>
