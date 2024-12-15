@@ -1,0 +1,18 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { LinkButton } from '@astrojs/starlight/components';
+type Props = {
+  src: string,
+}
+
+const {
+  src,
+} = Astro.props;
+
+---
+
+<LinkButton href=`https://github.com/pascal-brand38/astro-dev/tree/main/sites/astro-dev-doc/src/content/docs/resources/css-effects/${src}` icon="external">
+  Full code
+</LinkButton>
