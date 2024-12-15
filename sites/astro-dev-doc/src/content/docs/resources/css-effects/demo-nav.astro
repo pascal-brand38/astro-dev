@@ -2,8 +2,8 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-// import { Nav } from 'astro-webtools'
-import Nav from './Nav.astro'
+import { Nav } from 'astro-webtools'
+import './default-variables.scss'
 
 ---
 
@@ -15,7 +15,7 @@ import Nav from './Nav.astro'
 
 <style is:global lang="scss">
   @use './breakpoints.scss';
-  @use './webtools-nav.scss' with (
+  @use '../../../../../../../packages/astro-webtools/src/components/nav/webtools-nav.scss' with (
     $webtools-nav-hamburger-max-width: breakpoints.$wt-size-s-to,
   );
 </style>

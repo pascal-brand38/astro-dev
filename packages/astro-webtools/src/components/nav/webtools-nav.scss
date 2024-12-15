@@ -1,0 +1,124 @@
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Navigation menu, as ure css
+// From https://codepen.io/mutedblues/pen/MmPNPG
+
+$webtools-secondary-background-color: var(--wt-secondary-background-color) !default;
+$webtools-tertiary-background-color: var(--wt-tertiary-background-color) !default;
+$webtools-nav-align : right !default; // align the menu on right by default
+$webtools-nav-hamburger-max-width : 600px !default; // max size for the hamburger-rendering
+      // $webtools-nav-hamburger-max-width cannot be a var as var are forbidden in media query
+
+.webtools-nav {
+  z-index: 3; /* have the menu in front of the image in galerie-photos */
+  position: relative;
+  width: 100%;
+
+  height: 2rem;
+  line-height: 2rem;    // to center vertically
+  background-color: $webtools-secondary-background-color;
+
+  /* line on the menu, where the buttons are*/
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+  }
+
+  /* each "button" on the menu. This is the same for the printed menu and for the hamburger-rendering menu */
+  li a {
+    display: block;
+    color: inherit;
+    background-color: $webtools-secondary-background-color;    // color when the hamburger-rendering is opened
+    /* color: inherit; otherwise, color for links are used, that is Blue */
+    text-decoration: none;
+    padding: 0px 20px 0px 20px;
+    z-index: 3;
+  }
+
+  li:last-child a {
+    padding-right: 20px; // if the last is too small, the scroller is on top of it
+  }
+
+
+  /* color of the "button" when we are hover */
+  li a:hover,
+  .hamburger-isopened:hover {
+    background-color: $webtools-tertiary-background-color;
+  }
+
+  /* Position of the logo */
+  .logo {
+    display: block;
+    float: left;
+    text-decoration: none;
+    padding: 0;
+    margin-left: 20px;
+  }
+
+  /* menu
+   - hamburger-rendering are the 3bars of the hamburger-rendering that are spanned
+     there is a transition to transform them in a cross when we click on it
+   - hamburger-div is related to the span
+   - hamburger-isopened is a checkbox button, to correctly display the hamburger-rendering
+     checked when opened
+   */
+
+  .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+
+  .hamburger-div {
+    position: relative;
+    cursor: pointer;
+    float: left;
+    // padding: calc(1rem - 1px) 20px;
+    padding: calc(1rem - 1px) 20px;
+      // the height of the menu bar is 2rem
+      // the hamburger mst be in the middle of the menu bar, that is 2rem/2 - 2px/2 (each bar of the hamburger is 2px)
+  }
+
+  // do not display the checkbox, and set max-height when the menu is opened
+  .hamburger-isopened { display: none; }
+  .hamburger-isopened:checked~.menu { max-height: 100vh; }
+
+  // hamburger-rendering: made of 3 bars, of 2px height each
+  // - top bar is ::before
+  // - central bar is in the normal block
+  // - bottom bar in ::after
+  .hamburger-rendering, .hamburger-rendering:before, .hamburger-rendering:after {
+    position: relative;
+    background: black;
+    display: block;
+    height: 2px;
+    transition: all .2s ease-out;
+    width: 18px;
+    content: '';
+  }
+  .hamburger-rendering:before { position: absolute; top: 5px; }
+  .hamburger-rendering:after  { position: absolute; top: -5px; }
+
+  // when hamburger-rendering is opened, the central bar (.hamburger-rendering) disappears,
+  // and the top and bottom bar (:before and :after) are rotated
+  .hamburger-isopened:checked~.hamburger-div .hamburger-rendering        { background: transparent; }
+  .hamburger-isopened:checked~.hamburger-div .hamburger-rendering:before { transform: rotate(-45deg); top:0; }
+  .hamburger-isopened:checked~.hamburger-div .hamburger-rendering:after  { transform: rotate(45deg);  top:0; }
+
+  @media only screen and (min-width: ($webtools-nav-hamburger-max-width + 1)) {
+    // here, the menu is NOT an hamburger-rendering
+    .hamburger-div { display: none; }                   // do not show the hamburger
+    .webtools-show-when-hamburger { display: none; }    // part displayed only when the hamburger is on
+    li { float: left; }                                 // all links on the same line
+
+    .menu {
+      clear: none;
+      float: $webtools-nav-align;    // menu on the left or on the right (default)
+      max-height: none;
+    }
+
+  }
+}
