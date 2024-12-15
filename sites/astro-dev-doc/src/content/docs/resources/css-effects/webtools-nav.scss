@@ -1,20 +1,17 @@
-/*****************************************************************
- * MENU PURECSS, by webtools
- * From https://codepen.io/mutedblues/pen/MmPNPG
- *
- * To be used with <nav class="webtools-navpurecss">
- *****************************************************************/
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Navigation menu, as ure css
+// From https://codepen.io/mutedblues/pen/MmPNPG
 
 $webtools-secondary-background-color: var(--wt-secondary-background-color) !default;
 $webtools-tertiary-background-color: var(--wt-tertiary-background-color) !default;
-$webtools-navpurecss-align : right !default; // align the menu on right by default
-$webtools-navpurecss-hamburger-max-width : 600px !default; // max size for the hamburger-rendering
-      // $webtools-navpurecss-hamburger-max-width cannot be a var as var are forbidden in media query
+$webtools-nav-align : right !default; // align the menu on right by default
+$webtools-nav-hamburger-max-width : 600px !default; // max size for the hamburger-rendering
+      // $webtools-nav-hamburger-max-width cannot be a var as var are forbidden in media query
 
-.webtools-navpurecss {
-  /* line, not in the menu */
-  z-index: 3;
-  /* have the menu in front of the image in galerie-photos */
+.webtools-nav {
+  z-index: 3; /* have the menu in front of the image in galerie-photos */
   position: relative;
   width: 100%;
 
@@ -111,7 +108,7 @@ $webtools-navpurecss-hamburger-max-width : 600px !default; // max size for the h
   .hamburger-isopened:checked~.hamburger-div .hamburger-rendering:before { transform: rotate(-45deg); top:0; }
   .hamburger-isopened:checked~.hamburger-div .hamburger-rendering:after  { transform: rotate(45deg);  top:0; }
 
-  @media only screen and (min-width: ($webtools-navpurecss-hamburger-max-width + 1)) {
+  @media only screen and (min-width: ($webtools-nav-hamburger-max-width + 1)) {
     // here, the menu is NOT an hamburger-rendering
     .hamburger-div { display: none; }                   // do not show the hamburger
     .webtools-show-when-hamburger { display: none; }    // part displayed only when the hamburger is on
@@ -119,7 +116,7 @@ $webtools-navpurecss-hamburger-max-width : 600px !default; // max size for the h
 
     .menu {
       clear: none;
-      float: $webtools-navpurecss-align;    // menu on the left or on the right (default)
+      float: $webtools-nav-align;    // menu on the left or on the right (default)
       max-height: none;
     }
 

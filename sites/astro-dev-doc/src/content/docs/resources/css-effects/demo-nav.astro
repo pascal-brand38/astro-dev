@@ -1,0 +1,21 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+// import { Nav } from 'astro-webtools'
+import Nav from './Nav.astro'
+
+---
+
+<Nav class="not-content">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Contact</a></li>
+</Nav>
+
+<style is:global lang="scss">
+  @use './breakpoints.scss';
+  @use './webtools-nav.scss' with (
+    $webtools-nav-hamburger-max-width: breakpoints.$wt-size-s-to,
+  );
+</style>

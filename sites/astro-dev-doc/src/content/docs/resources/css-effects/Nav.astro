@@ -1,0 +1,27 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import './default-variables.scss'
+
+const {
+  class: className = '',
+  style = '',
+  ...props
+} = Astro.props;
+
+---
+
+<nav
+  style={style}
+  class={className + " webtools-nav"}
+  {...props}>
+  <div>
+    <span class="logo webtools-show-when-hamburger">Menu</span>
+    <input class="hamburger-isopened" type="checkbox" id="hamburger-isopened" />
+    <label class="hamburger-div" for="hamburger-isopened"><span class="hamburger-rendering"></span></label>
+    <ul class="menu">
+      <slot/>
+    </ul>
+  </div>
+</div>
