@@ -29,6 +29,7 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'astro-splide', slug: 'packages/astro-splide' },
+						{ label: 'astro-webtools', slug: 'packages/astro-webtools' },
 					],
 				},
 				{
