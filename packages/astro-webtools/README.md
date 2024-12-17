@@ -1,7 +1,9 @@
 # Installation
 
 ```bash
-npm install https://github.com/pascal-brand38/webtools-helper.git
+npm install astro-webtools
 ```
+
+Doc and demos at: https://pascal-brand38.github.io/astro-dev/astro-dev/packages/astro-webtools
 
 <br>
