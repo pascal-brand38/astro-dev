@@ -1,4 +1,4 @@
-import{a as vn}from"./splideExtensionUtils.UayaiJOE.js";/*!
+import{i as vn}from"./splideExtensionUtils.DK1kLC1f.js";/*!
  * @splidejs/splide-extension-auto-scroll
  * Version  : 0.5.3
  * License  : MIT
