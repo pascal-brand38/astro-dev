@@ -1,7 +1,7 @@
 {
   "name": "astro-webtools",
   "version": "0.0.1",
-  "description": "Helpers (scss, js,...) for webtools dedicated Astro framework",
+  "description": "Webtools comopnents dedicated to Astro framework",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
