@@ -22,6 +22,10 @@
 .demo-handwritting {
   font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
 }
+.demo-font-xxl {
+  font-weight: 900;
+  font-size: 3.0rem;
+}
 .demo-font-xl {
   font-weight: 900;
   font-size: 1.6rem;

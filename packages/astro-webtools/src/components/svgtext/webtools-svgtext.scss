@@ -1,0 +1,28 @@
+// Copyright (c) Pascal Brand
+// MIT License
+
+$webtools-svgtext-stroke: var(--wt-svgtext-stroke, blue) !default;
+$webtools-svgtext-fill: var(--wt-svgtext-fill, red) !default;
+
+.webtools-svgtext {
+  svg text {
+    stroke: $webtools-svgtext-stroke;
+    fill: $webtools-svgtext-fill;
+    stroke-width: 1;
+    animation: svgtextAnimate 5s infinite alternate;
+  }
+
+  @keyframes svgtextAnimate {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset: 20%;
+      fill-opacity: 1;
+    }
+
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffstet: -20%;
+      fill-opacity: 0;
+    }
+  }
+}

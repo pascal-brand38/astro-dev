@@ -18,6 +18,8 @@ hero:
 
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 import FullCode from './astro-webtools/FullCode.astro'
+
+import DemoSvgText from './astro-webtools/demo-svgtext.astro'
 import DemoNeon from './astro-webtools/demo-neon.astro'
 import DemoPolaroid from './astro-webtools/demo-polaroid.astro'
 import DemoPostit from './astro-webtools/demo-postit.astro'
@@ -28,6 +30,18 @@ import DemoNav from './astro-webtools/demo-nav.astro'
 ```bash
 npm install astro-webtools
 ```
+
+<CardGrid>
+	<Card title='Svg Text'>
+    Fancy animation on svg text
+
+    <FullCode src="demo-svgtext.astro"/>
+  </Card>
+
+	<Card >
+  <DemoSvgText />
+	</Card>
+</CardGrid>
 
 <CardGrid>
 	<Card title='Neon Effect'>
@@ -95,7 +109,6 @@ npm install astro-webtools
 	<Card title='Coming soon'>
 
   ##### Text effect
-  https://codepen.io/ANAMAFLA/pen/eYJbGpd
   https://codepen.io/EricPorter/pen/JjPmOOb
   https://ianlunn.github.io/Hover/
   https://codepen.io/pbrand/details/JjrBYPQ

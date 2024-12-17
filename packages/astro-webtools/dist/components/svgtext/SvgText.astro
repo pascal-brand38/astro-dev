@@ -1,0 +1,37 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// From https://codepen.io/ANAMAFLA/pen/eYJbGpd
+
+import './webtools-svgtext.scss'
+import { webtools } from '../../index'
+import type { HTMLAttributes } from 'astro/types';
+
+const propsToVars: webtools.PropsToVars = [
+  { var: '--wt-svgtext-stroke',   prop: "stroke"},
+  { var: '--wt-svgtext-fill',     prop: "fill"},
+]
+interface PrivateProps {
+  stroke ?: string,
+  fill ?: string,
+}
+
+interface Props extends HTMLAttributes<"div">, PrivateProps {}
+
+const {
+  class: className = '',
+  style = '',
+  ...props
+} = Astro.props;
+
+---
+
+<div
+  style=`${webtools.createVarStyle(style, props, propsToVars)}`
+  class={className + " webtools-svgtext"}
+  {...props}>
+    <svg width="100%" >
+      <text x="50%" y="50%" text-anchor="middle"> <slot/> </text>
+    </svg>
+</div>
