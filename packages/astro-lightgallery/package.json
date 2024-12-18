@@ -1,0 +1,30 @@
+{
+  "name": "astro-lightgallery",
+  "version": "1.0.0",
+  "description": "Lightgallery astro component",
+  "main": "src/index.ts",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "cp -r src/components dist && concat dist/index.js src/components.d.ts -o dist/index.js && concat dist/index.d.ts src/components.d.ts -o dist/index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pascal-brand38/astro-dev.git"
+  },
+  "keywords": [
+    "withastro",
+    "astro-component",
+    "lightgallery"
+  ],
+  "author": "Pascal Brand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pascal-brand38/astro-dev/issues"
+  },
+  "homepage": "https://github.com/pascal-brand38/astro-dev#readme",
+  "dependencies": {
+    "concat": "^1.0.3",
+    "lightgallery": "^2.8.2"
+  }
+}
