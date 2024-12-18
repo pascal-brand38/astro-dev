@@ -2,9 +2,19 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
+// webtools-nav.scss must be imported in the calling component
+import type { HTMLAttributes } from 'astro/types';
+
+interface PrivateProps {
+  links : { href: string, text: string, }[],
+}
+
+interface Props extends HTMLAttributes<"div">, PrivateProps {}
+
 const {
   class: className = '',
   style = '',
+  links,
   ...props
 } = Astro.props;
 
@@ -19,7 +29,9 @@ const {
     <input class="hamburger-isopened" type="checkbox" id="hamburger-isopened" />
     <label class="hamburger-div" for="hamburger-isopened"><span class="hamburger-rendering"></span></label>
     <ul class="menu">
-      <slot/>
+      {
+        links.map(link => (<li><a href={link.href}>{link.text}</a></li>))
+      }
     </ul>
   </div>
 </div>

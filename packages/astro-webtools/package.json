@@ -1,6 +1,6 @@
 {
   "name": "astro-webtools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Webtools comopnents dedicated to Astro framework",
   "type": "module",
   "scripts": {

@@ -5,13 +5,14 @@
 import { Nav } from 'astro-webtools'
 import './default-variables.scss'
 
+const links = [
+  { href: '#', text: 'Home', },
+  { href: '#', text: 'Link', },
+  { href: '#', text: 'Contact me', },
+]
 ---
 
-<Nav class="not-content">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Link</a></li>
-  <li><a href="#">Contact</a></li>
-</Nav>
+<Nav class="not-content" links={links} />
 
 <style is:global lang="scss">
   @use './breakpoints.scss';
