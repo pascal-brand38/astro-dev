@@ -14,8 +14,17 @@ import { imgUrls } from './imgUrls'
 ---
 
 <Splide
-  options={ { perPage: 2, rewind : true, gap: '1rem', } }
-  aria-labelledby="basic-example-heading"
+options={ {
+  perPage: 2,
+  breakpoints: {
+    640: {
+      perPage: 1,
+    },
+  },
+  rewind: true,
+  gap: '1rem',
+} }
+aria-labelledby="basic-example-heading"
   onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
     console.log('splide:', splide);
     console.log('index:', index);

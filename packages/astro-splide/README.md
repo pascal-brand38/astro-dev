@@ -278,7 +278,11 @@ import { Splide, SplideSlide } from 'astro-splide';
 
 You can see working examples in [this page](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components) and their sources here:
 
-* [Basic](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/BasicExample.astro): 2 splides per page, with console log when sliding
+* [Basic](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/BasicExample.astro):
+  * 2 slides per page on large screen and a single
+	slide on screen smaller than 640px. It makes use of breakpoint options as
+	described in [splidejs documentation](https://splidejs.com/guides/options/#breakpoints),
+  * and log on the console on slide changes.
 * [Autoplay](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/AutoplayExample.astro): play and pause button
 * [Extension](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide/examples/components/ExtensionExample.astro): using [@splidejs/splide-extension-auto-scroll](https://splidejs.com/extensions/auto-scroll) extension
 

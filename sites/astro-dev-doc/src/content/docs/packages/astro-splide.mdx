@@ -34,8 +34,11 @@ Read the full doc on
 ## Examples
 
 <Card title="Basic Example" icon="pencil">
-	Basic splide example: 2 slides per page, and log on the console
-	on slide changes.
+	Basic splide example:
+	* 2 slides per page on large screen and a single
+	slide on screen smaller than 640px. It makes use of breakpoint options as
+	described in [splidejs documentation](https://splidejs.com/guides/options/#breakpoints),
+	* and log on the console on slide changes.
 
 	<BasicExample/>
 
@@ -55,7 +58,16 @@ Read the full doc on
 	import type { Splide as SplideInterface } from '@splidejs/splide'
 	---
   <Splide
-    options={ { perPage: 2, rewind : true, gap: '1rem', } }
+		options={ {
+			perPage: 2,
+			breakpoints: {
+				640: {
+					perPage: 1,
+				},
+			},
+			rewind: true,
+			gap: '1rem',
+		} }
     aria-labelledby="basic-example-heading"
     onMoved={ (splide: SplideInterface, index: number, prev: number, dest: number) => {
       console.log('splide:', splide);
@@ -68,7 +80,6 @@ Read the full doc on
 	```
 	</details>
 </Card>
-
 
 <Card title="Autoplay Example" icon="pencil">
 	Play/Pause button, and options in the frontmatter.
