@@ -18,6 +18,7 @@
     "astro": "^4.16.10",
     "astro-splide": "^1.4.1",
     "astro-webtools": "link:..\\..\\packages\\astro-webtools",
+    "lightgallery": "^2.8.2",
     "sharp": "^0.32.5",
     "typescript": "^5.7.2"
   }

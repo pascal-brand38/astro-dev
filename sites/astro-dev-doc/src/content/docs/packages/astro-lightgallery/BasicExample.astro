@@ -1,0 +1,50 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+// Splide configuration  -  require npm install astro-splide
+
+// Misc import for this demo
+
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-thumbnail.css';
+
+import { imgUrls } from './imgUrls'
+
+---
+
+<div id="animated-thumbnails-gallery">
+  <a data-src={imgUrls[0]}>
+    <img src={imgUrls[0]} />
+</a>
+<a href={imgUrls[1]}>
+  <img src={imgUrls[1]} />
+</a>
+<a href={imgUrls[2]}>
+  <img src={imgUrls[2]} />
+</a>
+</div>
+
+
+<script>
+
+  import lightGallery from 'lightgallery'
+  // import lightGallery from "https://cdn.skypack.dev/lightgallery@2.0.0-beta.4";
+
+  const $id = document.getElementById('animated-thumbnails-gallery')
+  if ($id) {
+    console.log('PASCAL')
+    lightGallery($id, {thumb: true,});
+  }
+</script>
+
+<style is:global>
+.inline-gallery-container {
+    width: 100%;
+
+    // set 60% height
+    height: 0;
+    padding-bottom: 65%;
+}
+
+</style>
