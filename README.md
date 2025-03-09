@@ -36,7 +36,7 @@ Sprite generation (png, webp, avif...) dedicated to Astro framework
 [![NPM Downloads](https://img.shields.io/npm/dm/astro-sprite.svg)](https://npmjs.com/package/astro-sprite)
 [![NPM Type Definitions](https://img.shields.io/npm/types/astro-sprite)](https://npmjs.com/package/astro-sprite)
 [![NPM Last Update](https://img.shields.io/npm/last-update/astro-sprite)](https://npmjs.com/package/astro-sprite)
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-spritee%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
+[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-sprite%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
 
 Check for [Demo](https://pascal-brand38.github.io/astro-dev/packages/astro-sprite/)
 
