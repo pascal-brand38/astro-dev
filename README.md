@@ -16,18 +16,6 @@ pnpm run dev
 
 ## Packages
 
-### [astro-splide](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-splide#readme)
-The Astro component for Splide
-
-[![NPM Version](https://img.shields.io/npm/v/astro-splide.svg)](https://npmjs.com/package/astro-splide)
-[![NPM Downloads](https://img.shields.io/npm/dm/astro-splide.svg)](https://npmjs.com/package/astro-splide)
-[![NPM Type Definitions](https://img.shields.io/npm/types/astro-splide)](https://npmjs.com/package/astro-splide)
-[![NPM Last Update](https://img.shields.io/npm/last-update/astro-splide)](https://npmjs.com/package/astro-splide)
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-splide%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
-
-Check for [Demo](https://pascal-brand38.github.io/astro-dev/packages/astro-splide/)
-
-_______________
 
 ### [astro-sprite](https://github.com/pascal-brand38/astro-dev/tree/main/packages/astro-sprite#readme)
 Sprite generation (png, webp, avif...) dedicated to Astro framework
