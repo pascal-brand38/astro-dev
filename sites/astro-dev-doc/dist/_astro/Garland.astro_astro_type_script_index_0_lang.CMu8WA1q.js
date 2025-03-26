@@ -1,1 +1,0 @@
-let t=0;function s(){function o(a,n){const l=document.getElementById(a);l&&(l.className=`webtools-garland ${n}`)}const e=`webtools-garland_${t}`;o("webtools-garland_bottom",e),o("webtools-garland_top",e),t=(t+1)%4}setInterval(s,600);
