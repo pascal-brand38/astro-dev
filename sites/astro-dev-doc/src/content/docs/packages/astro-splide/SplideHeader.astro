@@ -1,0 +1,74 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+// Splide configuration  -  require npm install astro-splide
+import "@splidejs/splide/css";
+import { Splide, SplideTrack, SplideSlide } from "astro-splide";
+import type { Options } from "@splidejs/splide";
+
+// Misc import for this demo
+import "./style.css";
+
+const options: Options = {
+  type: "loop",
+  //gap: "1rem",
+  autoplay: true,
+  pauseOnHover: false,
+  resetProgress: false,
+};
+---
+
+<div class="flex-container"  style="border: 2px solid blue;">
+<div class="slide-size"  style="border: 1px solid red;">
+Yopla
+</div>
+</div>
+
+<div class="flex-container"  style="border: 2px solid blue;">
+<div class="slide-size"  style="border: 1px solid red;">
+  <Splide
+    class="not-content"
+    options={options}
+    aria-labelledby="autoplay-example-heading"
+    hasTrack={false}
+  >
+    <SplideTrack>
+      <SplideSlide>
+        <div class="flex-container">
+          <div class="slide-size flex-container flex-column">
+            <div>astro-splide</div>
+            <div>
+              astro component to ease creation of sliders and carousels
+            </div>
+            <div>
+              astro component to ease @splidejs/splide integration in astro
+            </div>
+          </div>
+        </div>
+      </SplideSlide>
+    </SplideTrack>
+
+    <div class="splide__progress">
+      <div class="splide__progress__bar"></div>
+    </div>
+  </Splide>
+</div>
+</div>
+
+<style is:inline>
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .slide-size {
+    width: min(512px, 100%);
+    aspect-ratio: 4/3;
+  }
+</style>
