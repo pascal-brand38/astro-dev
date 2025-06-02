@@ -1,22 +1,26 @@
 ---
 title: astro-splide
-description: The Astro component for Splide. Use @splidejs/splide on Astro
+description: The Astro component for Splide. Use @splidejs/splide on Astro.
 template: doc
 hero:
-  tagline: The Astro component for Splide.<br>Use @splidejs/splide on Astro.
+  tagline: The Astro component for Splide.<br>Splide is a slider/carousel written in TypeScript.
   image:
     file: ./astro-splide/astro-splide.png
   actions:
-    - text: Github
+    - text: astro-splide
       link: https://github.com/pascal-brand38/astro-splide/blob/main/README.md
       icon: github
-    - text: Npm
+    - text: astro-splide
       link: https://www.npmjs.com/package/astro-splide
       icon: seti:npm
+    - text: splidejs/splide
+      link: https://splidejs.com/
+      icon: external
 ---
 
 import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
+import SimpleExample from './astro-splide/SimpleExample.astro'
 import BasicExample from './astro-splide/BasicExample.astro'
 import AutoplayExample from './astro-splide/AutoplayExample.astro'
 import ExtensionExample from './astro-splide/ExtensionExample.astro'
@@ -32,6 +36,42 @@ Read the full doc on
 
 
 ## Examples
+
+<Card title="Simple Example" icon="pencil">
+	Simple splide example, which is a slider of 3 images.
+
+	<SimpleExample/>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-splide/SimpleExample.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+	---
+	import "@splidejs/splide/css"
+	import { Splide, SplideSlide } from 'astro-splide';
+	---
+	<Splide
+		class='not-content'
+		options={ {
+			type: 'loop',
+			interval: 1000,
+			autoplay: true,
+			pauseOnHover: false,
+		} }
+	>
+		<SplideSlide>  <img src='https://picsum.photos/1024/512?nb=1' alt=''/>  </SplideSlide>
+		<SplideSlide>  <img src='https://picsum.photos/1024/512?nb=2' alt=''/>  </SplideSlide>
+		<SplideSlide>  <img src='https://picsum.photos/1024/512?nb=3' alt=''/>  </SplideSlide>
+	</Splide>
+	```
+	</details>
+</Card>
 
 <Card title="Basic Example" icon="pencil">
 	Basic splide example:

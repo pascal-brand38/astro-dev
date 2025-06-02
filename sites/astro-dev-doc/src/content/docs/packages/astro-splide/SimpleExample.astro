@@ -1,0 +1,25 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import "@splidejs/splide/css"
+import { Splide, SplideSlide } from 'astro-splide';
+
+---
+
+<!-- not-content is used because this is using astro starlight
+     without it, the 3 dots in the sliders are not aligned -->
+<Splide
+  class='not-content'
+  options={ {  // check for options at https://splidejs.com/guides/options/
+    type: 'loop',         // type of the carousel
+    autoplay: true,       // activate autoplay
+    interval: 1000,       // autoplay interval in milliseconds
+    pauseOnHover: false,  // do not pause autoplay on mouseover
+  } }
+>
+  <SplideSlide>  <img src='https://picsum.photos/1024/512?nb=1' alt=''/>  </SplideSlide>
+  <SplideSlide>  <img src='https://picsum.photos/1024/512?nb=2' alt=''/>  </SplideSlide>
+  <SplideSlide>  <img src='https://picsum.photos/1024/512?nb=3' alt=''/>  </SplideSlide>
+
+</Splide>
