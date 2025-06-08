@@ -7,6 +7,10 @@ import "@splidejs/splide/css";
 import { Splide, SplideTrack, SplideSlide } from "astro-splide";
 import type { Options } from "@splidejs/splide";
 
+import { Image } from 'astro:assets';
+import AstroSplideImage from './astro-splide.png'
+
+
 // Misc import for this demo
 import "./style.css";
 
@@ -19,41 +23,75 @@ const options: Options = {
 };
 ---
 
-<div class="flex-container"  style="border: 2px solid blue;">
-<div class="slide-size"  style="border: 1px solid red;">
-Yopla
-</div>
+
+<div class="flex-container not-content" style="border: 2px solid blue;">
+  <div class="slide-size" style="border: 1px solid red;">
+    <div>
+      <Image style="max-width:100%;" src={AstroSplideImage} alt="">
+    </div>
+    <div>
+      toto
+    </div>
+    <div>
+      titi
+    </div>
+    <div>
+      tata
+    </div>
+  </div>
 </div>
 
-<div class="flex-container"  style="border: 2px solid blue;">
-<div class="slide-size"  style="border: 1px solid red;">
-  <Splide
-    class="not-content"
-    options={options}
-    aria-labelledby="autoplay-example-heading"
-    hasTrack={false}
-  >
-    <SplideTrack>
-      <SplideSlide>
-        <div class="flex-container">
-          <div class="slide-size flex-container flex-column">
-            <div>astro-splide</div>
-            <div>
-              astro component to ease creation of sliders and carousels
-            </div>
-            <div>
-              astro component to ease @splidejs/splide integration in astro
+
+<div class="flex-container not-content" style="border: 2px solid blue;">
+  <div class="slide-size flex-container" style="border: 1px solid red;">
+    Yopla
+  </div>
+</div>
+
+<div class="flex-container not-content" style="border: 2px solid blue;">
+  <div class="slide-size" style="border: 1px solid red;">
+    <Splide
+      class="not-content"
+      options={options}
+      aria-labelledby="autoplay-example-heading"
+      hasTrack={false}
+    >
+      <SplideTrack>
+
+        <SplideSlide>
+          <div class="flex-container">
+            <div class="slide-size flex-container flex-column">
+              <div>astro-splide</div>
+              <div>
+                astro component to ease creation of sliders and carousels
+              </div>
+              <div>
+                astro component to ease @splidejs/splide integration in astro
+              </div>
             </div>
           </div>
-        </div>
-      </SplideSlide>
-    </SplideTrack>
+        </SplideSlide>
 
-    <div class="splide__progress">
-      <div class="splide__progress__bar"></div>
-    </div>
-  </Splide>
-</div>
+        <SplideSlide>
+          <div class="flex-container">
+            <div class="slide-size flex-container flex-column">
+              <div>astro-splide</div>
+              <div>
+                astro component to ease creation of sliders and carousels
+              </div>
+              <div>
+                astro component to ease @splidejs/splide integration in astro
+              </div>
+            </div>
+          </div>
+        </SplideSlide>
+      </SplideTrack>
+
+      <div class="splide__progress">
+        <div class="splide__progress__bar"></div>
+      </div>
+    </Splide>
+  </div>
 </div>
 
 <style is:inline>
@@ -70,5 +108,14 @@ Yopla
   .slide-size {
     width: min(512px, 100%);
     aspect-ratio: 4/3;
+  }
+
+  .grid-2cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .remove-1-col {
+    grid-column: 1/-1;
   }
 </style>
