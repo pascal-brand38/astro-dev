@@ -2,12 +2,11 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import 'swiper/css'
-import 'swiper/css/autoplay'
+import Swiper from './astro-swiper/Swiper.astro'
 ---
 
 <!-- Slider main container -->
-<div class="swiper">
+<Swiper>
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
@@ -25,28 +24,4 @@ import 'swiper/css/autoplay'
 
   <!-- If we need scrollbar -->
   <div class="swiper-scrollbar"></div>
-</div>
-
-
-
-<script>
-  import Swiper from 'swiper'
-  import { Autoplay } from 'swiper/modules'
-  Swiper.use([Autoplay]);
-
-
-  const swiper = new Swiper('.swiper', {
-    a11y: {
-      prevSlideMessage: 'Previous slide',
-      nextSlideMessage: 'Next slide',
-    },
-    autoplay: {
-      delay: 500,
-      disableOnInteraction: false,
-      waitForTransition: false,
-    },
-    speed: 400,
-    spaceBetween: 100,
-    loop: true,
-  });
-</script>
+</Swiper>
