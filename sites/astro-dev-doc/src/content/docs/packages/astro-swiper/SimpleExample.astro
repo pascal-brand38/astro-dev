@@ -1,0 +1,52 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import 'swiper/css'
+import 'swiper/css/autoplay'
+---
+
+<!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=1' alt=''/> </div>
+    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=2' alt=''/> </div>
+    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=3' alt=''/> </div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+
+
+<script>
+  import Swiper from 'swiper'
+  import { Autoplay } from 'swiper/modules'
+  Swiper.use([Autoplay]);
+
+
+  const swiper = new Swiper('.swiper', {
+    a11y: {
+      prevSlideMessage: 'Previous slide',
+      nextSlideMessage: 'Next slide',
+    },
+    autoplay: {
+      delay: 500,
+      disableOnInteraction: false,
+      waitForTransition: false,
+    },
+    speed: 400,
+    spaceBetween: 100,
+    loop: true,
+  });
+</script>
