@@ -12,16 +12,17 @@ const {
   options={}
 } = Astro.props;
 
+const swiperId = 'astro-swiper-' + Math.random().toString(36).slice(2, 11)
+
 ---
 
 <!-- Slider main container -->
-<astro-swiper class="swiper" data-options={JSON.stringify(options)}>
+<astro-swiper class={`swiper ${swiperId}`} data-options={JSON.stringify(options)} data-id={swiperId}>
   <slot/>
 </astro-swiper>
 
 
 <script>
-  // TODO: several swiper in the same page
   // TODO: dynamic Autoplay
   import Swiper from 'swiper'
   import { Autoplay } from 'swiper/modules'
@@ -33,7 +34,8 @@ const {
 
       // Read the message from the data attribute.
       const options = JSON.parse(this.dataset.options || '')
-      const swiper = new Swiper('.swiper', options)
+      const id = this.dataset.id
+      const swiper = new Swiper(`.${id}`, options)
     }
   }
 
