@@ -2,16 +2,12 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import Swiper from './astro-swiper/Swiper.astro'
-import type { AstroSwiperOptionsType } from './astro-swiper/index.d.ts'
+import Swiper from "./astro-swiper/Swiper.astro";
+import type { AstroSwiperOptionsType } from "./astro-swiper/index.d.ts";
 
 // TODO: name of AstroSwiperOptionsType is not really ok
 const astroSwiperOptions: AstroSwiperOptionsType = {
   options: {
-    a11y: {
-      prevSlideMessage: 'Previous slide',
-      nextSlideMessage: 'Next slide',
-    },
     autoplay: {
       delay: 500,
       disableOnInteraction: false,
@@ -20,28 +16,12 @@ const astroSwiperOptions: AstroSwiperOptionsType = {
     speed: 400,
     spaceBetween: 100,
     loop: true,
-  }
-}
-
-const astroSwiperOptions2: AstroSwiperOptionsType = {
-  options: {
-    a11y: {
-      prevSlideMessage: 'Previous slide',
-      nextSlideMessage: 'Next slide',
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-      waitForTransition: false,
-    },
-    speed: 400,
-    spaceBetween: 100,
-    loop: true,
-  }
-}
-
-
-
+  },
+};
 ---
 
 <!-- Slider main container -->
@@ -49,28 +29,15 @@ const astroSwiperOptions2: AstroSwiperOptionsType = {
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=1' alt=''/> </div>
-    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=2' alt=''/> </div>
-    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=3' alt=''/> </div>
-  </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
-
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
-  <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
-</Swiper>
-
-<Swiper options={astroSwiperOptions2.options}>
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-    <!-- Slides -->
-    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=4' alt=''/> </div>
-    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=5' alt=''/> </div>
-    <div class="swiper-slide"> <img src='https://picsum.photos/1024/512?nb=6' alt=''/> </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1024/512?nb=1" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1024/512?nb=2" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://picsum.photos/1024/512?nb=3" alt="" />
+    </div>
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
