@@ -4,12 +4,15 @@
 
 import 'swiper/css/bundle'
 
-import type { AstroSwiperOptionsType } from './index.d.ts'
+import type { AstroSwiperType } from './index'
 
-type Props = AstroSwiperOptionsType
+type Props = AstroSwiperType
+
 
 const {
-  options={}
+  options={},
+  class: className = '',
+  ...props
 } = Astro.props;
 
 const swiperId = 'astro-swiper-' + Math.random().toString(36).slice(2, 11)
@@ -17,8 +20,12 @@ const swiperId = 'astro-swiper-' + Math.random().toString(36).slice(2, 11)
 ---
 
 <!-- Slider main container -->
-<astro-swiper class={`swiper ${swiperId}`} data-options={JSON.stringify(options)} data-id={swiperId}>
-  <slot/>
+<astro-swiper
+  class={`swiper ${swiperId} ${className}`}
+  {...props}
+  data-options={JSON.stringify(options)}
+  data-id={swiperId}>
+    <slot/>
 </astro-swiper>
 
 

@@ -3,10 +3,9 @@
 // MIT License
 
 import Swiper from "./astro-swiper/Swiper.astro";
-import type { AstroSwiperOptionsType } from "./astro-swiper/index.d.ts";
+import type { AstroSwiperType } from "./astro-swiper/index";
 
-// TODO: name of AstroSwiperOptionsType is not really ok
-const astroSwiperOptions: AstroSwiperOptionsType = {
+const astroSwiperOptions: AstroSwiperType = {
   options: {
     autoplay: {
       delay: 500,
@@ -37,6 +36,9 @@ const astroSwiperOptions: AstroSwiperOptionsType = {
     </div>
     <div class="swiper-slide">
       <img src="https://picsum.photos/1024/512?nb=3" alt="" />
+    </div>
+    <div class="swiper-slide">
+      Yopla
     </div>
   </div>
   <!-- If we need pagination -->

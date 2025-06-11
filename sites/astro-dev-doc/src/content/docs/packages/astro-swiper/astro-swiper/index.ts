@@ -3,6 +3,8 @@
 
 import type { SwiperOptions } from 'swiper/types'
 
-export interface AstroSwiperOptionsType {
+import type { HTMLAttributes } from 'astro/types'
+
+export interface AstroSwiperType extends HTMLAttributes<"div"> {
   options?: SwiperOptions,
 }
