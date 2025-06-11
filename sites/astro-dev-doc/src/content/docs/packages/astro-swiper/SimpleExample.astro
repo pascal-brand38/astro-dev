@@ -4,6 +4,11 @@
 
 import Swiper from "./astro-swiper/Swiper.astro";
 import SwiperWrapper from "./astro-swiper/SwiperWrapper.astro";
+import SwiperSlide from "./astro-swiper/SwiperSlide.astro";
+import SwiperButtonPrev from "./astro-swiper/SwiperButtonPrev.astro";
+import SwiperButtonNext from "./astro-swiper/SwiperButtonNext.astro";
+import SwiperPagination from "./astro-swiper/SwiperPagination.astro";
+import SwiperScrollbar from "./astro-swiper/SwiperScrollbar.astro";
 import type { AstroSwiperType } from "./astro-swiper/index";
 
 const astroSwiperOptions: AstroSwiperType = {
@@ -17,38 +22,36 @@ const astroSwiperOptions: AstroSwiperType = {
     spaceBetween: 100,
     loop: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   },
 };
 ---
 
 <!-- Slider main container -->
-<Swiper options={astroSwiperOptions.options}>
+<Swiper options={astroSwiperOptions.options} class="not-content">
   <!-- Additional required wrapper -->
   <SwiperWrapper>
     <!-- Slides -->
-    <div class="swiper-slide">
+    <SwiperSlide>
       <img src="https://picsum.photos/1024/512?nb=1" alt="" />
-    </div>
-    <div class="swiper-slide">
+    </SwiperSlide>
+    <SwiperSlide>
       <img src="https://picsum.photos/1024/512?nb=2" alt="" />
-    </div>
-    <div class="swiper-slide">
+    </SwiperSlide>
+    <SwiperSlide>
       <img src="https://picsum.photos/1024/512?nb=3" alt="" />
-    </div>
-    <div class="swiper-slide">
-      Yopla
-    </div>
+    </SwiperSlide>
   </SwiperWrapper>
+
   <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
+  <SwiperPagination />
 
   <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+  <SwiperButtonPrev />
+  <SwiperButtonNext> </SwiperButtonNext>
 
   <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
+  <SwiperScrollbar/>
 </Swiper>
