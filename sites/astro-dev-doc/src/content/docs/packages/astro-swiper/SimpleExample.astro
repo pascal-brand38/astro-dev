@@ -3,6 +3,7 @@
 // MIT License
 
 import Swiper from "./astro-swiper/Swiper.astro";
+import SwiperWrapper from "./astro-swiper/SwiperWrapper.astro";
 import type { AstroSwiperType } from "./astro-swiper/index";
 
 const astroSwiperOptions: AstroSwiperType = {
@@ -26,7 +27,7 @@ const astroSwiperOptions: AstroSwiperType = {
 <!-- Slider main container -->
 <Swiper options={astroSwiperOptions.options}>
   <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
+  <SwiperWrapper>
     <!-- Slides -->
     <div class="swiper-slide">
       <img src="https://picsum.photos/1024/512?nb=1" alt="" />
@@ -40,7 +41,7 @@ const astroSwiperOptions: AstroSwiperType = {
     <div class="swiper-slide">
       Yopla
     </div>
-  </div>
+  </SwiperWrapper>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
 
