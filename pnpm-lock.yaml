@@ -57,17 +57,14 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0
       astro-swiper:
-        specifier: ^0.0.1
-        version: 0.0.1
+        specifier: ^0.1.0
+        version: 0.1.0
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
-      swiper:
-        specifier: ^11.2.8
-        version: 11.2.8
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
@@ -1368,8 +1365,8 @@ packages:
   astro-splide@1.6.0:
     resolution: {integrity: sha512-zRr4Y6iWZZEk8f1nkyP9OHCHJdZo0TvWyrsDJhw7HGGjuL2qMDQOdDJ9bPRTEP1X7oFQxKx+ie2zCbrW1n/+OQ==}
 
-  astro-swiper@0.0.1:
-    resolution: {integrity: sha512-OJn55hAIOLTrpQpe98WV35gjzP6Czk4cU05Nty6ZATxM8M3fzkbuqRN4nwxaLij2nuq+0uP/z23lDE0ZB6B9DA==}
+  astro-swiper@0.1.0:
+    resolution: {integrity: sha512-r6llrkJrPLyTH1lCJKDRPFSLagtwD4JCyCOxGxGAlSZt5bIFOPDo2MVgkQDZxO6Xl/b7RL9/Fc+qLa2wg4ImLA==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -4590,7 +4587,9 @@ snapshots:
     dependencies:
       '@splidejs/splide': 4.1.4
 
-  astro-swiper@0.0.1: {}
+  astro-swiper@0.1.0:
+    dependencies:
+      swiper: 11.2.8
 
   astro@4.16.10(@types/node@22.9.0)(rollup@4.37.0)(sass@1.82.0)(typescript@5.6.3):
     dependencies:
@@ -6678,7 +6677,7 @@ snapshots:
 
   sass@1.82.0:
     dependencies:
-      chokidar: 4.0.1
+      chokidar: 4.0.3
       immutable: 5.0.3
       source-map-js: 1.2.1
     optionalDependencies:
