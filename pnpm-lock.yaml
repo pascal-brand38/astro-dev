@@ -56,6 +56,9 @@ importers:
       astro-splide:
         specifier: ^1.6.0
         version: 1.6.0
+      astro-swiper:
+        specifier: ^0.0.1
+        version: 0.0.1
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
@@ -1364,6 +1367,9 @@ packages:
 
   astro-splide@1.6.0:
     resolution: {integrity: sha512-zRr4Y6iWZZEk8f1nkyP9OHCHJdZo0TvWyrsDJhw7HGGjuL2qMDQOdDJ9bPRTEP1X7oFQxKx+ie2zCbrW1n/+OQ==}
+
+  astro-swiper@0.0.1:
+    resolution: {integrity: sha512-OJn55hAIOLTrpQpe98WV35gjzP6Czk4cU05Nty6ZATxM8M3fzkbuqRN4nwxaLij2nuq+0uP/z23lDE0ZB6B9DA==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -4583,6 +4589,8 @@ snapshots:
   astro-splide@1.6.0:
     dependencies:
       '@splidejs/splide': 4.1.4
+
+  astro-swiper@0.0.1: {}
 
   astro@4.16.10(@types/node@22.9.0)(rollup@4.37.0)(sass@1.82.0)(typescript@5.6.3):
     dependencies:
