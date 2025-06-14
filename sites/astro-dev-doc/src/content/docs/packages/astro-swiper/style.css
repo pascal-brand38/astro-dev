@@ -1,0 +1,14 @@
+.my-swiper {
+  max-width: 600px;
+  margin: 4rem auto;
+}
+
+.swiper-slide {
+  background: #eee;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

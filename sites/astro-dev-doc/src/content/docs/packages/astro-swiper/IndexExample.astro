@@ -1,0 +1,41 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination, SwiperScrollbar } from "astro-swiper";
+import type { AstroSwiperType } from "astro-swiper";
+
+// Misc import for this demo
+import "./style.css"
+
+const astroSwiperOptions: AstroSwiperType = {
+  options: {
+    autoplay: {
+      delay: 500,
+      disableOnInteraction: false,
+      waitForTransition: false,
+    },
+    speed: 400,
+    spaceBetween: 100,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  },
+};
+---
+
+<!-- Slider main container -->
+ <div class="not-content swiper-container">
+<Swiper options={astroSwiperOptions.options} class="not-content my-swiper">
+  <!-- Additional required wrapper -->
+  <SwiperWrapper>
+    <!-- Slides -->
+    <SwiperSlide>
+      <img src="https://picsum.photos/1024/512?nb=1" alt="" />
+    </SwiperSlide>
+  </SwiperWrapper>
+
+</Swiper>
+</div>

@@ -14,11 +14,40 @@ hero:
 
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 import IndexExample from './packages/astro-splide/IndexExample.astro'
+import SwiperIndexExample from './packages/astro-swiper/IndexExample.astro'
 import { Postit } from 'astro-webtools'
 
 ## Packages
 
 <CardGrid stagger>
+
+	<Card title="Astro Swiper" icon="pencil">
+		Using swiper in astro
+
+		<SwiperIndexExample/>
+
+		<details>
+		<summary>
+		<Icon name="astro" class="inline-icon"/> Code Snippet
+		</summary>
+
+		```jsx
+		---
+		import { Splide, SplideSlide } from 'astro-splide';
+		---
+		<Splide>
+			<SplideSlide> ...  </SplideSlide>
+			<SplideSlide> ...  </SplideSlide>
+			<SplideSlide> ...  </SplideSlide>
+		</Splide>
+		```
+		</details>
+
+		<LinkButton href="packages/astro-splide" icon="external">
+			Go to the doc
+		</LinkButton>
+
+	</Card>
 
 	<Card title="Astro Splide" icon="pencil">
 		Using @splidejs/splide in astro
