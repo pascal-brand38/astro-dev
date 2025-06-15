@@ -33,20 +33,22 @@ import { Postit } from 'astro-webtools'
 
 		```jsx
 		---
-		import { Splide, SplideSlide } from 'astro-splide';
+		import { Swiper, SwiperWrapper, SwiperSlide} from "astro-swiper";
 		---
-		<Splide>
-			<SplideSlide> ...  </SplideSlide>
-			<SplideSlide> ...  </SplideSlide>
-			<SplideSlide> ...  </SplideSlide>
-		</Splide>
+		<Swiper>
+			<SwiperWrapper>
+				<SwiperSlide> ... </SwiperSlide>
+				<SwiperSlide> ... </SwiperSlide>
+				<SwiperSlide> ... </SwiperSlide>
+			</SwiperWrapper>
+		</Swiper>
+
 		```
 		</details>
 
-		<LinkButton href="packages/astro-splide" icon="external">
+		<LinkButton href="packages/astro-swiper" icon="external">
 			Go to the doc
 		</LinkButton>
-
 	</Card>
 
 	<Card title="Astro Splide" icon="pencil">
