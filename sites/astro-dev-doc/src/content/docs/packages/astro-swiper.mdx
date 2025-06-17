@@ -23,6 +23,7 @@ import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 import Center from '../../../components/Center.astro'
 import Autoplay from './astro-swiper/Autoplay.astro'
 import Navigation from './astro-swiper/Navigation.astro'
+import Pagination from './astro-swiper/Pagination.astro'
 
 ## Install
 
@@ -96,7 +97,8 @@ Read the full doc on
 
 	```astro
 	---
-  import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
+  ...
+  import { SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
   import type { AstroSwiperType } from "astro-swiper";
 
   const astroSwiperOptions: AstroSwiperType = {
@@ -119,10 +121,43 @@ Read the full doc on
     <SwiperButtonPrev />
     <SwiperButtonNext />
   </Swiper>
+```
+	</details>
+</Card>
 
-  <style>
-    .swiper-button-next { color: red; }
-  </style>
+
+<Card title="Pagination Example" icon="pencil">
+	Pagination example: slider of 3 images, with autoplay and pagination:
+  3 dots indicates which slide is displayed.
+
+  <Center>
+	  <Pagination/>
+  </Center>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-swiper/Pagination.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+	---
+  ...
+  import { SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
+  ...
+	---
+  <Swiper>
+    <SwiperWrapper>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+    </SwiperWrapper>
+
+    <SwiperPagination />
+  </Swiper>
 ```
 	</details>
 </Card>
