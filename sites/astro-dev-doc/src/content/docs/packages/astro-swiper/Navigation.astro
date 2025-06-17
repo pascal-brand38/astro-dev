@@ -2,18 +2,11 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination, SwiperScrollbar } from "astro-swiper";
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
 import type { AstroSwiperType } from "astro-swiper";
 
 const astroSwiperOptions: AstroSwiperType = {
   options: {
-    autoplay: {
-      delay: 500,
-      disableOnInteraction: false,
-      waitForTransition: false,
-    },
-    speed: 400,
-    spaceBetween: 100,
     loop: true,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -39,13 +32,22 @@ const astroSwiperOptions: AstroSwiperType = {
     </SwiperSlide>
   </SwiperWrapper>
 
-  <!-- If we need pagination -->
-  <SwiperPagination />
-
-  <!-- If we need navigation buttons -->
+  <!-- navigation buttons -->
   <SwiperButtonPrev />
-  <SwiperButtonNext> </SwiperButtonNext>
-
-  <!-- If we need scrollbar -->
-  <SwiperScrollbar/>
+  <SwiperButtonNext />
 </Swiper>
+
+<style>
+  .swiper {
+    max-width: 455px;
+    aspect-ratio: 16/9;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .swiper-button-next {
+    color: red;
+  }
+</style>

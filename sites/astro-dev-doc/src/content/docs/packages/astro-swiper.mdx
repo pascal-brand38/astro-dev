@@ -22,6 +22,19 @@ import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
 import Center from '../../../components/Center.astro'
 import Autoplay from './astro-swiper/Autoplay.astro'
+import Navigation from './astro-swiper/Navigation.astro'
+
+## Install
+
+```bash
+npm install astro-swiper
+```
+
+Read the full doc on
+[Github](https://github.com/pascal-brand38/astro-swiper/blob/main/README.md)
+
+
+## Examples
 
 <Card title="Autoplay Example" icon="pencil">
 	Autoplay example: slider of 3 images, looping.
@@ -53,12 +66,63 @@ import Autoplay from './astro-swiper/Autoplay.astro'
       loop: true,
     }}>
     <SwiperWrapper>
-      <!-- Slides -->
       <SwiperSlide> <img src=... /> </SwiperSlide>
       <SwiperSlide> <img src=... /> </SwiperSlide>
       <SwiperSlide> <img src=... /> </SwiperSlide>
     </SwiperWrapper>
   </Swiper>
 	```
+	</details>
+</Card>
+
+
+
+<Card title="Navigation Example" icon="pencil">
+	Navigation example: slider of 3 images, with arrow or swiping to navigate
+  from a slide to another one.
+
+  <Center>
+	  <Navigation/>
+  </Center>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-swiper/Navigation.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+	---
+  import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
+  import type { AstroSwiperType } from "astro-swiper";
+
+  const astroSwiperOptions: AstroSwiperType = {
+    options: {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    },
+  };
+	---
+  <Swiper>
+    <SwiperWrapper>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+    </SwiperWrapper>
+
+    <SwiperButtonPrev />
+    <SwiperButtonNext />
+  </Swiper>
+
+  <style>
+    .swiper-button-next { color: red; }
+  </style>
+```
 	</details>
 </Card>
