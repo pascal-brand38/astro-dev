@@ -35,15 +35,17 @@ npm install astro-swiper
 Read the full doc on
 [Github](https://github.com/pascal-brand38/astro-swiper/blob/main/README.md)
 
+Swiper options documentation can be found on [swiperjs.com](https://swiperjs.com/swiper-api#parameters)
+
 
 ## Examples
 
 <Card title="Autoplay Example" icon="pencil">
 	Autoplay example: slider of 3 images, looping.
 
-  <Center>
+  <div class="not-content">
 	  <Autoplay/>
-  </Center>
+  </div>
 
 	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-swiper/Autoplay.astro" icon="external">
 		Full code
@@ -83,9 +85,9 @@ Read the full doc on
 	Navigation example: slider of 3 images, with arrow or swiping to navigate
   from a slide to another one.
 
-  <Center>
+  <div class="not-content">
 	  <Navigation/>
-  </Center>
+  </div>
 
 	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-swiper/Navigation.astro" icon="external">
 		Full code
@@ -131,9 +133,9 @@ Read the full doc on
 	Pagination example: slider of 3 images, with autoplay and pagination:
   3 dots indicates which slide is displayed.
 
-  <Center>
+  <div class="not-content">
 	  <Pagination/>
-  </Center>
+  </div>
 
 	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-swiper/Pagination.astro" icon="external">
 		Full code
@@ -165,7 +167,15 @@ Read the full doc on
 
 
 <Card title="Thumbnail Example" icon="pencil">
-	Thumbnail example: TODOO.
+	Thumbnail example: a slider, with thumbnails at the bottom to
+  see the progress.
+
+  The code is made of:
+  * 2 slides: 1 for the main slide, and one for the thumbnail
+  * each slide have a ```uniqueClass``` defined
+  * the main slider refers to the thumbnail one using ```linkToThumbUniqueClass``` being the
+    ```uniqueClass``` of the thumbnail slide
+  * the thumbnail slider has an option to set the number of thumbs to show
 
   <div class="not-content">
     <Thumbnail/>
@@ -181,20 +191,34 @@ Read the full doc on
 	</summary>
 
 	```astro
-	---
-  ...
-  TODO
-  import { SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
-  ...
-	---
-  <Swiper>
-    <SwiperWrapper>
-      <SwiperSlide> <img src=... /> </SwiperSlide>
-      <SwiperSlide> <img src=... /> </SwiperSlide>
-      <SwiperSlide> <img src=... /> </SwiperSlide>
-    </SwiperWrapper>
+  ---
+  import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+  ---
 
-    <SwiperPagination />
+  <Swiper
+    uniqueClass="myswiper-main"
+    linkToThumbUniqueClass="myswiper-thumbnail"
+    options={{ ... }}>
+    <SwiperWrapper>
+      <SwiperSlide> ... </SwiperSlide>
+      <SwiperSlide> ... </SwiperSlide>
+      ...
+    </SwiperWrapper>
+  </Swiper>
+
+  <Swiper
+    uniqueClass="myswiper-thumbnail"
+    options={{
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+      ...
+    }}>
+    <SwiperWrapper>
+      <SwiperSlide> ... </SwiperSlide>
+      <SwiperSlide> ... </SwiperSlide>
+      ...
+    </SwiperWrapper>
   </Swiper>
 ```
 	</details>
