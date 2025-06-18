@@ -1,0 +1,102 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
+
+const images = [
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+  `https://picsum.photos/455/256?nb=${Math.random().toString(36).slice(2, 11)}`,
+]
+---
+
+<Swiper
+  uniqueClass="myswiper-main"
+  thumbOf="myswiper-thumbnail"
+  options={{    // check options at https://swiperjs.com/swiper-api
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+    autoplay: {
+      delay: 700,
+      disableOnInteraction: false,
+      waitForTransition: false,
+    },
+  }}>
+  <SwiperWrapper>
+    {
+      images.map(image => (
+        <SwiperSlide>
+          <img src={image} alt="" />
+        </SwiperSlide>
+      ))
+    }
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+</Swiper>
+
+
+<Swiper
+  uniqueClass="myswiper-thumbnail"
+  options={{    // check options at https://swiperjs.com/swiper-api
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    loop: true,
+  }}>
+  <SwiperWrapper>
+    {
+      images.map(image => (
+        <SwiperSlide>
+          <img src={image} alt="" />
+        </SwiperSlide>
+      ))
+    }
+  </SwiperWrapper>
+</Swiper>
+
+<script>
+  import { useSwiper, useOptions } from 'astro-swiper'
+  import Swiper from 'swiper/bundle'
+  import type {  SwiperOptions } from 'swiper/types'
+
+  const mainClass = 'myswiper-main'
+  const thumbClass = 'myswiper-thumbnail'
+  const options: SwiperOptions = useOptions[mainClass]
+  options.thumbs = { swiper: useSwiper[thumbClass], ...options.thumbs }
+  const swiper = new Swiper(`.${mainClass}`, options)
+  useSwiper[mainClass] = swiper
+  useOptions[mainClass] = options
+  console.log('link script')
+</script>
+
+<style>
+  .swiper {
+    max-width: 455px;
+    aspect-ratio: 16/9;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .myswiper-thumbnail .swiper-slide {
+    width: 25%;
+    opacity: 0.4;
+  }
+
+  .myswiper-thumbnail .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+</style>

@@ -24,6 +24,7 @@ import Center from '../../../components/Center.astro'
 import Autoplay from './astro-swiper/Autoplay.astro'
 import Navigation from './astro-swiper/Navigation.astro'
 import Pagination from './astro-swiper/Pagination.astro'
+import Thumbnail from './astro-swiper/Thumbnail.astro'
 
 ## Install
 
@@ -146,6 +147,41 @@ Read the full doc on
 	```astro
 	---
   ...
+  import { SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
+  ...
+	---
+  <Swiper>
+    <SwiperWrapper>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+      <SwiperSlide> <img src=... /> </SwiperSlide>
+    </SwiperWrapper>
+
+    <SwiperPagination />
+  </Swiper>
+```
+	</details>
+</Card>
+
+
+<Card title="Thumbnail Example" icon="pencil">
+	Thumbnail example: TODOO.
+
+	  <Thumbnail/>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/sites/astro-dev-doc/src/content/docs/packages/astro-swiper/Thumbnail.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+	---
+  ...
+  TODO
   import { SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
   ...
 	---
