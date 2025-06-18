@@ -17,7 +17,7 @@ const images = [
 
 <Swiper
   uniqueClass="myswiper-main"
-  thumbOf="myswiper-thumbnail"
+  linkToThumbUniqueClass="myswiper-thumbnail"
   options={{    // check options at https://swiperjs.com/swiper-api
     navigation: {
       nextEl: ".swiper-button-next",
@@ -65,33 +65,28 @@ const images = [
   </SwiperWrapper>
 </Swiper>
 
-<script>
-  import { useSwiper, useOptions } from 'astro-swiper'
-  import Swiper from 'swiper/bundle'
-  import type {  SwiperOptions } from 'swiper/types'
-
-  const mainClass = 'myswiper-main'
-  const thumbClass = 'myswiper-thumbnail'
-  const options: SwiperOptions = useOptions[mainClass]
-  options.thumbs = { swiper: useSwiper[thumbClass], ...options.thumbs }
-  const swiper = new Swiper(`.${mainClass}`, options)
-  useSwiper[mainClass] = swiper
-  useOptions[mainClass] = options
-  console.log('link script')
-</script>
-
 <style>
   .swiper {
     max-width: 455px;
-    aspect-ratio: 16/9;
   }
 
   img {
     width: 100%;
   }
 
+  .myswiper-thumbnail {
+    height: 25%;
+  }
+
+  .myswiper-thumbnail .swiper-wrapper {
+    box-sizing: border-box;
+    padding: 10px 0;
+    height: 100%;
+  }
+
   .myswiper-thumbnail .swiper-slide {
     width: 25%;
+    height: 100%;
     opacity: 0.4;
   }
 
