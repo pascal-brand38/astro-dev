@@ -57,8 +57,8 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0
       astro-swiper:
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^1.0.0
+        version: 1.0.0
       astro-webtools:
         specifier: link:..\..\packages\astro-webtools
         version: link:../../packages/astro-webtools
@@ -1365,8 +1365,8 @@ packages:
   astro-splide@1.6.0:
     resolution: {integrity: sha512-zRr4Y6iWZZEk8f1nkyP9OHCHJdZo0TvWyrsDJhw7HGGjuL2qMDQOdDJ9bPRTEP1X7oFQxKx+ie2zCbrW1n/+OQ==}
 
-  astro-swiper@0.3.0:
-    resolution: {integrity: sha512-ko0YHqSCitv3BIq66gOtPbdSoIFliZppzNfZ2hdVSL1NlgGA14PMACmkWF6Wij20pSSXAz2t0r8vkdtA2mG/8Q==}
+  astro-swiper@1.0.0:
+    resolution: {integrity: sha512-JYBYCxzWlyL/NFAWs1g7M4XL45iUKkvQZyKJRbaoGezK7H3gnPhQ8QOTOEftjn7eptMPH6O0BJgyiOfGpOcrWw==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -4587,7 +4587,7 @@ snapshots:
     dependencies:
       '@splidejs/splide': 4.1.4
 
-  astro-swiper@0.3.0:
+  astro-swiper@1.0.0:
     dependencies:
       swiper: 11.2.8
 
