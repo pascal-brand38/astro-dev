@@ -24,8 +24,7 @@ pnpm run dev
 [![NPM Type Definitions](https://img.shields.io/npm/types/astro-swiper)](https://npmjs.com/package/astro-swiper)
 [![NPM Last Update](https://img.shields.io/npm/last-update/astro-swiper)](https://npmjs.com/package/astro-swiper)
 
-![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-swiper)
-![GitHub License](https://img.shields.io/github/license/pascal-brand38/astro-swiper)
+[![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-swiper)](https://github.com/pascal-brand38/astro-swiper)
 
 [![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-swiper%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
 _______________
@@ -37,8 +36,7 @@ _______________
 [![NPM Type Definitions](https://img.shields.io/npm/types/astro-splide)](https://npmjs.com/package/astro-splide)
 [![NPM Last Update](https://img.shields.io/npm/last-update/astro-splide)](https://npmjs.com/package/astro-splide)
 
-![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-splide)
-![GitHub License](https://img.shields.io/github/license/pascal-brand38/astro-splide)
+[![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-splide)](https://github.com/pascal-brand38/astro-splide)
 
 [![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-splide%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
 
