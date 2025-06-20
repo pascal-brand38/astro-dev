@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -13,12 +12,11 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/starlight": "^0.32.5",
-    "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "astro": "^5.5.5",
     "astro-splide": "^1.6.0",
     "astro-swiper": "^1.0.0",
-    "astro-webtools": "link:..\\..\\packages\\astro-webtools",
+    "astro-webtools": "^0.0.2",
     "sharp": "^0.33.5",
     "typescript": "^5.8.2"
   }
