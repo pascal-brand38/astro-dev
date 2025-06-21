@@ -15,7 +15,7 @@ hero:
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 import IndexExample from './packages/astro-splide/IndexExample.astro'
 import SwiperIndexExample from './packages/astro-swiper/IndexExample.astro'
-// import { Postit } from 'astro-webtools'
+import { Postit } from 'astro-webtools'
 
 ## Packages
 
@@ -84,33 +84,30 @@ import SwiperIndexExample from './packages/astro-swiper/IndexExample.astro'
 	</Card>
 
 	<Card title="Astro Webtools" icon="pencil">
-		Work-in-progress
+		<div class="not-content demo-2cols demo-handwritting demo-font-l">
+			<div class="demo-col">
+				<Postit
+					style="color: red;"
+					text='Astro Components'
+					rotate='10deg'
+					up='10px'
+					width='80%'
+				/>
+			</div>
 
-	{/* <div class="not-content demo-2cols demo-handwritting demo-font-l">
-  <div class="demo-col">
-    <Postit
-      style="color: red;"
-      text='Astro Components'
-      rotate='10deg'
-      up='10px'
-      width='80%'
-    />
-  </div>
-
-<a href="packages/astro-webtools" style="text-decoration: none;">
-  <div class="demo-col">
-    <Postit
-      style="color: blue;"
-      text="Go to the doc!"
-      rotate='-10deg'
-      up='-7px'
-      width='80%'
-      color="lightcyan"
-    />
-  </div>
-	</a>
-</div> */}
-
+			<a href="packages/astro-webtools" style="text-decoration: none;">
+				<div class="demo-col">
+					<Postit
+						style="color: blue;"
+						text="Go to the doc!"
+						rotate='-10deg'
+						up='-7px'
+						width='80%'
+						color="lightcyan"
+					/>
+				</div>
+			</a>
+		</div>
 	</Card>
 
 	<Card title="Resources" icon="external">
