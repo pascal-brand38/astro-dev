@@ -4,6 +4,20 @@ Doc of development on [Astro](https://astro.build).
 
 
 
+## [astro-lightgallery](https://pascal-brand38.github.io/astro-dev/packages/astro-lightgallery/)
+
+[![NPM Version](https://img.shields.io/npm/v/astro-lightgallery.svg)](https://npmjs.com/package/astro-lightgallery)
+[![NPM Downloads](https://img.shields.io/npm/dm/astro-lightgallery.svg)](https://npmjs.com/package/astro-lightgallery)
+[![NPM Type Definitions](https://img.shields.io/npm/types/astro-lightgallery)](https://npmjs.com/package/astro-lightgallery)
+[![NPM Last Update](https://img.shields.io/npm/last-update/astro-lightgallery)](https://npmjs.com/package/astro-lightgallery)
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-lightgallery)](https://github.com/pascal-brand38/astro-lightgallery)
+
+[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-lightgallery%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
+
+
+<br>
+
 ## [astro-swiper](https://pascal-brand38.github.io/astro-dev/packages/astro-swiper/)
 
 [![NPM Version](https://img.shields.io/npm/v/astro-swiper.svg)](https://npmjs.com/package/astro-swiper)

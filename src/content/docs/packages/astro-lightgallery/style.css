@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Pascal Brand
+ * MIT License
+ */
+
+ /* TODO: document how it is used */
+
+.mygallery-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.mygallery-one-img {
+  margin: 5px;
+  height: 100px;
+  border: 1px solid black;
+  min-width: 0; /* Don't use more space than available */
+}
+
+.mygallery-one-img img {
+  height: 100%;
+}

@@ -1,0 +1,24 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { LightGallery } from 'astro-lightgallery'
+import {imgs} from './imgs'
+import './style.css'
+
+---
+
+<LightGallery
+  class="mygallery-container"
+  options={{
+    speed: 500,
+    thumbnail: true,
+    }} >
+  {
+    imgs.map(img => (
+      <a class="mygallery-one-img" href={img.srcFull}>
+          <img src={img.srcFull} />
+      </a>
+    ))
+  }
+</LightGallery>
