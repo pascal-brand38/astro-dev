@@ -6,6 +6,8 @@ import { LightGallery } from 'astro-lightgallery'
 import {imgs} from './imgs'
 import './style.css'
 
+const reducedImgs = imgs.slice(0, 6)
+
 ---
 
 <LightGallery
@@ -14,7 +16,7 @@ import './style.css'
     thumbnail: true,
     }} >
   {
-    imgs.map(img => (
+    reducedImgs.map(img => (
       <a class="mygallery-one-img" href={img.srcFull}>
           <img src={img.srcFull} />
       </a>

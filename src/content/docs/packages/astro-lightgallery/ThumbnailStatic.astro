@@ -11,8 +11,12 @@ import './style.css'
 <LightGallery
   class="mygallery-container"
   options={{
-    thumbnail: true,
-    }} >
+    animateThumb: false,
+    zoomFromOrigin: false,
+    allowMediaOverlap: true,
+    toggleThumb: true,
+    }}
+  >
   {
     imgs.map(img => (
       <a class="mygallery-one-img" href={img.srcFull}>

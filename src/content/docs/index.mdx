@@ -15,11 +15,50 @@ hero:
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 import IndexExample from './packages/astro-splide/IndexExample.astro'
 import SwiperIndexExample from './packages/astro-swiper/IndexExample.astro'
+import LightGalleryIndexExample from './packages/astro-lightgallery/LightGalleryIndexExample.astro'
 import { Postit } from 'astro-webtools'
 
 ## Packages
 
 <CardGrid stagger>
+
+	<Card title="Astro LightGallery" icon="pencil">
+		Using lightgallery in astro
+
+		<LightGalleryIndexExample/>
+
+		<details>
+		<summary>
+		<Icon name="astro" class="inline-icon"/> Code Snippet
+		</summary>
+
+		```jsx
+		---
+		import { LightGallery } from 'astro-lightgallery'
+		---
+		<LightGallery
+			class="..."
+			options={{
+				thumbnail: true,
+				...
+				}} >
+			{
+					<a class="mygallery-one-img" href="img1.jpg">
+							<img src="img1.jpg" />
+					</a>
+					<a class="mygallery-one-img" href="img2.jpg">
+							<img src="img2.jpg" />
+					</a>
+					...
+			}
+		</LightGallery>
+		```
+		</details>
+
+		<LinkButton href="packages/astro-lightgallery" icon="external">
+			Go to the doc
+		</LinkButton>
+	</Card>
 
 	<Card title="Astro Swiper" icon="pencil">
 		Using swiper in astro
@@ -42,7 +81,6 @@ import { Postit } from 'astro-webtools'
 				<SwiperSlide> ... </SwiperSlide>
 			</SwiperWrapper>
 		</Swiper>
-
 		```
 		</details>
 

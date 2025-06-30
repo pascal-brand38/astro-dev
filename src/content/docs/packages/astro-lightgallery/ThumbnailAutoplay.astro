@@ -12,7 +12,11 @@ import './style.css'
   class="mygallery-container"
   options={{
     thumbnail: true,
-    }} >
+    autoplay: true,
+    slideShowInterval: 500,
+    }}
+  addPlugins={[ 'zoom' ]}
+  >
   {
     imgs.map(img => (
       <a class="mygallery-one-img" href={img.srcFull}>

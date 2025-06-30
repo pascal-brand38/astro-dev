@@ -1,9 +1,13 @@
 ---
 title: astro-lightgallery
-description: TODO - The Astro component for lightgallery.
+description: The Astro component for lightgallery,
+              JavaScript gallery for building beautiful image and video galleries
+              for the web and the mobile
 template: doc
 hero:
-  tagline: TODO - The Astro component for lightgallery.<br>TODO.
+  tagline: The Astro component for lightgallery,
+              JavaScript gallery for building beautiful image and video galleries
+              for the web and the mobile
   image:
     file: ./astro-lightgallery/astro-lightgallery.png
   actions:
@@ -21,7 +25,9 @@ hero:
 import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
 import Center from '../../../components/Center.astro'
-import Thumbnail from './astro-lightgallery/ThumbnailAnimated.astro'
+import ThumbnailAnimated from './astro-lightgallery/ThumbnailAnimated.astro'
+import ThumbnailAutoplay from './astro-lightgallery/ThumbnailAutoplay.astro'
+// import ThumbnailStatic from './astro-lightgallery/ThumbnailStatic.astro'
 
 ## Install
 
@@ -35,14 +41,25 @@ Read the full doc on
 LightGallery documentation can be found on [lightgalleryjs.com](https://www.lightgalleryjs.com/)
 
 
+## License
+Astro-lightGallery is released under the MIT license.
+
+Astro-lightGallery is using [lightGallery](https://github.com/sachinchoolur/lightGallery).
+lightGallery is a **free and open-source library**, however,
+if you are using the library for business, commercial sites, projects,
+and applications, choose the **commercial license** to keep your source proprietary, to yourself.
+Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/license/)
+
+
 ## Examples
 
 
 <Card title="Animated Thumbnail" icon="pencil">
-	TODO.
+	Gallery, when selecting an image, show it zoomed,
+  with a thumbnail belox it.
 
   <div class="not-content">
-    <Thumbnail/>
+    <ThumbnailAnimated/>
   </div>
 
 	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-lightgallery/ThumbnailAnimated.astro" icon="external">
@@ -56,9 +73,65 @@ LightGallery documentation can be found on [lightgalleryjs.com](https://www.ligh
 
 	```astro
   ---
-  TODO
+  import { LightGallery } from 'astro-lightgallery'
   ---
-```
+  <LightGallery
+    class="mygallery-container"
+    options={{
+      thumbnail: true,
+      }} >
+    {
+      imgs.map(img => (
+        <a class="mygallery-one-img" href={img.srcFull}>
+            <img src={img.srcThumb} />
+        </a>
+      ))
+    }
+  </LightGallery>
+  ```
 	</details>
 </Card>
-li
+
+
+<Card title="Autoplay, Zoom and Thumbnail" icon="pencil">
+	A tumbnailed gallery, with a button to zoom, and another one
+  to autoplay the gallery when a picture is selected.
+
+  <div class="not-content">
+    <ThumbnailAutoplay/>
+  </div>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-lightgallery/ThumbnailAutoplay.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+  ---
+  import { LightGallery } from 'astro-lightgallery'
+  ---
+
+  <LightGallery
+    class="..."
+    options={{
+      thumbnail: true,
+      autoplay: true,
+      slideShowInterval: 500,
+      }}
+    addPlugins={[ 'zoom' ]}
+    >
+    {
+      imgs.map(img => (
+        <a class="..." href={img.srcFull}>
+            <img src={img.srcFull} />
+        </a>
+      ))
+    }
+  </LightGallery>
+  ```
+	</details>
+</Card>
