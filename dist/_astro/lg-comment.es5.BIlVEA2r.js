@@ -1,0 +1,19 @@
+/*!
+ * lightgallery | 2.9.0-beta.1 | June 15th 2025
+ * http://www.lightgalleryjs.com/
+ * Copyright (c) 2020 Sachin Neravath;
+ * @license GPLv3
+ *//*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */var m=function(){return m=Object.assign||function(t){for(var e,i=1,s=arguments.length;i<s;i++){e=arguments[i];for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&(t[o]=e[o])}return t},m.apply(this,arguments)},r={beforeSlide:"lgBeforeSlide",afterSlide:"lgAfterSlide"},c={commentBox:!1,fbComments:!1,disqusComments:!1,disqusConfig:{title:void 0,language:"en"},commentsMarkup:'<div id="lg-comment-box" class="lg-comment-box lg-fb-comment-box"><div class="lg-comment-header"><h3 class="lg-comment-title">Leave a comment.</h3><span class="lg-comment-close lg-icon"></span></div><div class="lg-comment-body"></div></div>',commentPluginStrings:{toggleComments:"Toggle Comments"}},a=function(){function n(t,e){return this.core=t,this.$LG=e,this.settings=m(m({},c),this.core.settings),this}return n.prototype.init=function(){this.settings.commentBox&&(this.setMarkup(),this.toggleCommentBox(),this.settings.fbComments?this.addFbComments():this.settings.disqusComments&&this.addDisqusComments())},n.prototype.setMarkup=function(){this.core.outer.append(this.settings.commentsMarkup+'<div class="lg-comment-overlay"></div>');var t='<button type="button" aria-label="'+this.settings.commentPluginStrings.toggleComments+'" class="lg-comment-toggle lg-icon"></button>';this.core.$toolbar.append(t)},n.prototype.toggleCommentBox=function(){var t=this;this.core.outer.find(".lg-comment-toggle").first().on("click.lg.comment",function(){t.core.outer.toggleClass("lg-comment-active")}),this.core.outer.find(".lg-comment-overlay").first().on("click.lg.comment",function(){t.core.outer.removeClass("lg-comment-active")}),this.core.outer.find(".lg-comment-close").first().on("click.lg.comment",function(){t.core.outer.removeClass("lg-comment-active")})},n.prototype.addFbComments=function(){var t=this,e=this;this.core.LGel.on(r.beforeSlide+".comment",function(i){var s=t.core.galleryItems[i.detail.index].fbHtml;t.core.outer.find(".lg-comment-body").html(s)}),this.core.LGel.on(r.afterSlide+".comment",function(){try{FB.XFBML.parse()}catch{e.$LG(window).on("fbAsyncInit",function(){FB.XFBML.parse()})}})},n.prototype.addDisqusComments=function(){var t=this,e=this.$LG("#disqus_thread");e.remove(),this.core.outer.find(".lg-comment-body").append('<div id="disqus_thread"></div>'),this.core.LGel.on(r.beforeSlide+".comment",function(){e.html("")}),this.core.LGel.on(r.afterSlide+".comment",function(i){var s=i.detail.index,o=t;setTimeout(function(){try{DISQUS.reset({reload:!0,config:function(){this.page.identifier=o.core.galleryItems[s].disqusIdentifier,this.page.url=o.core.galleryItems[s].disqusURL,this.page.title=o.settings.disqusConfig.title,this.language=o.settings.disqusConfig.language}})}catch{console.error("Make sure you have included disqus JavaScript code in your document. Ex - https://lg-disqus.disqus.com/admin/install/platforms/universalcode/")}},o.core.lGalleryOn?0:1e3)})},n.prototype.destroy=function(){this.core.LGel.off(".lg.comment"),this.core.LGel.off(".comment")},n}();export{a as default};
