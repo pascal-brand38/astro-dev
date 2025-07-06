@@ -9,15 +9,72 @@ import './style.css'
 ---
 
 <LightGallery
-  class="mygallery-container"
+  class="astro-lightgallery-adaptive"
   options={{
     thumbnail: true,
     }} >
   {
     imgs.map(img => (
-      <a class="mygallery-one-img" href={img.srcFull}>
+      <a href={img.srcFull}>
           <img src={img.srcFull} />
       </a>
     ))
   }
 </LightGallery>
+
+<style>
+.astro-lightgallery-adaptive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.astro-lightgallery-adaptive a {
+  height: 40vh;
+  flex-grow: 1;
+}
+
+.astro-lightgallery-adaptive a:last-child {
+  /* There's no science in using "10" here. In all my testing, this delivered the best results. */
+  flex-grow: 10;
+}
+
+.astro-lightgallery-adaptive a img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .astro-lightgallery-adaptive a {
+    height: 30vh;
+  }
+}
+
+/* Short screens */
+
+@media (max-height: 480px) {
+  .astro-lightgallery-adaptive a {
+    height: 80vh;
+  }
+}
+
+/* Smaller screens in portrait */
+
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .astro-lightgallery-adaptive {
+    flex-direction: row;
+  }
+
+  .astro-lightgallery-adaptive a {
+    height: auto;
+    width: 100%;
+  }
+  .astro-lightgallery-adaptive a img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}
+</style>
