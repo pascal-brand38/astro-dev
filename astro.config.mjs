@@ -7,8 +7,9 @@ const googleAnalyticsId = 'G-4Z4PN6KMH7'
 // https://astro.build/config
 export default defineConfig({
 	// used to deploy on github pages gh-pages
+	// cf. https://docs.astro.build/en/guides/deploy/github/
 	site: 'https://pascal-brand38.github.io',
-  base: 'astro-dev',
+  base: '/astro-dev',
 
 	integrations: [
 		starlight({
