@@ -27,7 +27,7 @@ import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 import Center from '../../../components/Center.astro'
 import MinimalThumbnailAnimated from './astro-lightgallery/MinimalThumbnailAnimated.astro'
 import ThumbnailAutoplay from './astro-lightgallery/ThumbnailAutoplay.astro'
-// import ThumbnailStatic from './astro-lightgallery/ThumbnailStatic.astro'
+import ThumbnailStatic from './astro-lightgallery/ThumbnailStatic.astro'
 
 ## Install
 
@@ -88,6 +88,31 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
       thumbnail: true,
     }}
   />
+  ```
+	</details>
+</Card>
+
+
+<Card title="Enhanced Static Thumbnail" icon="pencil">
+  TODO  Minimal setup, with the default layout of the gallery, which is adaptive.
+	When selecting an image, it is showed zoomed,
+  with a thumbnail below it.
+
+  <div class="not-content">
+    <ThumbnailStatic/>
+  </div>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-lightgallery/ThumbnailStatic.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+  TODO
   ```
 	</details>
 </Card>

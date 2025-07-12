@@ -3,25 +3,57 @@
 // MIT License
 
 import { LightGallery } from 'astro-lightgallery'
-import {imgs} from './imgs'
-import './style.css'
+import type { LightGallerySettings } from 'lightgallery/lg-settings';
+import type { AstroLightGalleryLayoutType } from 'astro-lightgallery';
 
+const options: LightGallerySettings = {
+  animateThumb: false,
+  zoomFromOrigin: false,
+  allowMediaOverlap: true,
+  toggleThumb: true,
+}
+
+const layout: AstroLightGalleryLayoutType = {
+    imgs: [
+      { src: "/astro-dev/images/astro-lightgallery/img01.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img02.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img03.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img04.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img05.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img06.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img07.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img08.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img09.jpg", },
+    ],
+    adaptive: {
+      zoom: 50,   // 50% zoom on the main gallery with all images
+                  // this makes it smaller than the default size
+    },
+    classContainer: 'my-container-thumbnail-static',
+    classItem: 'my-item-thumbnail-static',
+}
 ---
 
 <LightGallery
-  class="mygallery-container"
-  options={{
-    animateThumb: false,
-    zoomFromOrigin: false,
-    allowMediaOverlap: true,
-    toggleThumb: true,
-    }}
-  >
-  {
-    imgs.map(img => (
-      <a class="mygallery-one-img" href={img.srcFull}>
-          <img src={img.srcFull} />
-      </a>
-    ))
+  options={options}
+  layout={layout}
+/>
+
+<style is:global>
+  .my-container-thumbnail-static {
+    background-color: lightgrey;
   }
-</LightGallery>
+
+  .my-item-thumbnail-static {
+    border: 1px solid black;
+    opacity: 80%;
+  }
+
+  .my-item-thumbnail-static:hover {
+    opacity: 100%;
+  }
+
+  .my-item-thumbnail-static img {
+    /* nothing to add */
+  }
+</style>
