@@ -1,13 +1,18 @@
 ---
 title: astro-lightgallery
-description: The Astro component for lightgallery,
+description:  The Astro component for lightgallery,
               JavaScript gallery for building beautiful image and video galleries
-              for the web and the mobile
+              for the web and the mobile.
+              It provides some layouts to ease integration of lightgallery,
+              written in css only.
+
 template: doc
 hero:
-  tagline: The Astro component for lightgallery,
-              JavaScript gallery for building beautiful image and video galleries
-              for the web and the mobile
+  tagline:  The Astro component for lightgallery,
+            JavaScript gallery for building beautiful image and video galleries
+            for the web and the mobile.<br>
+            It <strong>provides some layouts</strong> to ease integration of lightgallery,
+            written in css only.
   image:
     file: ./astro-lightgallery/astro-lightgallery.png
   actions:
@@ -24,7 +29,6 @@ hero:
 
 import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
-import Center from '../../../components/Center.astro'
 import MinimalThumbnailAnimated from './astro-lightgallery/MinimalThumbnailAnimated.astro'
 import ThumbnailAutoplay from './astro-lightgallery/ThumbnailAutoplay.astro'
 import ThumbnailStatic from './astro-lightgallery/ThumbnailStatic.astro'
@@ -59,6 +63,12 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
 	When selecting an image, it is showed zoomed,
   with a thumbnail below it.
 
+  <strong>Note that the gallery is displayed in a single line,</strong>
+  where ```options``` are the lightgallery options (thumbnail, zoom,...),
+  and ```layout``` contains the images to display:
+  * ```<LightGallery options={...} layout={...} />```
+
+
   <div class="not-content">
     <MinimalThumbnailAnimated/>
   </div>
@@ -79,8 +89,8 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
   <LightGallery
     layout={{
       imgs: [
-        { src: "/astro-dev/images/astro-lightgallery/img01.jpg", },
-        { src: "/astro-dev/images/astro-lightgallery/img02.jpg", },
+        { src: "/img01.jpg", },
+        { src: "/img02.jpg", },
         ...
       ]
     }}
@@ -94,9 +104,20 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
 
 
 <Card title="Enhanced Static Thumbnail" icon="pencil">
-  TODO  Minimal setup, with the default layout of the gallery, which is adaptive.
-	When selecting an image, it is showed zoomed,
-  with a thumbnail below it.
+  The minimal setup presented above is enriched:
+  * using small (for the gallery itself) and large images
+    (when clicking on an image of the gallery)
+  * adding alt
+  * adding caption, displayed when zooming on a picture
+  * the adaptive layout is displayed at 50% of its original size
+  * the gallery has a lightgrey background, and an opacity effect
+    is added when hovering images
+
+  Also, more arguments are provided in the thumbnail,
+  to have a static thumbnail display.
+
+  <strong>Note that the gallery is displayed in a single line:</strong>
+  * ```<LightGallery options={options} layout={layout} />```
 
   <div class="not-content">
     <ThumbnailStatic/>
@@ -112,7 +133,60 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
 	</summary>
 
 	```astro
-  TODO
+  ---
+  import { LightGallery } from 'astro-lightgallery'
+  import type { LightGallerySettings } from 'lightgallery/lg-settings';
+  import type { AstroLightGalleryLayoutType } from 'astro-lightgallery';
+
+  const options: LightGallerySettings = {
+    animateThumb: false,
+    ...
+  }
+
+  const layout: AstroLightGalleryLayoutType = {
+    imgs: [
+      {
+        src: "//img01.jpg",
+        srcThumb: "//img-thumb01.jpg",
+        alt: "layers of blue.",
+        subHtml: "<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd'> Tobias Rademacher</a>,</h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'> Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>,layers of blue.</p>",
+      },
+      ...
+    ],
+
+    // customize the adaptive layer
+    adaptive: {
+      zoom: 50,   // 50% zoom on the main gallery with all images
+                  // this makes it smaller than the default size
+    },
+
+    // enrich the css style of the layout, with a lightgrey background,
+    // and a hover effect - cf. <style> section at the end of the file
+    classContainer: 'my-container-thumbnail-static',
+    classItem: 'my-item-thumbnail-static',
+  }
+  ---
+
+  <LightGallery options={options} layout={layout} />
+
+  <style is:global>
+    .my-container-thumbnail-static {
+      background-color: lightgrey;
+    }
+
+    .my-item-thumbnail-static {
+      border: 1px solid black;
+      opacity: 80%;
+    }
+
+    .my-item-thumbnail-static:hover {
+      opacity: 100%;
+    }
+
+    .my-item-thumbnail-static img {
+      /* nothing to add */
+    }
+  </style>
   ```
 	</details>
 </Card>
@@ -121,6 +195,10 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
 <Card title="Autoplay, Zoom and Thumbnail" icon="pencil">
 	A tumbnailed gallery, with a button to zoom, and another one
   to autoplay the gallery when a picture is selected.
+
+  No layout is used. So the user has full capabilities to
+  customize its gallery. You can then use your own library
+  to display the main gallery.
 
   <div class="not-content">
     <ThumbnailAutoplay/>
@@ -151,7 +229,7 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
     >
     {
       imgs.map(img => (
-        <a class="..." href={img.srcFull}>
+        <a class="..." href={img.srcSmall}>
             <img src={img.srcFull} />
         </a>
       ))

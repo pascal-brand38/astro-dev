@@ -37,21 +37,17 @@ import { Postit } from 'astro-webtools'
 		import { LightGallery } from 'astro-lightgallery'
 		---
 		<LightGallery
-			class="..."
+			layout={{
+				imgs: [
+					{ src: "/img01.jpg", },
+					{ src: "/img02.jpg", },
+					...
+				]
+			}}
 			options={{
 				thumbnail: true,
-				...
-				}} >
-			{
-					<a class="mygallery-one-img" href="img1.jpg">
-							<img src="img1.jpg" />
-					</a>
-					<a class="mygallery-one-img" href="img2.jpg">
-							<img src="img2.jpg" />
-					</a>
-					...
-			}
-		</LightGallery>
+			}}
+		/>
 		```
 		</details>
 

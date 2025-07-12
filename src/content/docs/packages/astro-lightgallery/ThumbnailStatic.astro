@@ -14,23 +14,65 @@ const options: LightGallerySettings = {
 }
 
 const layout: AstroLightGalleryLayoutType = {
-    imgs: [
-      { src: "/astro-dev/images/astro-lightgallery/img01.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img02.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img03.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img04.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img05.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img06.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img07.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img08.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img09.jpg", },
-    ],
-    adaptive: {
-      zoom: 50,   // 50% zoom on the main gallery with all images
-                  // this makes it smaller than the default size
+  imgs: [
+    {
+      src: "/astro-dev/images/astro-lightgallery/img01.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb01.jpg",
+      alt: "layers of blue.",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@tobbes_rd'> Tobias Rademacher</a>,</h4><p> Location - <a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'> Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien</a>,layers of blue.</p>",
     },
-    classContainer: 'my-container-thumbnail-static',
-    classItem: 'my-item-thumbnail-static',
+    {
+      src: "/astro-dev/images/astro-lightgallery/img02.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb02.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@therawhunter'> Massimiliano Morosinotto</a>,</h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'> Tre Cime di Lavaredo, Italia</a>,This is the Way</p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img03.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb03.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@thesaboo'> Sascha Bosshard</a>,</h4><p> Location - <a href='https://unsplash.com/s/photos/pizol%2C-mels%2C-schweiz'> Pizol, Mels, Schweiz</a>,</p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img04.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb04.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@yusufevli'> Yusuf Evli</a>,</h4><p> Foggy Road</p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img05.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb05.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@flovayn'> Jay Mantri</a>,</h4><p>  Misty shroud over a forest</p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img06.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb06.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@juanster'> Juan Davila</a>,</h4><p>Location - <a href='Bled, Slovenia'> Bled, Slovenia</a>, Wooded lake island </p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img07.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb07.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@davidmarcu'> David Marcu</a>,</h4><p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'> Ciucaș Peak, Romania</a>, Alone in the unspoilt wilderness </p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img08.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb08.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@whoisbenjamin'>  whoisbenjamin</a>,</h4><p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'> Snowdonia National Park, Blaenau Ffestiniog, UK</a>, A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href='https://unsplash.com/photos/9V6EkAoTWJM'> Link</a>, </p>",
+    },
+    {
+      src: "/astro-dev/images/astro-lightgallery/img09.jpg",
+      srcThumb: "/astro-dev/images/astro-lightgallery/img-thumb09.jpg",
+      subHtml: "<h4>Photo by - <a href='https://unsplash.com/@aaronburden'> Aaron Burden</a>,</h4><p>Location - <a href='https://unsplash.com/s/photos/grayling%2C-michigan%2C-united-states'> Grayling, Michigan, United States</a>, Colorful trees near a lake. <a href='https://unsplash.com/photos/00QWN1J0g48'> Link</a>, </p>",
+    },
+  ],
+
+  // customize the adaptive layer
+  adaptive: {
+    zoom: 50,   // 50% zoom on the main gallery with all images
+                // this makes it smaller than the default size
+  },
+
+  // enrich the css style of the layout, with a lightgrey background,
+  // and a hover effect - cf. <style> section at the end of the file
+  classContainer: 'my-container-thumbnail-static',
+  classItem: 'my-item-thumbnail-static',
 }
 ---
 
