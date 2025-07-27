@@ -1,14 +1,16 @@
 ---
 title: astro-leaflet
-description:  The Astro component for leaflet,
-              TODO.
+description:  The Astro component for leaflet
 
 template: doc
 hero:
-  tagline:  The Astro component for leaflet,
-            TODO.
-  # image:
-  #   file: ./astro-leaflet/astro-leaflet.png
+  tagline:  The Astro component for leaflet
+            <br>
+            Display tile maps, with markers, lines,...
+            <br>
+            Enjoy Openstreet, Google maps,...
+  image:
+    file: ./astro-leaflet/astro-leaflet.png
   actions:
     - text: astro-leaflet
       link: https://github.com/pascal-brand38/astro-leaflet/blob/main/README.md
@@ -25,6 +27,7 @@ import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
 import Minimal from './astro-leaflet/Minimal.astro'
 import GoogleMarker from './astro-leaflet/GoogleMarker.astro'
+import TourDeFrance2025 from './astro-leaflet/TourDeFrance2025.astro'
 
 ## Install
 
@@ -43,7 +46,7 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 
 
 <Card title="Minimal" icon="pencil">
-  TODO
+  Here is a minimal map from openstreetmap, in a single line component call: ``` <Leaflet /> ```
 
 
   <div class="not-content">
@@ -60,15 +63,45 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 	</summary>
 
 	```astro
-  TODO
+  ---
+  import { Leaflet } from "astro-leaflet";
+  ---
+  <Leaflet />
   ```
 	</details>
 </Card>
 
 
-<Card title="Google Map with a Marker" icon="pencil">
-  TODO
 
+<Card title="Google Map with Markers" icon="pencil">
+  An hybrid map (satellite, with country names, towns...) from Google is displayed, along
+  with 2 markers (default leaflet marker on Paris, and custom marker on New York).
+
+  The hybrid map is selected using ```<Leaflet/>``` options:
+
+  ```astro
+  tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
+	tileLayerOptions: {
+		subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
+		attribution: 'Map data &copy; Google',
+	},
+  ```
+
+  The custom icon is created using the following, along with the definition
+  of the css class ```myicon-name```
+
+  ```astro
+  <CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [20,20]}}/>
+  ```
+
+  And the markers are added using ```<Leaflet/>``` markers
+
+  ```astro
+  markers = [
+    { latlng: [48.8575299,2.3509908],  options: {title: 'Paris'} },
+    { latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'}
+  ]
+  ```
 
   <div class="not-content">
     <GoogleMarker/>
@@ -84,7 +117,30 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 	</summary>
 
 	```astro
-  TODO
+  ---
+  import { Leaflet, CreateLeafletIcon } from "astro-leaflet";
+  ---
+  <CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [20,20]}}/>
+  <Leaflet
+    tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
+    tileLayerOptions: {
+      subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
+      attribution: 'Map data &copy; Google',
+    },
+    markers: {[
+      { latlng: [48.8575299,2.3509908], options: {title: 'Paris'}},
+      { latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'}
+    ]}
+  />
+
+  <style is:global>
+    /* class definition used to define the custom icon */
+    .leaflet-icon-myicon {
+      background:red;
+      border:5px solid rgba(255,255,255,0.5);
+      border-radius:50%;
+    }
+  </style>
   ```
 	</details>
 </Card>

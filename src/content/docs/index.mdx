@@ -16,11 +16,37 @@ import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components'
 import IndexExample from './packages/astro-splide/IndexExample.astro'
 import SwiperIndexExample from './packages/astro-swiper/IndexExample.astro'
 import LightGalleryIndexExample from './packages/astro-lightgallery/LightGalleryIndexExample.astro'
+import LeafletIndexExample from './packages/astro-leaflet/LeafletIndexExample.astro'
 import { Postit } from 'astro-webtools'
 
 ## Packages
 
 <CardGrid stagger>
+
+	<Card title="Astro Leaflet" icon="pencil">
+		Using leaflet in astro
+
+		<div class="not-content">
+			<LeafletIndexExample/>
+		</div>
+
+		<details>
+		<summary>
+		<Icon name="astro" class="inline-icon"/> Code Snippet
+		</summary>
+
+		```jsx
+		---
+		import { Leaflet } from 'astro-let'
+		---
+		<Leaflet ... />
+		```
+		</details>
+
+		<LinkButton href="packages/astro-leaflet" icon="external">
+			Go to the doc
+		</LinkButton>
+	</Card>
 
 	<Card title="Astro LightGallery" icon="pencil">
 		Using lightgallery in astro

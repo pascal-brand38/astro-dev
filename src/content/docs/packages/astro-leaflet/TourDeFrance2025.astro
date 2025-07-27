@@ -4,12 +4,15 @@
 
 import { Leaflet, CreateLeafletIcon } from "astro-leaflet";
 import type {AstroLeafletOptionsType, AstroLeafletMarkerType}  from 'astro-leaflet';
+import data from './tour-de-france-2025.json'
 
 // default marker on Paris. when hovered, display 'Paris'
 // custom icon on New York
 const markers: AstroLeafletMarkerType[] = []
-markers.push( {latlng: [48.8575299,2.3509908], options: {title: 'Paris'}} )
-markers.push( {latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'} )
+markers.push( {latlng: data[0], options: {title: 'Start'}} )
+markers.push( {latlng: data[data.length-1], options: {title: 'End'}} )
+
+// markers.push( {latlng: data[data.length-1], options: {title: 'End'}} )
 
 const options: AstroLeafletOptionsType = {
 	tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
@@ -24,12 +27,3 @@ const options: AstroLeafletOptionsType = {
 
 <CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [20,20]}}/>
 <Leaflet options={options}/>
-
-<style is:global>
-	/* class definition used to define the custom icon */
-	.leaflet-icon-myicon {
-		background:red;
-		border:5px solid rgba(255,255,255,0.5);
-		border-radius:50%;
-	}
-</style>
