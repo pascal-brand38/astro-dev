@@ -4,13 +4,14 @@
 
 import { Leaflet, CreateLeafletIcon } from "astro-leaflet";
 import type {AstroLeafletOptionsType, AstroLeafletMarkerType}  from 'astro-leaflet';
+import type { LatLngTuple } from 'leaflet'
 import data from './tour-de-france-2025.json'
 
 // default marker on Paris. when hovered, display 'Paris'
 // custom icon on New York
 const markers: AstroLeafletMarkerType[] = []
-markers.push( {latlng: data[0], options: {title: 'Start'}} )
-markers.push( {latlng: data[data.length-1], options: {title: 'End'}} )
+markers.push( {latlng: data[0] as LatLngTuple, options: {title: 'Start'}} )
+markers.push( {latlng: data[data.length-1] as LatLngTuple, options: {title: 'End'}} )
 
 // markers.push( {latlng: data[data.length-1], options: {title: 'End'}} )
 
