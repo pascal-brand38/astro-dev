@@ -4,6 +4,18 @@ Doc of development on [Astro](https://astro.build).
 
 
 
+## [astro-leaflet](https://pascal-brand38.github.io/astro-dev/packages/astro-leaflet/)
+
+[![NPM Version](https://img.shields.io/npm/v/astro-leaflet.svg)](https://npmjs.com/package/astro-leaflet)
+[![NPM Downloads](https://img.shields.io/npm/dm/astro-leaflet.svg)](https://npmjs.com/package/astro-leaflet)
+[![NPM Type Definitions](https://img.shields.io/npm/types/astro-leaflet)](https://npmjs.com/package/astro-leaflet)
+[![NPM Last Update](https://img.shields.io/npm/last-update/astro-leaflet)](https://npmjs.com/package/astro-leaflet)
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-leaflet)](https://github.com/pascal-brand38/astro-leaflet)
+
+
+<br>
+
 ## [astro-lightgallery](https://pascal-brand38.github.io/astro-dev/packages/astro-lightgallery/)
 
 [![NPM Version](https://img.shields.io/npm/v/astro-lightgallery.svg)](https://npmjs.com/package/astro-lightgallery)
@@ -27,8 +39,6 @@ Doc of development on [Astro](https://astro.build).
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-swiper)](https://github.com/pascal-brand38/astro-swiper)
 
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-swiper%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
-
 
 <br>
 
@@ -40,8 +50,6 @@ Doc of development on [Astro](https://astro.build).
 [![NPM Last Update](https://img.shields.io/npm/last-update/astro-splide)](https://npmjs.com/package/astro-splide)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-splide)](https://github.com/pascal-brand38/astro-splide)
-
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-splide%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
 
 
 <br>
@@ -57,8 +65,6 @@ Sprite generation (png, webp, avif...) dedicated to Astro framework
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-sprite)](https://github.com/pascal-brand38/astro-sprite)
 
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-sprite%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
-
 
 
 <br>
@@ -73,11 +79,17 @@ Components dedicated to Astro
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-sprite)](https://github.com/pascal-brand38/astro-webtools)
 
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-webtools%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
-
 
 <br>
 <br>
+
+___________________________
+
+<br>
+<br>
+
+[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%28%22astro-swiper%22+OR+%22astro-splide%22+OR+%22astro-lightgallery%22+OR+%22astro-leaflet%22+OR+%22astro-sprite%22+OR+%22astro-webtools%22%29+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
+
 <br>
 
 ## Installation and build
