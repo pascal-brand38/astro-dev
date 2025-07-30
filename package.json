@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "clean": "rm -rf .astro node_modules/.vite",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -14,7 +15,7 @@
     "@astrojs/starlight": "^0.32.5",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "astro": "^5.5.5",
-    "astro-leaflet": "^1.0.1",
+    "astro-leaflet": "^1.1.0",
     "astro-lightgallery": "^2.0.0",
     "astro-splide": "^2.0.0",
     "astro-swiper": "^1.0.0",

@@ -27,7 +27,7 @@ import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
 import Minimal from './astro-leaflet/Minimal.astro'
 import GoogleMarker from './astro-leaflet/GoogleMarker.astro'
-import TourDeFrance2025 from './astro-leaflet/TourDeFrance2025.astro'
+import MarathonNewYork from './astro-leaflet/MarathonNewYork.astro'
 
 ## Install
 
@@ -44,7 +44,7 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 
 ## Examples
 
-
+<section id="minimal">
 <Card title="Minimal" icon="pencil">
   Here is a minimal map from openstreetmap, in a single line component call: ``` <Leaflet /> ```
 
@@ -70,9 +70,9 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   ```
 	</details>
 </Card>
+</section>
 
-
-
+<section id="google-map-markers">
 <Card title="Google Map with Markers" icon="pencil">
   An hybrid map (satellite, with country names, towns...) from Google is displayed, along
   with 2 markers (default leaflet marker on Paris, and custom marker on New York).
@@ -144,3 +144,49 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   ```
 	</details>
 </Card>
+</section>
+
+
+<section id="NYC-Marathon">
+<Card id="toto" title="NYC Marathon" icon="pencil">
+  This demonstrates:
+  * Google satellite images as the main layer, and labels from Michelin
+    displayed on it using ```<TileLayer>``` inside ```<LeafLet>```
+  * A polyline trace - the track of the New York City Marathon -
+    displayed using ```<Polyline>```
+  * Automatic centering of the map using ```<FitBounds />``` inside ```<Polyline>```
+
+  <div class="not-content">
+    <MarathonNewYork />
+  </div>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/MarathonNewYork.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+  ---
+  import { Leaflet, TileLayer, Polyline, FitBounds} from "astro-leaflet";
+  import type { LatLngTuple } from 'leaflet'
+
+  // load marathon data: list of [lat lng]
+  import data from './new-york-city-marathon.json'
+  ---
+
+  <Leaflet options={{ ... google satellite tile layer ... }}>
+    <TileLayer
+      urlTemplate='... url to get Michelin labels tiles '
+      options={{ ... }} />
+    <Polyline latlngs={data as LatLngTuple[]} options={{color: 'red', weight: 4,}} >
+      <FitBounds />
+    </Polyline>
+  </Leaflet>
+  ```
+	</details>
+</Card>
+</section>
