@@ -1,0 +1,1 @@
+import{a as f,m as n}from"./transition.B855SkSL.js";function l(t={},c,{class:i}={}){let r="";i&&(typeof t.class<"u"?t.class+=` ${i}`:typeof t["class:list"]<"u"?t["class:list"]=[t["class:list"],i]:t.class=i);for(const[s,e]of Object.entries(t))r+=f(e,s,!0);return n(r)}export{l as s};
