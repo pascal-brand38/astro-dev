@@ -10,21 +10,14 @@ import data from './new-york-city-marathon.json'
 
 ---
 
-<Leaflet options={{
-	tileLayer: 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
-	tileLayerOptions: {
-		subdomains:[ 'mt0', 'mt1', 'mt2', 'mt3', ],
-		attribution: 'Map data &copy; Google'
-	}
-	}}>
-		<TileLayer
-			urlTemplate='https://{s}.viamichelin.com/map/mapdirect?map=hybrid&z={z}&x={x}&y={y}&format=png&version=201503191157&layer=network'
-			options={{
-				opacity: 1,
-				subdomains:[ 'map1', 'map2', 'map3', 'map4', 'map5', ],
-				attribution: 'Labels &copy; Michelin'
-			}} />
-		<Polyline latlngs={data as LatLngTuple[]} options={{color: 'red', weight: 4,}} >
-			<FitBounds />
-		</Polyline>
+<Leaflet options={{tileByName:'Google'}}>
+	<TileLayer
+		tileByName='Michelin&type=label',
+		options={{
+			opacity: 1,
+		}}
+	/>
+	<Polyline latlngs={data as LatLngTuple[]} options={{color: 'red', weight: 4,}} >
+		<FitBounds />
+	</Polyline>
 </Leaflet>

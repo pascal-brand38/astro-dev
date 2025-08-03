@@ -12,11 +12,12 @@ markers.push( {latlng: [48.8575299,2.3509908], options: {title: 'Paris'}} )
 markers.push( {latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'} )
 
 const options: AstroLeafletOptionsType = {
-	tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
-	tileLayerOptions: {
-		subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
-		attribution: 'Map data &copy; Google',
-	},
+	tileByName: 'Google&type=hybrid',
+	// tileLayer: 'https://{s}.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}',
+	// tileLayerOptions: {
+	// 	subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
+	// 	attribution: 'Map data &copy; Google',
+	// },
 	markers: markers,
 }
 

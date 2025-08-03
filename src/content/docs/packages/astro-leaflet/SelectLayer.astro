@@ -1,0 +1,91 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { Leaflet } from "astro-leaflet";
+
+const layerNames = [
+  'OSM',
+  'Google&type=satellite',
+  'Google&type=street',
+  'Google&type=hybrid',
+  'Google&type=terrain',
+  'Michelin',
+  'Unknown',
+]
+
+---
+
+<div style="position: relative;">
+
+  <Leaflet id='astro-leaflet-select' options={{
+      mapOptions: {
+        zoomControl: false,
+      }
+    }}
+  />
+
+  <div class="not-content box">
+    <form name="providers">
+      {
+        layerNames.map((name, index) =>           (
+            <div>
+              <input type="radio" name="provider" id={name} value={name} checked={index===0} />
+              <label for={name}>{name}</label>
+            </div>
+          )
+        )
+      }
+    </form>
+
+    </form>
+  </div>
+</div>
+
+
+<style is:global>
+  .box {
+    position: absolute;
+    top: 0px;
+    left: 0px%;
+    z-index: 400;
+    /* text-align: center; */
+    width: 150px;
+    height: 50vh;
+    background-color:red;
+    overflow: scroll;
+    font-size: 10px;
+  }
+</style>
+
+<script>
+  import L from "leaflet"
+  import type { Map } from "leaflet"
+	import { getMapFromId, getLayerOptionsFromName } from "astro-leaflet"
+  let map: Map | undefined = undefined
+	window.onload = function() {
+		map = getMapFromId('astro-leaflet-select')
+    if (map) {
+      L.control.zoom({
+        position: 'bottomright'
+      }).addTo(map);
+    }
+	}
+
+  document.forms.providers.provider.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (map) {
+        map.eachLayer(function (layer) {
+          map!.removeLayer(layer);
+        });
+
+        let layerFromName = getLayerOptionsFromName(document.providers.provider.value)
+        const newLayer = L.tileLayer(layerFromName.tileLayer, layerFromName.options);
+        map.addLayer(newLayer)
+
+        console.log(`${document.providers.provider.value} change`);
+        console.log(`layer = ${layerFromName.tileLayer}`);
+      }
+    })
+  });
+</script>
