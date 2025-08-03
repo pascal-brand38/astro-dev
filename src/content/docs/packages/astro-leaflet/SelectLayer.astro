@@ -61,7 +61,7 @@ const layerNames = [
 <script>
   import L from "leaflet"
   import type { Map } from "leaflet"
-	import { getMapFromId, getLayerOptionsFromName } from "astro-leaflet"
+	import { getMapFromId, getLayerOptionsFromName, type LayerNamesType } from "astro-leaflet"
   let map: Map | undefined = undefined
 	window.onload = function() {
 		map = getMapFromId('astro-leaflet-select')
@@ -72,19 +72,22 @@ const layerNames = [
     }
 	}
 
-  document.forms.providers.provider.forEach(radio => {
+  const radios = document.querySelectorAll('input[name="provider"]') as NodeListOf<HTMLInputElement>
+
+  //document.forms.providers.provider.forEach((radio: any) => {
+  radios.forEach((radio: HTMLInputElement) => {
     radio.addEventListener('change', () => {
       if (map) {
         map.eachLayer(function (layer) {
           map!.removeLayer(layer);
         });
 
-        let layerFromName = getLayerOptionsFromName(document.providers.provider.value)
+        let layerFromName = getLayerOptionsFromName(radio.value as LayerNamesType)
         const newLayer = L.tileLayer(layerFromName.tileLayer, layerFromName.options);
         map.addLayer(newLayer)
 
-        console.log(`${document.providers.provider.value} change`);
-        console.log(`layer = ${layerFromName.tileLayer}`);
+        // console.log(`${radio.value} changed`);
+        // console.log(`layer = ${layerFromName.tileLayer}`);
       }
     })
   });
