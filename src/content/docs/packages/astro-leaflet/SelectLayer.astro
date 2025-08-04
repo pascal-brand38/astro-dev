@@ -14,33 +14,59 @@ const layerNames = [
   'Unknown',
 ]
 
+const layerNames2 = {
+  'OSM': [
+    'OSM',
+  ],
+  'Google': [
+    'Google&type=satellite',
+    'Google&type=street',
+    'Google&type=hybrid',
+    'Google&type=terrain',
+  ],
+  'Michelin': [
+    'Michelin&type=map',
+    'Michelin&type=label',
+  ],
+}
+
 ---
 
-<div style="position: relative;">
+
+
+  <form class="mainLayers">
+    {
+      Object.keys(layerNames2).map((name, index) => (
+          <div>
+            <input type="radio" name="mainLayers" id={name} value={name} checked={index===0} />
+            <label for={name}>{name}</label>
+          </div>
+        )
+      )
+    }
+  </form>
+
+  <form class="layersByProviders">
+    {
+      Object.keys(layerNames2).map((name, index) => {
+        return (layerNames2[name] as string[]).map((layername, subindex) => (
+          <label for={layername}>
+            <input type="radio" name="layername" id={layername} value={layername} checked={(index===0) && (subindex===0)} />
+            {layername}
+          </label>
+        ))
+      })
+    }
+  </form>
 
   <Leaflet id='astro-leaflet-select' options={{
+      center: [38.3709404,-97.6649989],
+      zoom: 4,
       mapOptions: {
         zoomControl: false,
       }
     }}
   />
-
-  <div class="not-content box">
-    <form name="providers">
-      {
-        layerNames.map((name, index) =>           (
-            <div>
-              <input type="radio" name="provider" id={name} value={name} checked={index===0} />
-              <label for={name}>{name}</label>
-            </div>
-          )
-        )
-      }
-    </form>
-
-    </form>
-  </div>
-</div>
 
 
 <style is:global>
@@ -48,7 +74,7 @@ const layerNames = [
     position: absolute;
     top: 0px;
     left: 0px%;
-    z-index: 400;
+    z-index: 401;
     /* text-align: center; */
     width: 150px;
     height: 50vh;
@@ -62,7 +88,11 @@ const layerNames = [
   import L from "leaflet"
   import type { Map } from "leaflet"
 	import { getMapFromId, getLayerOptionsFromName, type LayerNamesType } from "astro-leaflet"
+
+  const mainLayersRadios = document.querySelectorAll('input[name="mainLayers"]') as NodeListOf<HTMLInputElement>
+  const layernameRadios = document.querySelectorAll('input[name="layername"]') as NodeListOf<HTMLInputElement>
   let map: Map | undefined = undefined
+
 	window.onload = function() {
 		map = getMapFromId('astro-leaflet-select')
     if (map) {
@@ -70,12 +100,41 @@ const layerNames = [
         position: 'bottomright'
       }).addTo(map);
     }
+
+    // select Google&type=hybrid
+    mainLayersRadios.forEach((radio: HTMLInputElement) => {
+      if (radio.value === 'Google') {
+        select(radio)
+      }
+    })
+    layernameRadios.forEach((radio: HTMLInputElement) => {
+      if (radio.value === 'Google&type=hybrid') {
+        select(radio)
+      }
+    })
 	}
 
-  const radios = document.querySelectorAll('input[name="provider"]') as NodeListOf<HTMLInputElement>
+  mainLayersRadios.forEach((radio: HTMLInputElement) => {
+    radio.addEventListener('change', () => {
+      let firstFound = false
+      layernameRadios.forEach(layernameRadio => {
+        if (layernameRadio.value.startsWith(radio.value)) {
+          layernameRadio.parentElement!.style = 'display: unset;'
+          if (!firstFound) {
+            select(layernameRadio)
+            firstFound = true
+          }
+        } else {
+          layernameRadio.parentElement!.style = 'display: none;'
+        }
+      })
 
-  //document.forms.providers.provider.forEach((radio: any) => {
-  radios.forEach((radio: HTMLInputElement) => {
+      // console.log(`${radio.value} changed`);
+    })
+  })
+
+
+  layernameRadios.forEach((radio: HTMLInputElement) => {
     radio.addEventListener('change', () => {
       if (map) {
         map.eachLayer(function (layer) {
@@ -91,4 +150,13 @@ const layerNames = [
       }
     })
   });
+
+  // select Google&type=hybrid by default
+  function select(radio: HTMLInputElement) {
+    let change = new Event('change');
+    radio.checked = true
+    radio.dispatchEvent(change);
+  }
+
+
 </script>
