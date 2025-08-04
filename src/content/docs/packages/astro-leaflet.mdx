@@ -78,14 +78,22 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   An hybrid map (satellite, with country names, towns...) from Google is displayed, along
   with 2 markers (default leaflet marker on Paris, and custom marker on New York).
 
-  The hybrid map is selected using ```<Leaflet/>``` options:
+  The hybrid map is selected using
 
   ```astro
-  tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
-	tileLayerOptions: {
-		subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
-		attribution: 'Map data &copy; Google',
-	},
+  <Leaflet options={{ tileByName: 'Google&type=hybrid', }}/>
+  ```
+
+  which is the same as
+
+  ```astro
+  <Leaflet options={{
+    tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
+    tileLayerOptions: {
+      subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
+      attribution: 'Map data &copy; Google',
+    },
+  }}/>
   ```
 
   The custom icon is created using the following, along with the definition
@@ -123,11 +131,7 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   ---
   <CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [20,20]}}/>
   <Leaflet
-    tileLayer: 'https://{s}.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}',
-    tileLayerOptions: {
-      subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
-      attribution: 'Map data &copy; Google',
-    },
+    tileByName: 'Google&type=hybrid',
     markers: {[
       { latlng: [48.8575299,2.3509908], options: {title: 'Paris'}},
       { latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'}
@@ -179,9 +183,9 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   import data from './new-york-city-marathon.json'
   ---
 
-  <Leaflet options={{ ... google satellite tile layer ... }}>
+  <Leaflet options={{ options={{tileByName:'Google'}} }}>
     <TileLayer
-      urlTemplate='... url to get Michelin labels tiles '
+      tileByName='Michelin&type=label',
       options={{ ... }} />
     <Polyline latlngs={data as LatLngTuple[]} options={{color: 'red', weight: 4,}} >
       <FitBounds />
@@ -192,10 +196,11 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 </Card>
 </section>
 
+
+
 <section id="SelectLayer">
 <Card title="Select Layer" icon="pencil">
   Work in Progress
-
 
   <div class="not-content">
     <SelectLayer/>
