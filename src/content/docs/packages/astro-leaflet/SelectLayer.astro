@@ -4,17 +4,7 @@
 
 import { Leaflet } from "astro-leaflet";
 
-const layerNames = [
-  'OSM',
-  'Google&type=satellite',
-  'Google&type=street',
-  'Google&type=hybrid',
-  'Google&type=terrain',
-  'Michelin',
-  'Unknown',
-]
-
-const layerNames2 = {
+const layerNames = {
   'OSM': [
     'OSM',
   ],
@@ -33,31 +23,32 @@ const layerNames2 = {
 ---
 
 
-
-  <form class="mainLayers">
-    {
-      Object.keys(layerNames2).map((name, index) => (
-          <div>
-            <input type="radio" name="mainLayers" id={name} value={name} checked={index===0} />
-            <label for={name}>{name}</label>
-          </div>
+  <div class="select-layer-grid">
+    <form class="select-layer-main-layers">
+      {
+        Object.keys(layerNames).map((name, index) => (
+              <label class='select-layer-label' for={name}>
+                <input type="radio" name="mainLayers" id={name} value={name} checked={index===0} />
+                {name}
+              </label>
+          )
         )
-      )
-    }
-  </form>
+      }
+    </form>
 
-  <form class="layersByProviders">
-    {
-      Object.keys(layerNames2).map((name, index) => {
-        return (layerNames2[name] as string[]).map((layername, subindex) => (
-          <label for={layername}>
-            <input type="radio" name="layername" id={layername} value={layername} checked={(index===0) && (subindex===0)} />
-            {layername}
-          </label>
-        ))
-      })
-    }
-  </form>
+    <form class="select-layer-layer-names">
+      {
+        Object.keys(layerNames).map((name) => {
+          return (layerNames[name as keyof typeof layerNames] as string[]).map((layername) => (
+              <label class='select-layer-label' for={layername}>
+                <input type="radio" name="layername" id={layername} value={layername}} />
+                {layername}
+              </label>
+          ))
+        })
+      }
+    </form>
+  </div>
 
   <Leaflet id='astro-leaflet-select' options={{
       center: [38.3709404,-97.6649989],
@@ -70,6 +61,37 @@ const layerNames2 = {
 
 
 <style is:global>
+  .select-layer-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 8px;
+  }
+
+  .select-layer-main-layers, .select-layer-layer-names {
+    height: 30vh;
+    overflow-y: scroll;
+    font-size: 10px;
+  }
+
+  .select-layer-label {
+    display: block;
+  }
+  .select-layer-label:hover {
+    font-weight: 900;
+  }
+  .select-layer-label:has(input:checked) {
+    background-color: lightgray;
+    font-weight: 900;
+  }
+
+  .select-layer-not-visible {
+    display: none;
+  }
+
+  .select-layer-grid input {
+    display: none;
+  }
+
   .box {
     position: absolute;
     top: 0px;
@@ -119,13 +141,14 @@ const layerNames2 = {
       let firstFound = false
       layernameRadios.forEach(layernameRadio => {
         if (layernameRadio.value.startsWith(radio.value)) {
-          layernameRadio.parentElement!.style = 'display: unset;'
+          // layernameRadio.parentElement!.style = 'display: unset;'
+          layernameRadio.parentElement!.classList.remove("select-layer-not-visible");
           if (!firstFound) {
             select(layernameRadio)
             firstFound = true
           }
         } else {
-          layernameRadio.parentElement!.style = 'display: none;'
+          layernameRadio.parentElement!.classList.add("select-layer-not-visible");
         }
       })
 
