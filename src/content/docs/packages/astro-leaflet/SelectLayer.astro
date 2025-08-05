@@ -2,23 +2,7 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import { Leaflet } from "astro-leaflet";
-
-const layerNames = {
-  'OSM': [
-    'OSM',
-  ],
-  'Google': [
-    'Google&type=satellite',
-    'Google&type=street',
-    'Google&type=hybrid',
-    'Google&type=terrain',
-  ],
-  'Michelin': [
-    'Michelin&type=map',
-    'Michelin&type=label',
-  ],
-}
+import { Leaflet, layerAllNames } from "astro-leaflet";
 
 ---
 
@@ -26,7 +10,7 @@ const layerNames = {
   <div class="select-layer-grid">
     <form class="select-layer-main-layers">
       {
-        Object.keys(layerNames).map((name, index) => (
+        Object.keys(layerAllNames).map((name, index) => (
               <label class='select-layer-label' for={name}>
                 <input type="radio" name="mainLayers" id={name} value={name} checked={index===0} />
                 {name}
@@ -38,16 +22,19 @@ const layerNames = {
 
     <form class="select-layer-layer-names">
       {
-        Object.keys(layerNames).map((name) => {
-          return (layerNames[name as keyof typeof layerNames] as string[]).map((layername) => (
-              <label class='select-layer-label' for={layername}>
-                <input type="radio" name="layername" id={layername} value={layername}} />
-                {layername}
+        Object.keys(layerAllNames).map((name) => {
+          return (layerAllNames[name].names).map((layer) => (
+              <label class='select-layer-label' for={layer.name}>
+                <input type="radio" name="layername" id={layer.name} value={layer.name}} />
+                {layer.name}
               </label>
           ))
         })
       }
     </form>
+  </div>
+
+  <div id="select-layer-command">
   </div>
 
   <Leaflet id='astro-leaflet-select' options={{
@@ -113,6 +100,7 @@ const layerNames = {
 
   const mainLayersRadios = document.querySelectorAll('input[name="mainLayers"]') as NodeListOf<HTMLInputElement>
   const layernameRadios = document.querySelectorAll('input[name="layername"]') as NodeListOf<HTMLInputElement>
+  const commandEl = document.getElementById('select-layer-command')
   let map: Map | undefined = undefined
 
 	window.onload = function() {
@@ -167,6 +155,8 @@ const layerNames = {
         let layerFromName = getLayerOptionsFromName(radio.value as LayerNamesType)
         const newLayer = L.tileLayer(layerFromName.tileLayer, layerFromName.options);
         map.addLayer(newLayer)
+
+        commandEl!.innerHTML = 'Work in Progress'
 
         // console.log(`${radio.value} changed`);
         // console.log(`layer = ${layerFromName.tileLayer}`);
