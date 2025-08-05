@@ -34,8 +34,12 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
     </form>
   </div>
 
-  <div id="select-layer-command">
+  <div id="select-layer-description">
   </div>
+
+  <div class="select-layer-command">
+    &#60;Leaflet options=&#123;&#123; tileByName: "<span id="select-layer-command"> </span>" &#125;&#125;</span> /&#62;
+  </pre>
 
   <Leaflet id='astro-leaflet-select' options={{
       center: [38.3709404,-97.6649989],
@@ -55,6 +59,7 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
   }
 
   .select-layer-main-layers, .select-layer-layer-names {
+    border: 1px solid black;
     height: 30vh;
     overflow-y: scroll;
     font-size: 10px;
@@ -79,28 +84,33 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
     display: none;
   }
 
-  .box {
-    position: absolute;
-    top: 0px;
-    left: 0px%;
-    z-index: 401;
-    /* text-align: center; */
-    width: 150px;
-    height: 50vh;
-    background-color:red;
-    overflow: scroll;
-    font-size: 10px;
+  .select-layer-command {
+    border: 1px solid black;
+    background-color: lightgrey;
+    font-size: 14px;
+    margin-top: 14px;
+  }
+  #select-layer-command {
+    font-weight: 900;
+  }
+  #select-layer-description {
+    border: 1px solid black;
+    background-color: lightgrey;
+    font-size: 14px;
+    margin-top: 14px;
+    min-height: 32px;
   }
 </style>
 
 <script>
   import L from "leaflet"
   import type { Map } from "leaflet"
-	import { getMapFromId, getLayerOptionsFromName, type LayerNamesType } from "astro-leaflet"
+	import { getMapFromId, getLayerOptionsFromName, type LayerNamesType, layerAllNames, } from "astro-leaflet"
 
   const mainLayersRadios = document.querySelectorAll('input[name="mainLayers"]') as NodeListOf<HTMLInputElement>
   const layernameRadios = document.querySelectorAll('input[name="layername"]') as NodeListOf<HTMLInputElement>
   const commandEl = document.getElementById('select-layer-command')
+  const descriptionEl = document.getElementById('select-layer-description')
   let map: Map | undefined = undefined
 
 	window.onload = function() {
@@ -124,12 +134,21 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
     })
 	}
 
+  // from layerAllNames, create an object of value: description
+  const correspNameDesc: { [ name: string ]: string | undefined } = {}
+  Object.keys(layerAllNames).forEach((name) => {
+    layerAllNames[name].names.forEach((layer) => {
+      if (layer.desc) {
+        correspNameDesc[layer.name] = layer.desc
+      }
+    })
+  })
+
   mainLayersRadios.forEach((radio: HTMLInputElement) => {
     radio.addEventListener('change', () => {
       let firstFound = false
       layernameRadios.forEach(layernameRadio => {
         if (layernameRadio.value.startsWith(radio.value)) {
-          // layernameRadio.parentElement!.style = 'display: unset;'
           layernameRadio.parentElement!.classList.remove("select-layer-not-visible");
           if (!firstFound) {
             select(layernameRadio)
@@ -156,8 +175,8 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
         const newLayer = L.tileLayer(layerFromName.tileLayer, layerFromName.options);
         map.addLayer(newLayer)
 
-        commandEl!.innerHTML = 'Work in Progress'
-
+        commandEl!.innerHTML = radio.value
+        descriptionEl!.innerHTML = correspNameDesc[radio.value] ? correspNameDesc[radio.value] : ''
         // console.log(`${radio.value} changed`);
         // console.log(`layer = ${layerFromName.tileLayer}`);
       }
