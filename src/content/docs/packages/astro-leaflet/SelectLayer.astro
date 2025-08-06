@@ -34,21 +34,21 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
     </form>
   </div>
 
-  <div id="select-layer-description">
-  </div>
-
   <div class="select-layer-command">
     &#60;Leaflet options=&#123;&#123; tileByName: "<span id="select-layer-command"> </span>" &#125;&#125;</span> /&#62;
   </pre>
 
   <Leaflet id='astro-leaflet-select' options={{
-      center: [38.3709404,-97.6649989],
-      zoom: 4,
+      center: [40.7189898, -74.0000309],      // New York
+      zoom: 13,
       mapOptions: {
         zoomControl: false,
       }
     }}
   />
+
+  <div id="select-layer-description">
+  </div>
 
 
 <style is:global>
@@ -60,7 +60,7 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
 
   .select-layer-main-layers, .select-layer-layer-names {
     border: 1px solid black;
-    height: 30vh;
+    height: 10vh;
     overflow-y: scroll;
     font-size: 10px;
   }
@@ -97,10 +97,10 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
     border: 1px solid black;
     background-color: lightgrey;
     font-size: 14px;
-    margin-top: 14px;
     min-height: 32px;
   }
 </style>
+
 
 <script>
   import L from "leaflet"
@@ -137,9 +137,12 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
   // from layerAllNames, create an object of value: description
   const correspNameDesc: { [ name: string ]: string | undefined } = {}
   Object.keys(layerAllNames).forEach((name) => {
+    const prefix = layerAllNames[name].desc
     layerAllNames[name].names.forEach((layer) => {
       if (layer.desc) {
-        correspNameDesc[layer.name] = layer.desc
+        correspNameDesc[layer.name] = (prefix ? prefix + '<br>' : '') + layer.desc
+      } else {
+        correspNameDesc[layer.name] = prefix
       }
     })
   })
