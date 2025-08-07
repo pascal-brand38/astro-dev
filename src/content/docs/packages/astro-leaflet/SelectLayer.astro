@@ -39,6 +39,7 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
   </pre>
 
   <Leaflet id='astro-leaflet-select' options={{
+      tileByName: 'Google&type=hybrid',
       center: [40.7189898, -74.0000309],      // New York
       zoom: 13,
       mapOptions: {
@@ -107,97 +108,96 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
   import type { Map } from "leaflet"
 	import { getMapFromId, getLayerOptionsFromName, type LayerNamesType, layerAllNames, } from "astro-leaflet"
 
+  window.addEventListener('load', () => {
+    const mainLayersRadios = document.querySelectorAll('input[name="mainLayers"]') as NodeListOf<HTMLInputElement>
+    const layernameRadios = document.querySelectorAll('input[name="layername"]') as NodeListOf<HTMLInputElement>
+    const commandEl = document.getElementById('select-layer-command')
+    const descriptionEl = document.getElementById('select-layer-description')
+    let map: Map | undefined = undefined
 
+    /** set to true a radio button, and raise the 'change' event */
+    function select(radio: HTMLInputElement) {
+      let change = new Event('change');
+      radio.checked = true
+      radio.dispatchEvent(change);
+    }
 
-	window.onload = function() {
-  const mainLayersRadios = document.querySelectorAll('input[name="mainLayers"]') as NodeListOf<HTMLInputElement>
-  const layernameRadios = document.querySelectorAll('input[name="layername"]') as NodeListOf<HTMLInputElement>
-  const commandEl = document.getElementById('select-layer-command')
-  const descriptionEl = document.getElementById('select-layer-description')
-  let map: Map | undefined = undefined
-
-  map = getMapFromId('astro-leaflet-select')
+    // get the leaflet map, used to update the displayed layer
+    map = getMapFromId('astro-leaflet-select')
     if (map) {
       L.control.zoom({
         position: 'bottomright'
       }).addTo(map);
     }
 
-    // from layerAllNames, create an object of value: description
-  const correspNameDesc: { [ name: string ]: string | undefined } = {}
-  Object.keys(layerAllNames).forEach((name) => {
-    const prefix = layerAllNames[name].desc
-    layerAllNames[name].names.forEach((layer) => {
-      if (layer.desc) {
-        correspNameDesc[layer.name] = (prefix ? prefix + '<br>' : '') + layer.desc
-      } else {
-        correspNameDesc[layer.name] = prefix
-      }
-    })
-  })
-
-
-  mainLayersRadios.forEach((radio: HTMLInputElement) => {
-    radio.addEventListener('change', () => {
-      let firstFound = false
-      layernameRadios.forEach(layernameRadio => {
-        if (layernameRadio.value.startsWith(radio.value)) {
-          layernameRadio.parentElement!.classList.remove("select-layer-not-visible");
-          if (!firstFound) {
-            select(layernameRadio)
-            firstFound = true
-          }
+    // from layerAllNames, create an object of { layername: description }
+    const correspNameDesc: { [ name: string ]: string | undefined } = {}
+    Object.keys(layerAllNames).forEach((name) => {
+      const prefix = layerAllNames[name].desc
+      layerAllNames[name].names.forEach((layer) => {
+        if (layer.desc) {
+          correspNameDesc[layer.name] = (prefix ? prefix + '<br>' : '') + layer.desc
         } else {
-          layernameRadio.parentElement!.classList.add("select-layer-not-visible");
+          correspNameDesc[layer.name] = prefix
         }
       })
-
-      // console.log(`${radio.value} changed`);
     })
-  })
 
+    // when the main layer (OSM, Google,...) is selected (that is onchange is raised):
+    // - make the related layers (Google&type=satellite,...) visible, and the others (OSM,...) not visible
+    // - select its first related layer
+    mainLayersRadios.forEach((radio: HTMLInputElement) => {
+      radio.addEventListener('change', () => {
+        let firstFound = false
+        layernameRadios.forEach(layernameRadio => {
+          if (layernameRadio.value.startsWith(radio.value)) {
+            layernameRadio.parentElement!.classList.remove("select-layer-not-visible");
+            if (!firstFound) {
+              select(layernameRadio)
+              firstFound = true
+            }
+          } else {
+            layernameRadio.parentElement!.classList.add("select-layer-not-visible");
+          }
+        })
 
-  layernameRadios.forEach((radio: HTMLInputElement) => {
-    radio.addEventListener('change', () => {
-      if (map) {
-        map.eachLayer(function (layer) {
-          map!.removeLayer(layer);
-        });
-
-        let layerFromName = getLayerOptionsFromName(radio.value as LayerNamesType)
-        const newLayer = L.tileLayer(layerFromName.tileLayer, layerFromName.options);
-        map.addLayer(newLayer)
-
-        commandEl!.innerHTML = radio.value
-        descriptionEl!.innerHTML = correspNameDesc[radio.value] ? correspNameDesc[radio.value]! : ''
-        console.log(`${radio.value} changed`);
-        console.log(`layer = ${layerFromName.tileLayer}`);
-      }
+        // console.log(`${radio.value} changed`);
+      })
     })
-  });
+
+    // when the sub-layer (Google&type=satellite,...) is selected (that is onchange is raised):
+    // - remove the displayed layer
+    // - add the new layer
+    // - update the command and the description
+    layernameRadios.forEach((radio: HTMLInputElement) => {
+      radio.addEventListener('change', () => {
+        if (map) {
+          map.eachLayer(function (layer) {
+            map!.removeLayer(layer);
+          });
+
+          let layerFromName = getLayerOptionsFromName(radio.value as LayerNamesType)
+          const newLayer = L.tileLayer(layerFromName.tileLayer, layerFromName.options);
+          map.addLayer(newLayer)
+
+          commandEl!.innerHTML = radio.value
+          descriptionEl!.innerHTML = correspNameDesc[radio.value] ? correspNameDesc[radio.value]! : ''
+          // console.log(`${radio.value} changed`);
+          // console.log(`layer = ${layerFromName.tileLayer}`);
+        }
+      })
+    });
 
     // select Google&type=hybrid
     mainLayersRadios.forEach((radio: HTMLInputElement) => {
       if (radio.value === 'Google') {
-        console.log('SELECT GOOGLE')
         select(radio)
       }
     })
     layernameRadios.forEach((radio: HTMLInputElement) => {
       if (radio.value === 'Google&type=hybrid') {
-        console.log('SELECT GOOGLE HYBRID')
         select(radio)
       }
     })
-  }
-
-
-  // select Google&type=hybrid by default
-  function select(radio: HTMLInputElement) {
-    let change = new Event('change');
-    radio.checked = true
-    radio.dispatchEvent(change);
-  }
-
-
+  })
 </script>
