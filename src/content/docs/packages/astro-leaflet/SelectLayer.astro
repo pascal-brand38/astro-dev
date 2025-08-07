@@ -107,34 +107,23 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
   import type { Map } from "leaflet"
 	import { getMapFromId, getLayerOptionsFromName, type LayerNamesType, layerAllNames, } from "astro-leaflet"
 
+
+
+	window.onload = function() {
   const mainLayersRadios = document.querySelectorAll('input[name="mainLayers"]') as NodeListOf<HTMLInputElement>
   const layernameRadios = document.querySelectorAll('input[name="layername"]') as NodeListOf<HTMLInputElement>
   const commandEl = document.getElementById('select-layer-command')
   const descriptionEl = document.getElementById('select-layer-description')
   let map: Map | undefined = undefined
 
-	window.onload = function() {
-		map = getMapFromId('astro-leaflet-select')
+  map = getMapFromId('astro-leaflet-select')
     if (map) {
       L.control.zoom({
         position: 'bottomright'
       }).addTo(map);
     }
 
-    // select Google&type=hybrid
-    mainLayersRadios.forEach((radio: HTMLInputElement) => {
-      if (radio.value === 'Google') {
-        select(radio)
-      }
-    })
-    layernameRadios.forEach((radio: HTMLInputElement) => {
-      if (radio.value === 'Google&type=hybrid') {
-        select(radio)
-      }
-    })
-	}
-
-  // from layerAllNames, create an object of value: description
+    // from layerAllNames, create an object of value: description
   const correspNameDesc: { [ name: string ]: string | undefined } = {}
   Object.keys(layerAllNames).forEach((name) => {
     const prefix = layerAllNames[name].desc
@@ -146,6 +135,7 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
       }
     })
   })
+
 
   mainLayersRadios.forEach((radio: HTMLInputElement) => {
     radio.addEventListener('change', () => {
@@ -179,12 +169,28 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
         map.addLayer(newLayer)
 
         commandEl!.innerHTML = radio.value
-        descriptionEl!.innerHTML = correspNameDesc[radio.value] ? correspNameDesc[radio.value] : ''
-        // console.log(`${radio.value} changed`);
-        // console.log(`layer = ${layerFromName.tileLayer}`);
+        descriptionEl!.innerHTML = correspNameDesc[radio.value] ? correspNameDesc[radio.value]! : ''
+        console.log(`${radio.value} changed`);
+        console.log(`layer = ${layerFromName.tileLayer}`);
       }
     })
   });
+
+    // select Google&type=hybrid
+    mainLayersRadios.forEach((radio: HTMLInputElement) => {
+      if (radio.value === 'Google') {
+        console.log('SELECT GOOGLE')
+        select(radio)
+      }
+    })
+    layernameRadios.forEach((radio: HTMLInputElement) => {
+      if (radio.value === 'Google&type=hybrid') {
+        console.log('SELECT GOOGLE HYBRID')
+        select(radio)
+      }
+    })
+  }
+
 
   // select Google&type=hybrid by default
   function select(radio: HTMLInputElement) {

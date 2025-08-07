@@ -30,6 +30,7 @@ import GoogleMarker from './astro-leaflet/GoogleMarker.astro'
 import MarathonNewYork from './astro-leaflet/MarathonNewYork.astro'
 import SelectLayer from './astro-leaflet/SelectLayer.astro'
 import ImageOverlay from './astro-leaflet/ImageOverlay.astro'
+import TestYourUrl from './astro-leaflet/TestYourUrl.astro'
 
 ## Install
 
@@ -157,25 +158,14 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 
 <section id="SelectLayer">
 <Card title="Select Layer" icon="pencil">
-  Work in Progress
+  Here is the map friendly name list to be given in ```tileByName0``` argument
+  of ```LeafLet``` and ```TileLayer``` components.
+  Click on the name to see how it renders, its description
+  as well as the parameters to drive it, and how to call it in astro-leaflet.
 
   <div class="not-content">
     <SelectLayer/>
   </div>
-
-	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/SelectLayer.astro" icon="external">
-		Full code
-	</LinkButton>
-
-	<details>
-	<summary>
-	<Icon name="astro" class="inline-icon"/> Code Snippet
-	</summary>
-
-	```astro
-  Work in Progress
-  ```
-	</details>
 </Card>
 </section>
 
@@ -249,5 +239,18 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   Work in Progress
   ```
 	</details>
+</Card>
+</section>
+
+
+
+<section id="TestYourUrl">
+<Card title="Test Your Url" icon="pencil">
+  Provide your favorite tile url, and see how it renders.
+
+  <div class="not-content">
+    <TestYourUrl/>
+  </div>
+
 </Card>
 </section>

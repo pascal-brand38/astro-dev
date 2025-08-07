@@ -1,0 +1,47 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { Leaflet } from "astro-leaflet";
+
+---
+
+  <input
+    type="text"
+    id="testyoururl-layer-input"
+    name="testyoururl-layer-input"
+    required
+    size="100" />
+
+
+  <Leaflet id='astro-leaflet-testyoururl' options={{
+      center: [40.7189898, -74.0000309],      // New York
+      zoom: 13,
+    }}
+  />
+
+
+
+<script>
+  import L from "leaflet"
+  import type { Map } from "leaflet"
+	import { getMapFromId, } from "astro-leaflet"
+
+  window.addEventListener('load', () => {
+    let map: Map | undefined = undefined
+		map = getMapFromId('astro-leaflet-testyoururl')
+
+    const inputEl: HTMLInputElement = document.getElementById('testyoururl-layer-input') as HTMLInputElement
+    inputEl!.addEventListener('change', () => {
+      if (map) {
+        map.eachLayer(function (layer) {
+          map!.removeLayer(layer);
+        });
+
+        const newLayer = L.tileLayer(inputEl.value);
+        map.addLayer(newLayer)
+
+      }
+    })
+  })
+</script>
