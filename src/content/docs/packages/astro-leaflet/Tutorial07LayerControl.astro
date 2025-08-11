@@ -5,7 +5,6 @@
 // Implementation of https://leafletjs.com/examples/layers-control/ with astro-leaflet
 //
 // Differences:
-// - missing bindpopup. right now in title
 // - last base map is displayed at the beginning, instead of the first
 
 import {
@@ -14,6 +13,7 @@ import {
   LayerGroup,
   Overlay,
   Marker,
+  Popup,
   TileLayer,
   BaseLayer,
 } from "astro-leaflet";
@@ -43,15 +43,28 @@ import {
 
     <LayerGroup>
       <Overlay name="Cities"/>
-      <Marker latlng={[39.61, -105.02]} options={{ title: 'This is Littleton, CO.'}} />
-      <Marker latlng={[39.74, -104.99]} options={{ title: 'This is Denver, CO.'}} />
-      <Marker latlng={[39.73, -104.8 ]} options={{ title: 'This is Aurora, CO.'}} />
-      <Marker latlng={[39.77, -105.23]} options={{ title: 'This is Golden, CO.'}} />
+      <Marker latlng={[39.61, -105.02]} >
+        <Popup content='This is Littleton, CO.'/>
+      </Marker>
+      <Marker latlng={[39.74, -104.99]} >
+        <Popup content='This is Denver, CO.'/>
+      </Marker>
+      <Marker latlng={[39.73, -104.8 ]} >
+        <Popup content='This is Aurora, CO.'/>
+      </Marker>
+      <Marker latlng={[39.77, -105.23]} >
+        <Popup content='This is Golden, CO.'/>
+      </Marker>
     </LayerGroup>
+
     <LayerGroup>
       <Overlay name="Parks"/>
-      <Marker latlng={[39.75, -105.09]} options={{ title: 'This is Crown Hill Park.' }} />
-      <Marker latlng={[39.68, -105.00]} options={{ title: 'This is Ruby Hill Park.' }} />
+      <Marker latlng={[39.75, -105.09]} >
+        <Popup content='This is Crown Hill Park.'/>
+      </Marker>
+      <Marker latlng={[39.68, -105.00]} >
+        <Popup content='This is Ruby Hill Park.'/>
+      </Marker>
     </LayerGroup>
   </ControlLayer>
 </Leaflet>

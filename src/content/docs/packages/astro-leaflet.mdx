@@ -30,7 +30,10 @@ import GoogleMarker from './astro-leaflet/GoogleMarker.astro'
 import MarathonNewYork from './astro-leaflet/MarathonNewYork.astro'
 import SelectLayer from './astro-leaflet/SelectLayer.astro'
 import ImageOverlay from './astro-leaflet/ImageOverlay.astro'
-import LayerControl from './astro-leaflet/LayerControl.astro'
+
+import Tutorial01QuickStart from './astro-leaflet/Tutorial01QuickStart.astro'
+import Tutorial07LayerControl from './astro-leaflet/Tutorial07LayerControl.astro'
+
 import TestYourUrl from './astro-leaflet/TestYourUrl.astro'
 
 ## Install
@@ -244,18 +247,55 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 </section>
 
 
-<section id="LayerGroupsAndControl">
-<Card title="Layer Control" icon="pencil">
-  [Leaflet Tutorial](https://leafletjs.com/examples/layers-control/) implemented with astro-leaflet.
-  It will show you how to group several layers into one, and how to use the layers control to allow
-  users to easily switch different layers on your map
+<section id="QuickStart">
+<Card title="Leaflet Quick Start Guide" icon="pencil">
+  [Leaflet Tutorial](https://leafletjs.com/examples/quick-start/) implemented with astro-leaflet.
+  This will quickly get you started on Leaflet basics, including setting up a Leaflet map,
+  working with markers, polylines and popups, and dealing with events.
 
-	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/LayerControl.astro" icon="external">
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/Tutorial01QuickStart.astro" icon="external">
 		Full code
 	</LinkButton>
 
   <div class="not-content">
-    <LayerControl/>
+    <Tutorial01QuickStart/>
+  </div>
+
+  Highlights:
+  * ```\<Leaflet>``` is used with
+    * ```id="map-quick-start"``` to style the height of the map
+      in the ```\<style is:global>``` section
+    * in order to not use a default height, ```style=""``` is provided.
+      This is because a default map size is provided when neither style nor class is given.
+    * ```center``` and ```zoom``` are provided
+    * Note that it is not necessary to provide the tile url address as the
+      default tiles comes from openstreetmap
+  * ```\<Marker>```, ```\<Circle>``` and ```\<Polygon>``` are given along with ```\<Popup>```
+  * The standalone ```\<Popup>``` is given with latlng.
+
+  Dealing with event must be performed in the ```\<script>``` part:
+  * when ```load``` event is fired, we are ensured all leaflet elements are created,
+    including the map. The map can be retrieved using its id by calling
+    <br/>
+    &nbsp; &nbsp; ```const map = getMapFromId('map-quick-start')```
+  * the event and popup can then be created using standard leaflet js code
+</Card>
+</section>
+
+
+<section id="LayerGroupsAndControl">
+<Card title="Layer Groups and Layers Control" icon="pencil">
+  [Leaflet Tutorial](https://leafletjs.com/examples/layers-control/) implemented with astro-leaflet.
+  It will show you how to group several layers into one, and how to use the layers control to allow
+  users to easily switch different layers on your map
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/Tutorial07LayerControl.astro" icon="external">
+		Full code
+	</LinkButton>
+
+  <div class="not-content">
+    <Tutorial07LayerControl/>
   </div>
 
   Highlights:
