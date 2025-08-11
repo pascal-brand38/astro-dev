@@ -30,6 +30,7 @@ import GoogleMarker from './astro-leaflet/GoogleMarker.astro'
 import MarathonNewYork from './astro-leaflet/MarathonNewYork.astro'
 import SelectLayer from './astro-leaflet/SelectLayer.astro'
 import ImageOverlay from './astro-leaflet/ImageOverlay.astro'
+import LayerControl from './astro-leaflet/LayerControl.astro'
 import TestYourUrl from './astro-leaflet/TestYourUrl.astro'
 
 ## Install
@@ -239,6 +240,32 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   Work in Progress
   ```
 	</details>
+</Card>
+</section>
+
+
+<section id="LayerGroupsAndControl">
+<Card title="Layer Control" icon="pencil">
+  [Leaflet Tutorial](https://leafletjs.com/examples/layers-control/) implemented with astro-leaflet.
+  It will show you how to group several layers into one, and how to use the layers control to allow
+  users to easily switch different layers on your map
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/LayerControl.astro" icon="external">
+		Full code
+	</LinkButton>
+
+  <div class="not-content">
+    <LayerControl/>
+  </div>
+
+  Highlights:
+  * ```\<Leaflet>``` with ```noDefault={true}``` so that no default layer is added onto the map
+  * ```\<ControlLayer>``` to select the layers to be displayed,
+    and switch from one to another
+  * ```\<BaseLayer>``` to add a ```\<TileLayer>``` onto the control as a checkbox
+  * ```\<LayerGroup>``` to group ```\<Marker>```, to be able to select them all in once
+  * ```\<Overlay>``` to add a ```\<LayerGroup>``` onto the control as a radio
+
 </Card>
 </section>
 

@@ -1,0 +1,57 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Implementation of https://leafletjs.com/examples/layers-control/ with astro-leaflet
+//
+// Differences:
+// - missing bindpopup. right now in title
+// - last base map is displayed at the beginning, instead of the first
+
+import {
+  Leaflet,
+  ControlLayer,
+  LayerGroup,
+  Overlay,
+  Marker,
+  TileLayer,
+  BaseLayer,
+} from "astro-leaflet";
+
+---
+
+<Leaflet noDefault={true} options={{ center: [39.73, -104.99], zoom: 10,}}>
+  <ControlLayer>
+    <TileLayer
+      urlTemplate='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+      options={{ maxZoom: 19, attribution: '© OpenStreetMap' }}
+      >
+      <BaseLayer name="OpenStreetMap"/>
+    </TileLayer>
+    <TileLayer
+      urlTemplate='https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+      options={{ maxZoom: 19, attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France' }}
+      >
+      <BaseLayer name="<span style='color: red'>OpenStreetMap.HOT</span>"/>
+    </TileLayer>
+    <TileLayer
+      urlTemplate='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
+      options={{ maxZoom: 19, attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)' }}
+      >
+      <BaseLayer name="OpenTopoMap"/>
+    </TileLayer>
+
+    <LayerGroup>
+      <Overlay name="Cities"/>
+      <Marker latlng={[39.61, -105.02]} options={{ title: 'This is Littleton, CO.'}} />
+      <Marker latlng={[39.74, -104.99]} options={{ title: 'This is Denver, CO.'}} />
+      <Marker latlng={[39.73, -104.8 ]} options={{ title: 'This is Aurora, CO.'}} />
+      <Marker latlng={[39.77, -105.23]} options={{ title: 'This is Golden, CO.'}} />
+    </LayerGroup>
+    <LayerGroup>
+      <Overlay name="Parks"/>
+      <Marker latlng={[39.75, -105.09]} options={{ title: 'This is Crown Hill Park.' }} />
+      <Marker latlng={[39.68, -105.00]} options={{ title: 'This is Ruby Hill Park.' }} />
+    </LayerGroup>
+  </ControlLayer>
+</Leaflet>
