@@ -1,0 +1,47 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Implementation of https://leafletjs.com/examples/mobile/ with astro-leaflet
+//
+// Differences:
+// - skipping part of fullscreen
+
+import {
+  Leaflet,
+  FitWorld,
+  Locate,
+} from "astro-leaflet";
+
+---
+
+<Leaflet id="map-mobile">
+  <FitWorld />
+  <Locate options={{ setView: true, maxZoom: 16 }} />
+</Leaflet>
+
+<script>
+  import { getMapFromId } from "astro-leaflet"
+  import L from "leaflet"
+
+  window.addEventListener('load', () => {
+    const map = getMapFromId('map-mobile')
+    if (map) {
+      function onLocationFound(e:any) {
+        var radius = e.accuracy;
+        L.marker(e.latlng).addTo(map!)
+            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+        L.circle(e.latlng, { radius } ).addTo(map!)
+      }
+      map.on('locationfound', onLocationFound);
+
+      function onLocationError(e:any) {
+          alert(e.message);
+      }
+      map.on('locationerror', onLocationError);
+    }
+  })
+
+
+</script>

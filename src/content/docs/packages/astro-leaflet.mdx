@@ -32,6 +32,7 @@ import SelectLayer from './astro-leaflet/SelectLayer.astro'
 import ImageOverlay from './astro-leaflet/ImageOverlay.astro'
 
 import Tutorial01QuickStart from './astro-leaflet/Tutorial01QuickStart.astro'
+import Tutorial02Mobile from './astro-leaflet/Tutorial02Mobile.astro'
 import Tutorial07LayerControl from './astro-leaflet/Tutorial07LayerControl.astro'
 
 import TestYourUrl from './astro-leaflet/TestYourUrl.astro'
@@ -46,6 +47,10 @@ Read the full doc on
 [Github](https://github.com/pascal-brand38/astro-leaflet/blob/main/README.md)
 
 Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/)
+
+In case of any problem (map not displayed,...),
+please refer to the [Troubleshooting section](#Troubleshooting)
+
 
 
 
@@ -284,6 +289,32 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
 </section>
 
 
+<section id="Mobile">
+<Card title="Leaflet on Mobile" icon="pencil">
+  [Leaflet Tutorial](https://leafletjs.com/examples/mobile/) implemented with astro-leaflet.
+  Create a map tuned, and how to easily detect and use the current user location
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/Tutorial02Mobile.astro" icon="external">
+		Full code
+	</LinkButton>
+
+  <div class="not-content">
+    <Tutorial02Mobile/>
+  </div>
+
+  Highlights:
+  * ```\<Leaflet>``` with an id to be able to get the associated map
+    into the script part
+  * ```/<FitWorld>``` and ```/<Locate>``` inside ```\<Leaflet>```
+  * Events are dealt in the ```\<script>``` part:
+    * get the map
+    * catch ```locationfound``` and ```locationerror```
+    * draw marker and circle around the found position
+
+</Card>
+</section>
+
+
 <section id="LayerGroupsAndControl">
 <Card title="Layer Groups and Layers Control" icon="pencil">
   [Leaflet Tutorial](https://leafletjs.com/examples/layers-control/) implemented with astro-leaflet.
@@ -305,6 +336,43 @@ Leaflet documentation can be found on [leafletjs.com](https://www.leafletjs.com/
   * ```\<BaseLayer>``` to add a ```\<TileLayer>``` onto the control as a checkbox
   * ```\<LayerGroup>``` to group ```\<Marker>```, to be able to select them all in once
   * ```\<Overlay>``` to add a ```\<LayerGroup>``` onto the control as a radio
+
+</Card>
+</section>
+
+
+
+<section id="Troubleshooting">
+<Card title="Troubleshooting" icon="pencil">
+
+<h4> Map not displayed </h4>
+
+If the map is not displayed, and you have the following error in the console
+
+```
+Uncaught SyntaxError: The requested module '/node_modules/leaflet/dist/leaflet-src.js?v=c7414b9d' does not provide an export named 'layerGroup' (at layergroup.ts?v=c7414b9d:1:10)
+```
+
+or
+
+```
+SyntaxError: Importing binding name 'default' cannot be resolved by star
+
+```
+
+then you have to add the following inside ```astro.config.mjs```:
+
+```js
+export default defineConfig({
+  ...
+  vite: {
+    optimizeDeps: {
+      include: ['leaflet'],
+    }
+  },
+  ...
+});
+```
 
 </Card>
 </section>

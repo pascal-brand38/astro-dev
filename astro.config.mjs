@@ -11,6 +11,12 @@ export default defineConfig({
 	site: 'https://pascal-brand38.github.io',
   base: '/astro-dev',
 
+	// vite: {
+	// 	build: {
+	// 		minify: false,
+	// 	}
+	// },
+
 	integrations: [
 		starlight({
 			title: 'astro-dev',
