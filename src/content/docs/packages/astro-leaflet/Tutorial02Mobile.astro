@@ -22,14 +22,18 @@ import {
 
 <script>
   import { getMapFromId } from "astro-leaflet"
+  import { getAstroLeafletMarkerDefaultIcon } from "astro-leaflet/client"
   import L from "leaflet"
 
   window.addEventListener('load', () => {
     const map = getMapFromId('map-mobile')
     if (map) {
       function onLocationFound(e:any) {
+        // fix leaflet bug: default icon not displayed in production
+        // https://stackoverflow.com/questions/41144319/leaflet-marker-not-found-production-env/76454369#76454369
+        // this is why the default icon has to be specified
         var radius = e.accuracy;
-        L.marker(e.latlng).addTo(map!)
+        L.marker(e.latlng, { icon: getAstroLeafletMarkerDefaultIcon() }).addTo(map!)
             .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
         L.circle(e.latlng, { radius } ).addTo(map!)
@@ -42,6 +46,5 @@ import {
       map.on('locationerror', onLocationError);
     }
   })
-
 
 </script>
