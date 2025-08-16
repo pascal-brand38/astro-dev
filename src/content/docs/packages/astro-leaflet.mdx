@@ -33,6 +33,7 @@ import ImageOverlay from './astro-leaflet/ImageOverlay.astro'
 
 import Tutorial01QuickStart from './astro-leaflet/Tutorial01QuickStart.astro'
 import Tutorial02Mobile from './astro-leaflet/Tutorial02Mobile.astro'
+import Tutorial06Choropleth from './astro-leaflet/Tutorial06Choropleth.astro'
 import Tutorial07LayerControl from './astro-leaflet/Tutorial07LayerControl.astro'
 
 import TestYourUrl from './astro-leaflet/TestYourUrl.astro'
@@ -311,6 +312,32 @@ please refer to the [Troubleshooting section](#Troubleshooting)
     * catch ```locationfound``` and ```locationerror```
     * draw marker and circle around the found position
 
+</Card>
+</section>
+
+
+<section id="Choropleth">
+<Card title="Interactive Choropleth Map" icon="pencil">
+  [Leaflet Tutorial](https://leafletjs.com/examples/layers-control/) implemented with astro-leaflet.
+  This is a case study of creating a colorful interactive choropleth map of US States Population
+  Density with the help of GeoJSON and some custom controls (that will hopefully convince all
+  the remaining major news and government websites that do not use Leaflet yet to start doing so).
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-leaflet/Tutorial06Choropleth.astro" icon="external">
+		Full code
+	</LinkButton>
+
+  <div class="not-content">
+    <Tutorial06Choropleth/>
+  </div>
+
+  Highlights:
+  * ```\<GeoJson>``` to have US states overlayed on the map
+  * ```\<Control>``` to display legend, and information on the hovered state
+  * the script part contains:
+    * style of hovered states
+    * events to update the information on the hovered state, as well
+      as another style for the hovered states
 </Card>
 </section>
 

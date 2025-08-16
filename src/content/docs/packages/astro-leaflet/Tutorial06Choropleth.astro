@@ -1,0 +1,163 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Implementation of https://leafletjs.com/examples/choropleth/ with astro-leaflet
+//
+// Differences:
+
+import {
+  Leaflet,
+  Control,
+  GeoJson,
+} from "astro-leaflet";
+import type { GeoJsonObject } from 'geojson'
+import data from './us-states.json'
+
+// getColor() is used to display the legend in a leaflet control
+// unfortunately, it is duplicated in the script part
+function getColor(d: number) {
+  return d > 1000 ? '#800026' :
+         d > 500  ? '#BD0026' :
+         d > 200  ? '#E31A1C' :
+         d > 100  ? '#FC4E2A' :
+         d > 50   ? '#FD8D3C' :
+         d > 20   ? '#FEB24C' :
+         d > 10   ? '#FED976' :
+                    '#FFEDA0';
+}
+const grades = [0, 10, 20, 50, 100, 200, 500, 1000]
+---
+
+<Leaflet
+  id="map-choropleth"
+  style="width: 80%;"
+  options={{
+    center: [37.8, -96],
+    zoom: 4,
+  }}
+>
+  <!-- data to be displayed on top of the map: us states borders -->
+  <GeoJson id='geojson-choropleth' geojson={data as GeoJsonObject}/>
+
+  <!-- display stats when hovering a state - update in the script part  -->
+  <Control id='geojson-control-info' options={{position: 'topright'}}>
+    <div class="info">
+      <h4>US Population Density</h4>
+      <div id="geojson-display-info"> Hover over a state </div>
+    </div>
+  </Control>
+
+  <!-- legend -->
+  <Control options={{position: 'bottomright'}}>
+    <div class="info legend">
+      {
+        grades.map((grade, i) => (
+          <div>
+            <i style={`background: ${getColor(grade + 1)} `}></i>
+            <span>{grade}{(grades[i + 1]) ? (`\u2013${grades[i + 1]}`) : "+"}</span>
+          </div>
+        ))
+      }
+    </div>
+  </Control>
+</Leaflet>
+
+<script>
+  import { getMapFromId, getLeafletFromId } from "astro-leaflet"
+  import type { GeoJSON } from "leaflet";
+  import type { GeoJsonObject } from 'geojson'
+
+  function getColor(d: number) {
+    return d > 1000 ? '#800026' :
+           d > 500  ? '#BD0026' :
+           d > 200  ? '#E31A1C' :
+           d > 100  ? '#FC4E2A' :
+           d > 50   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
+                      '#FFEDA0';
+  }
+
+  // style of the states. color depends on the density population
+  function style(feature: any) {
+    return {
+      fillColor: getColor(feature.properties.density),
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7
+    };
+  }
+
+  window.addEventListener('load', () => {
+    const map = getMapFromId('map-choropleth')
+    const geojson: GeoJSON | undefined = getLeafletFromId('geojson-choropleth') as GeoJSON | undefined
+    if (map && geojson) {
+      geojson.setStyle(style)   // adding colors to the map
+
+      const info = getLeafletFromId('geojson-control-info')
+      const infoToUpdate = document.getElementById('geojson-display-info')
+
+      // method that we will use to update the control based on feature properties passed
+      info.update = function (props: any) {
+        infoToUpdate!.innerHTML = (props ?
+        '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+        : 'Hover over a state');
+      }
+
+      function highlightFeature(e: any) {
+        var layer = e.target;
+
+        layer.setStyle({
+          weight: 5,
+          color: '#666',
+          dashArray: '',
+          fillOpacity: 0.7
+        });
+
+        layer.bringToFront();
+        info.update(layer.feature.properties);
+      }
+
+      function onEachFeature(feature: any, layer: any) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: (e:any) => { layer.setStyle(style(feature)); info.update()},
+            click: (e:any) => map!.fitBounds(e.target.getBounds()),
+        });
+      }
+
+      // @ts-ignore
+      geojson.eachLayer((layer) => onEachFeature(layer.feature, layer))
+    }
+  })
+
+</script>
+
+<style>
+  .info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  .info h4 {
+      margin: 0 0 5px;
+  }
+
+  .legend {
+    line-height: 18px;
+    color: #555;
+  }
+  .legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+  }
+
+</style>
