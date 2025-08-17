@@ -1,0 +1,38 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Demo from https://swiperjs.com/demos#default
+
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
+import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
+
+---
+
+<Swiper
+  class="my-swiper"
+  options={{
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title="Navigation"/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 2 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 3 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 4 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 5 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 6 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 7 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 8 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 9 </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <!-- navigation buttons -->
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+
+</Swiper>

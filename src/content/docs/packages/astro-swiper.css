@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Pascal Brand
+ * MIT License
+ *
+ * basic css style for demos on astro-swiper
+ */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 50rem) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+.grid-cell {
+  /* https://stackoverflow.com/questions/76402473/swiperjs-100-width-bug-when-inside-grid */
+  min-width: 0;
+}

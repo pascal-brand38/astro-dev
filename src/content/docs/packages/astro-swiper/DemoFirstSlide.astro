@@ -1,0 +1,45 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// utility to display the first slide of a given demo
+
+interface Props {
+  title: string,
+}
+
+const {
+  title
+} = Astro.props
+const srcFile = title.replaceAll(' ', '') + '.astro'
+const astroDevUrl = 'https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-swiper/srcFile'
+const swiperjsUrl = 'https://swiperjs.com/demos#' + title.toLowerCase().replace(' ', '-')
+
+---
+
+<div>
+  <div> <strong> {title} Demo </strong> </div>
+  <div> Slide 1 </div>
+  <a href=`${astroDevUrl}/${srcFile}`>
+    Full Astro Code
+  </a>
+  <a href=`${swiperjsUrl}`>
+    Demo using Vanilla js
+  </a>
+</div>
+
+<style>
+a {
+  display: block;
+  text-decoration: none;
+  color: unset;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 12px;
+  padding: 6px 12px;
+  background-color: gray;
+}
+a:hover {
+  background-color: darkgrey;
+}
+</style>

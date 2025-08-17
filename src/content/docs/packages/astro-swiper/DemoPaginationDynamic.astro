@@ -1,0 +1,37 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+// Demo from https://swiperjs.com/demos#default
+
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from "astro-swiper";
+import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
+
+---
+
+<Swiper
+  class="my-swiper"
+  options={{
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title="Pagination Dynamic"/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 2 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 3 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 4 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 5 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 6 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 7 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 8 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 9 </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <!-- navigation buttons -->
+  <SwiperPagination />
+
+</Swiper>
