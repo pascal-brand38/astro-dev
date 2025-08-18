@@ -37,7 +37,7 @@ Read the full doc on
 
 Swiper options documentation can be found on [swiperjs.com](https://swiperjs.com/swiper-api#parameters)
 
-
+{/*
 ## Examples
 
 <Card title="Autoplay Example" icon="pencil">
@@ -222,13 +222,62 @@ Swiper options documentation can be found on [swiperjs.com](https://swiperjs.com
   </Swiper>
 ```
 	</details>
-</Card>
+</Card> */}
 
 
 import DemoDefault from './astro-swiper/DemoDefault.astro'
 import DemoNavigation from './astro-swiper/DemoNavigation.astro'
 import DemoPagination from './astro-swiper/DemoPagination.astro'
 import DemoPaginationDynamic from './astro-swiper/DemoPaginationDynamic.astro'
+import DemoPaginationProgress from './astro-swiper/DemoPaginationProgress.astro'
+import DemoPaginationFraction from './astro-swiper/DemoPaginationFraction.astro'
+
+import DemoPaginationCustom from './astro-swiper/DemoPaginationCustom.astro'
+import DemoScrollbar from './astro-swiper/DemoScrollbar.astro'
+import DemoVertical from './astro-swiper/DemoVertical.astro'
+import DemoSpaceBetween from './astro-swiper/DemoSpaceBetween.astro'
+import DemoSlidesPerView from './astro-swiper/DemoSlidesPerView.astro'
+import DemoSlidesPerViewAuto from './astro-swiper/DemoSlidesPerViewAuto.astro'
+import DemoCentered from './astro-swiper/DemoCentered.astro'
+import DemoCenteredAuto from './astro-swiper/DemoCenteredAuto.astro'
+import DemoCssMode from './astro-swiper/DemoCssMode.astro'
+import DemoFreeMode from './astro-swiper/DemoFreeMode.astro'
+import DemoScrollContainer from './astro-swiper/DemoScrollContainer.astro'
+import DemoGrid from './astro-swiper/DemoGrid.astro'
+import DemoNested from './astro-swiper/DemoNested.astro'
+import DemoGrabCursor from './astro-swiper/DemoGrabCursor.astro'
+import DemoInfiniteLoop from './astro-swiper/DemoInfiniteLoop.astro'
+import DemoSlidesPerGroupSkip from './astro-swiper/DemoSlidesPerGroupSkip.astro'
+import DemoEffectFade from './astro-swiper/DemoEffectFade.astro'
+import DemoEffectCube from './astro-swiper/DemoEffectCube.astro'
+import DemoEffectCoverFlow from './astro-swiper/DemoEffectCoverFlow.astro'
+import DemoEffectFlip from './astro-swiper/DemoEffectFlip.astro'
+import DemoEffectCards from './astro-swiper/DemoEffectCards.astro'
+import DemoEffectCreative from './astro-swiper/DemoEffectCreative.astro'
+import DemoControlKeyboard from './astro-swiper/DemoControlKeyboard.astro'
+import DemoMousewheelControl from './astro-swiper/DemoMousewheelControl.astro'
+import DemoAutoplay from './astro-swiper/DemoAutoplay.astro'
+import DemoAutoplayProgress from './astro-swiper/DemoAutoplayProgress.astro'
+import DemoManipulation from './astro-swiper/DemoManipulation.astro'
+import DemoThumbsGallery from './astro-swiper/DemoThumbsGallery.astro'
+import DemoThumbsGalleryLoop from './astro-swiper/DemoThumbsGalleryLoop.astro'
+import DemoMultipleSwipers from './astro-swiper/DemoMultipleSwipers.astro'
+import DemoHashNavigation from './astro-swiper/DemoHashNavigation.astro'
+import DemoHistory from './astro-swiper/DemoHistory.astro'
+import DemoRtl from './astro-swiper/DemoRtl.astro'
+import DemoParallax from './astro-swiper/DemoParallax.astro'
+import DemoLazyLoadImages from './astro-swiper/DemoLazyLoadImages.astro'
+import DemoResponsiveBreakpoints from './astro-swiper/DemoResponsiveBreakpoints.astro'
+import DemoRatioBreakpoints from './astro-swiper/DemoRatioBreakpoints.astro'
+import DemoAutoheight from './astro-swiper/DemoAutoheight.astro'
+import DemoZoom from './astro-swiper/DemoZoom.astro'
+import DemoVirtualSlides from './astro-swiper/DemoVirtualSlides.astro'
+import DemoCustomPlugin from './astro-swiper/DemoCustomPlugin.astro'
+import DemoSlideableMenu from './astro-swiper/DemoSlideableMenu.astro'
+import DemoChangeDirection from './astro-swiper/DemoChangeDirection.astro'
+import DemoWatchSlidesVisibility from './astro-swiper/DemoWatchSlidesVisibility.astro'
+import DemoRewind from './astro-swiper/DemoRewind.astro'
+
 import './astro-swiper.css'
 
 <div class='grid not-content'>
@@ -236,4 +285,51 @@ import './astro-swiper.css'
   <div class='grid-cell'> <DemoNavigation/> </div>
   <div class='grid-cell'> <DemoPagination/> </div>
   <div class='grid-cell'> <DemoPaginationDynamic/> </div>
+  <div class='grid-cell'> <DemoPaginationProgress/> </div>
+  <div class='grid-cell'> <DemoPaginationFraction/> </div>
+  <div class='grid-cell'> <DemoPaginationCustom/> </div>
+  <div class='grid-cell'> <DemoScrollbar/> </div>
+  <div class='grid-cell'> <DemoVertical/> </div>
+  <div class='grid-cell'> <DemoSpaceBetween/> </div>
+  <div class='grid-cell'> <DemoSlidesPerView/> </div>
+  <div class='grid-cell'> <DemoSlidesPerViewAuto/> </div>
+  <div class='grid-cell'> <DemoCentered/> </div>
+  <div class='grid-cell'> <DemoCenteredAuto/> </div>
+  <div class='grid-cell'> <DemoCssMode/> </div>
+  <div class='grid-cell'> <DemoFreeMode/> </div>
+  <div class='grid-cell'> <DemoScrollContainer/> </div>
+  <div class='grid-cell'> <DemoGrid/> </div>
+  <div class='grid-cell'> <DemoNested/> </div>
+  <div class='grid-cell'> <DemoGrabCursor/> </div>
+  <div class='grid-cell'> <DemoInfiniteLoop/> </div>
+  <div class='grid-cell'> <DemoSlidesPerGroupSkip/> </div>
+  <div class='grid-cell'> <DemoEffectFade/> </div>
+  <div class='grid-cell'> <DemoEffectCube/> </div>
+  <div class='grid-cell'> <DemoEffectCoverFlow/> </div>
+  <div class='grid-cell'> <DemoEffectFlip/> </div>
+  <div class='grid-cell'> <DemoEffectCards/> </div>
+  <div class='grid-cell'> <DemoEffectCreative/> </div>
+  <div class='grid-cell'> <DemoControlKeyboard/> </div>
+  <div class='grid-cell'> <DemoMousewheelControl/> </div>
+  <div class='grid-cell'> <DemoAutoplay/> </div>
+  <div class='grid-cell'> <DemoAutoplayProgress/> </div>
+  <div class='grid-cell'> <DemoManipulation/> </div>
+  <div class='grid-cell'> <DemoThumbsGallery/> </div>
+  <div class='grid-cell'> <DemoThumbsGalleryLoop/> </div>
+  <div class='grid-cell'> <DemoMultipleSwipers/> </div>
+  <div class='grid-cell'> <DemoHashNavigation/> </div>
+  <div class='grid-cell'> <DemoHistory/> </div>
+  <div class='grid-cell'> <DemoRtl/> </div>
+  <div class='grid-cell'> <DemoParallax/> </div>
+  <div class='grid-cell'> <DemoLazyLoadImages/> </div>
+  <div class='grid-cell'> <DemoResponsiveBreakpoints/> </div>
+  <div class='grid-cell'> <DemoRatioBreakpoints/> </div>
+  <div class='grid-cell'> <DemoAutoheight/> </div>
+  <div class='grid-cell'> <DemoZoom/> </div>
+  <div class='grid-cell'> <DemoVirtualSlides/> </div>
+  <div class='grid-cell'> <DemoCustomPlugin/> </div>
+  <div class='grid-cell'> <DemoSlideableMenu/> </div>
+  <div class='grid-cell'> <DemoChangeDirection/> </div>
+  <div class='grid-cell'> <DemoWatchSlidesVisibility/> </div>
+  <div class='grid-cell'> <DemoRewind/> </div>
 </div>

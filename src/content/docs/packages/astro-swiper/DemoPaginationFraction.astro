@@ -1,21 +1,24 @@
 ---
 // Copyright (c) Pascal Brand
 // MIT License
-//
 
-import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from "astro-swiper";
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
 import './demo.css'
 import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const title="Pagination"
-
+const title="Pagination Fraction"
 ---
 
 <Swiper
   class="my-swiper"
   options={{
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
     pagination: {
       el: ".swiper-pagination",
+      type: "fraction",
     },
   }}
 >
@@ -31,5 +34,15 @@ const title="Pagination"
     <SwiperSlide> <div class="my-slide"> Slide 9 </div> </SwiperSlide>
   </SwiperWrapper>
 
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+
   <SwiperPagination />
 </Swiper>
+
+<style>
+  .my-swiper {
+    color: yellow;   /* text color of the fraction progress */
+    font-size: 12px;
+  }
+</style>

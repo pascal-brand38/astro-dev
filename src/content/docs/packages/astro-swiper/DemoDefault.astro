@@ -2,20 +2,20 @@
 // Copyright (c) Pascal Brand
 // MIT License
 //
-// Demo from https://swiperjs.com/demos#default
 
 import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
 import './demo.css'
 import DemoFirstSlide from "./DemoFirstSlide.astro";
 
+const title='Default'
 ---
 
 <Swiper
   class="my-swiper"
 >
   <SwiperWrapper>
-    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title="Default"/> </div> </SwiperSlide>
-    <SwiperSlide> <div class="my-slide"> Slide 2 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
     <SwiperSlide> <div class="my-slide"> Slide 3 </div> </SwiperSlide>
     <SwiperSlide> <div class="my-slide"> Slide 4 </div> </SwiperSlide>
     <SwiperSlide> <div class="my-slide"> Slide 5 </div> </SwiperSlide>

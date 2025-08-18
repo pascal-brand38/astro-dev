@@ -1,0 +1,22 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+//
+
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from "astro-swiper";
+import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
+
+const filename = Astro.self.moduleId
+const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
+const title = filename!.substring(lastIndex, filename!.length - 6)
+
+---
+
+<div class="my-slide work-in-progress">
+  <div>
+    <div> <strong> {title} Demo </strong> </div>
+    <br>
+    <div> WORK IN PROGRESS </div>
+  </div>
+</div>
