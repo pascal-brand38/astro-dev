@@ -7,16 +7,31 @@ import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from "astro-swip
 import './demo.css'
 import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Slides Per View'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  class="my-swiper"
+  options={{
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 3 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 4 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 5 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 6 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 7 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 8 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 9 </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperPagination />
+</Swiper>

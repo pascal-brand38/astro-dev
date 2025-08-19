@@ -12,12 +12,12 @@ const {
   title
 } = Astro.props
 const srcFile = title.replaceAll(' ', '') + '.astro'
-const astroDevUrl = 'https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-swiper/srcFile'
+const astroDevUrl = 'https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-swiper'
 const swiperjsUrl = 'https://swiperjs.com/demos#' + title.toLowerCase().replace(' ', '-')
 
 ---
 
-<div>
+<div class="first-slide">
   <div> <strong> {title} Demo </strong> </div>
   <div> Slide 1 </div>
   <a href=`${astroDevUrl}/${srcFile}`>
@@ -29,6 +29,8 @@ const swiperjsUrl = 'https://swiperjs.com/demos#' + title.toLowerCase().replace(
 </div>
 
 <style>
+.first-slide {
+}
 a {
   display: block;
   text-decoration: none;

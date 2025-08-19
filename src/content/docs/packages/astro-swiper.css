@@ -21,5 +21,6 @@
 
 .grid-cell {
   /* https://stackoverflow.com/questions/76402473/swiperjs-100-width-bug-when-inside-grid */
+  /* https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size */
   min-width: 0;
 }
