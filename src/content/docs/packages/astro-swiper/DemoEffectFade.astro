@@ -3,20 +3,38 @@
 // MIT License
 //
 
-import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from "astro-swiper";
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination } from "astro-swiper";
 import './demo.css'
 import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Effect Fade'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  class="my-swiper"
+  options={{
+    spaceBetween: 30,
+    effect: "fade",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+  <SwiperPagination />
+</Swiper>
