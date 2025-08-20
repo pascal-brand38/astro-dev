@@ -25,8 +25,6 @@ Doc of development on [Astro](https://astro.build).
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/pascal-brand38/astro-lightgallery)](https://github.com/pascal-brand38/astro-lightgallery)
 
-[![Who is using it](https://img.shields.io/badge/Who%20is%20using%20it-Green)](https://github.com/search?q=%22astro-lightgallery%22+path%3Apackage.json+NOT+owner%3Apascal-brand38+&type=code)
-
 
 <br>
 
