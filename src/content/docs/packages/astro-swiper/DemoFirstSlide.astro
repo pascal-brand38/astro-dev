@@ -11,7 +11,7 @@ interface Props {
 const {
   title
 } = Astro.props
-const srcFile = title.replaceAll(' ', '') + '.astro'
+const srcFile = 'Demo' + title.replaceAll(' ', '') + '.astro'
 const astroDevUrl = 'https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-swiper'
 const swiperjsUrl = 'https://swiperjs.com/demos#' + title.toLowerCase().replace(' ', '-')
 
