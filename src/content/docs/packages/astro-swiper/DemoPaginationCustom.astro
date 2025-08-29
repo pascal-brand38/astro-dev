@@ -41,10 +41,11 @@ const title="Pagination Custom"
 </Swiper>
 
 <script>
+  import type { PaginationOptions } from 'swiper/types';
   import { getSwiperFromUniqueClass } from 'astro-swiper'
   window.addEventListener('load', () => {
-    const swiper = getSwiperFromUniqueClass('swiper-demo-pagination-custom')
-    swiper!.params.pagination!.renderBullet = function (index: number, className: string) {
+    const swiper = getSwiperFromUniqueClass('swiper-demo-pagination-custom');
+    (swiper!.params.pagination as PaginationOptions)!.renderBullet = function (index: number, className: string) {
       return '<span class="' + className + '">' + (index + 1) + "</span>";
     }
     swiper!.init()
