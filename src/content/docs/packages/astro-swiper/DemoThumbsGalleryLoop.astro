@@ -3,18 +3,67 @@
 // MIT License
 //
 
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext } from "astro-swiper";
 import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
+const title="Thumbs Gallery Loop"
 
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  uniqueClass="myswiper-thumbs-gallery-loop"
+  linkToThumbUniqueClass="myswiper-thumbs-gallery-loop-thumbnail"
+  options={{
+    loop: true,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  }}>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+</Swiper>
+
+
+<Swiper
+  uniqueClass="myswiper-thumbs-gallery-loop-thumbnail"
+  options={{
+    loop: true,
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+  }}>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </div> </SwiperSlide>
+  </SwiperWrapper>
+</Swiper>
+
+<style>
+  .myswiper-thumbs-gallery-loop-thumbnail .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .myswiper-thumbs-gallery-loop-thumbnail .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+</style>
