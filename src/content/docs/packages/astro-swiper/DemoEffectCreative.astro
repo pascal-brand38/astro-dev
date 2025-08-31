@@ -3,18 +3,84 @@
 // MIT License
 //
 
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination } from "astro-swiper";
 import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Effect Creative'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  uniqueClass="my-swiper-demoeffectcreative"
+  options={{
+    grabCursor: true,
+    effect: "creative",
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: ["-125%", 0, -800],
+        rotate: [0, 0, -90],
+      },
+      next: {
+        shadow: true,
+        translate: ["125%", 0, -800],
+        rotate: [0, 0, 90],
+      },
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </div> </SwiperSlide>
+  </SwiperWrapper>
+</Swiper>
+
+<style>
+  .my-swiper-demoeffectcreative .my-slide {
+    background-color: unset;
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(1n) {
+    background-color: rgb(206, 17, 17);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(2n) {
+    background-color: rgb(0, 140, 255);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(3n) {
+    background-color: rgb(10, 184, 111);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(4n) {
+    background-color: rgb(211, 122, 7);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(5n) {
+    background-color: rgb(118, 163, 12);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(6n) {
+    background-color: rgb(180, 10, 47);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(7n) {
+    background-color: rgb(35, 99, 19);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(8n) {
+    background-color: rgb(0, 68, 255);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(9n) {
+    background-color: rgb(218, 12, 218);
+  }
+
+  .my-swiper-demoeffectcreative .swiper-slide:nth-child(10n) {
+    background-color: rgb(54, 94, 77);
+  }
+</style>
