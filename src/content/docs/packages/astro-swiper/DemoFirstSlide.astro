@@ -13,17 +13,17 @@ const {
 } = Astro.props
 const srcFile = 'Demo' + title.replaceAll(' ', '') + '.astro'
 const astroDevUrl = 'https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-swiper'
-const swiperjsUrl = 'https://swiperjs.com/demos#' + title.toLowerCase().replace(' ', '-')
+const swiperjsUrl = 'https://swiperjs.com/demos#' + title.toLowerCase().replaceAll(' ', '-')
 
 ---
 
 <div class="first-slide">
-  <a href=`${astroDevUrl}/${srcFile}`>
+  <a href=`${astroDevUrl}/${srcFile}` target="_blank" rel="noopener noreferrer">
     Full Astro Code
   </a>
   <div> <strong> {title} Demo </strong> </div>
   <div> Slide 1 </div>
-  <a href=`${swiperjsUrl}`>
+  <a href=`${swiperjsUrl}` target="_blank" rel="noopener noreferrer">
     Demo using Vanilla js
   </a>
 </div>
