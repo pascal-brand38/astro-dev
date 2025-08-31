@@ -3,18 +3,105 @@
 // MIT License
 //
 
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination } from "astro-swiper";
 import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Autoplay Progress'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
+<Swiper
+  class="my-swiper"
+  uniqueClass="swiper-autoplay-progress"
+  options={{
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    // on: {
+    //   // autoplayTimeLeft is a function, initialized in the script part
+    // },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 3 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 4 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 5 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 6 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 7 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 8 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 9 </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+  <SwiperPagination />
+
+  <div class="autoplay-progress">
+    <svg viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="20"></circle>
+    </svg>
+    <span></span>
   </div>
-</div>
+
+</Swiper>
+
+<script>
+  import { getSwiperFromUniqueClass } from 'astro-swiper'
+  import type { Swiper } from 'swiper/types'
+  window.addEventListener('load', () => {
+    const swiper = getSwiperFromUniqueClass('swiper-autoplay-progress');
+    const progressCircle = document.querySelector(".swiper-autoplay-progress .autoplay-progress svg") as HTMLElement;
+    const progressContent = document.querySelector(".swiper-autoplay-progress .autoplay-progress span") as HTMLElement;
+
+    swiper!.on('autoplayTimeLeft', (swiper:Swiper, timeLeft:number, percentage:number) => {
+      progressCircle!.style.setProperty("--progress", String(1 - percentage));
+      progressContent!.textContent = `${Math.ceil(timeLeft / 1000)}s`;
+    })
+  })
+</script>
+
+<style is:global>
+  .swiper-autoplay-progress .autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--swiper-theme-color);
+  }
+
+  .swiper-autoplay-progress .autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--swiper-theme-color);
+    fill: none;
+    stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+  }
+
+</style>
