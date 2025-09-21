@@ -176,13 +176,14 @@ import { Postit } from 'astro-webtools'
 
 		```jsx
 		---
-		import { astroBuildTimeConstants } from '../astro-build-time-constants'
+		import { astroBuildTimeConstants }
+		   from '../astro-build-time-constants'
 		---
 		<p>
 			Built on {astroBuildTimeConstants.internal.iso}
 		</p>
 		<p>
-			My parameter is {astroBuildTimeConstants.custom.myParam}
+			My param is {astroBuildTimeConstants.custom.myParam}
 		</p>
 		```
 
