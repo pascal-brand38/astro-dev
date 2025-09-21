@@ -170,6 +170,27 @@ import { Postit } from 'astro-webtools'
 		</div>
 	</Card>
 
+	<Card title="Astro Build Time Constants" icon="pencil">
+		Astro Integration to get build-time constants, such as build time date,
+		as well as custom properties:
+
+		```jsx
+		---
+		import { astroBuildTimeConstants } from '../astro-build-time-constants'
+		---
+		<p>
+			Built on {astroBuildTimeConstants.internal.iso}
+		</p>
+		<p>
+			My parameter is {astroBuildTimeConstants.custom.myParam}
+		</p>
+		```
+
+		<LinkButton href="packages/astro-build-time-constants" icon="external">
+			Go to the doc
+		</LinkButton>
+	</Card>
+
 	<Card title="Resources" icon="external">
 		Resources that can be used in Astro, such as fonts,...
 

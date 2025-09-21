@@ -40,6 +40,7 @@ export default defineConfig({
 						{ label: 'astro-swiper', slug: 'packages/astro-swiper' },
 						{ label: 'astro-splide', slug: 'packages/astro-splide' },
 						{ label: 'astro-webtools', slug: 'packages/astro-webtools' },
+						{ label: 'astro-build-time-constants', slug: 'packages/astro-build-time-constants' },
 					],
 				},
 				{

@@ -1,8 +1,7 @@
 :root {
-  --sl-sidebar-width: 10rem;
+  --sl-sidebar-width: 15rem;
   --sl-content-width: 1024px;
   --sl-text-5xl: 33.5rem;
-  --sl-sidebar-width: 12rem;
 }
 
 .sl-markdown-content .inline-icon {
