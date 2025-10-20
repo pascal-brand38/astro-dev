@@ -93,7 +93,7 @@ ___________________________
 ## Installation and build
 
 ```bash
-npm -r install
-npm -r run build
+npm install
+npm run build
 npm run dev
 ```
