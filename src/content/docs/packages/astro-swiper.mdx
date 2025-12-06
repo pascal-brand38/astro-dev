@@ -92,6 +92,13 @@ Swiper options documentation can be found on [swiperjs.com](https://swiperjs.com
 	Navigation example: slider of 3 images, with arrow or swiping to navigate
   from a slide to another one.
 
+  Note that if ones does not want to use the default swiper class
+  ```swiper-button-prev``` and ```swiper-button-next``` to use its
+  own css, it is possible to use
+  ```
+  <SwiperButtonPrev addDefaultClass={false} class='my-swiper-button-prev'/>
+  ```
+
   <div class="not-content">
 	  <Navigation/>
   </div>
