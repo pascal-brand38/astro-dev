@@ -59,10 +59,10 @@ const title='Autoplay Progress'
 </Swiper>
 
 <script>
-  import { getSwiperFromUniqueClass } from 'astro-swiper'
+  import { getSwiperFromUniqueSelector } from 'astro-swiper'
   import type { Swiper } from 'swiper/types'
   window.addEventListener('load', () => {
-    const swiper = getSwiperFromUniqueClass('swiper-autoplay-progress');
+    const swiper = getSwiperFromUniqueSelector('.swiper-autoplay-progress');
     const progressCircle = document.querySelector(".swiper-autoplay-progress .autoplay-progress svg") as HTMLElement;
     const progressContent = document.querySelector(".swiper-autoplay-progress .autoplay-progress span") as HTMLElement;
 
