@@ -16,7 +16,7 @@
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "astro": "^5.5.5",
     "astro-leaflet": "^1.8.1",
-    "astro-lightgallery": "^2.0.0",
+    "astro-lightgallery": "^2.2.0",
     "astro-splide": "^2.0.2",
     "astro-swiper": "^1.4.0",
     "astro-webtools": "^1.0.2",
