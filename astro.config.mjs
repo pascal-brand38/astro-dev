@@ -9,7 +9,7 @@ export default defineConfig({
 	// used to deploy on github pages gh-pages
 	// cf. https://docs.astro.build/en/guides/deploy/github/
 	site: 'https://pascal-brand38.github.io',
-  base: '/astro-dev',
+	base: 'astro-dev',
 
 	// vite: {
 	// 	build: {
