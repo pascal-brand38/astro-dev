@@ -37,3 +37,53 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  linkChecker:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: dist/
+
+      - name: Create a dist with astro-dev inside to reflect base which is astro-dev
+        run: |
+          mkdir dist-local
+          cp -r dist dist-local/astro-dev
+          cd dist-local/astro-dev
+          tar -xvf artifact.tar
+          cd ../..
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # 403 means it fails because the server detected it was a bot
+          # --accept 200..=206,403 to accept 2xx and 403 responses as provided in https://github.com/lycheeverse/lychee/issues/1157
+          args: "--insecure --root-dir ${{ github.workspace }}/dist-local --exclude 'astro-dev/404' --cache --max-cache-age 1d 'dist-local/**/*.html' --accept 200..=206,403"
+          fail: false
+
+      # - name: Create Issue From File
+      #   if: steps.lychee.outputs.exit_code != 0
+      #   uses: peter-evans/create-issue-from-file@v5
+      #   with:
+      #     title: Link Checker Report
+      #     content-filepath: ./lychee/out.md
+      #     labels: report, automated issue
+
+      - name: Fail if broken links found
+        if: steps.lychee.outputs.exit_code != 0
+        run: |
+          echo "Link checker found broken links."
+          exit 1
