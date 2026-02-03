@@ -45,7 +45,7 @@ jobs:
         with:
           # 403 means it fails because the server detected it was a bot
           # --accept 200..=206,403 to accept 2xx and 403 responses as provided in https://github.com/lycheeverse/lychee/issues/1157
-          args: "--root-dir ${{ github.workspace }}/dist-local --cache --max-cache-age 1d 'dist/**/*.html' --accept 200..=206,403"
+          args: "--root-dir ${{ github.workspace }}/dist-local lychee --exclude '404.html' --cache --max-cache-age 1d 'dist/**/*.html' --accept 200..=206,403"
           fail: false
 
       - name: Create Issue From File
