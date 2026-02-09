@@ -44,6 +44,20 @@ import TestYourUrl from './astro-leaflet/TestYourUrl.astro'
 npm install astro-leaflet
 ```
 
+Once installed, please add the following in ```astro.config.mjs``` file as detailed
+in the [Troubleshooting section](#troubleshooting):
+```js
+export default defineConfig({
+  ...
+  vite: {
+    optimizeDeps: {
+      include: ['astro-leaflet > leaflet'],
+    }
+  },
+  ...
+});
+```
+
 Read the full doc on
 [Github](https://github.com/pascal-brand38/astro-leaflet/blob/main/README.md)
 
