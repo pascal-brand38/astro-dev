@@ -3,18 +3,78 @@
 // MIT License
 //
 
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination } from "astro-swiper";
 import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Zoom'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  class="my-swiper"
+  options={{
+    zoom: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide>
+      <div class="my-slide">
+        <DemoFirstSlide title={title}> Double-click on the image to zoom in </DemoFirstSlide>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="my-slide">
+        <div class="swiper-zoom-container">
+          <img src="/astro-dev/astro-swiper.png" alt="" />
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="my-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="my-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="my-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="my-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="my-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+        </div>
+      </div>
+    </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+  <SwiperPagination />
+</Swiper>
