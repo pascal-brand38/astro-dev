@@ -3,18 +3,111 @@
 // MIT License
 //
 
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination } from "astro-swiper";
 import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Manipulation'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  id="swiper-manipulation"
+  class="my-swiper"
+  options={{
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 3 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide"> Slide 4 </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+  <SwiperPagination style="color: white;"/>
+</Swiper>
+
+<p class="append-buttons">
+  <button class="prepend-2-slides">Prepend 2 Slides</button>
+  <button class="prepend-slide">Prepend Slide</button>
+  <button class="append-slide">Append Slide</button>
+  <button class="append-2-slides">Append 2 Slides</button>
+</p>
+
+<script>
+import { getSwiperFromUniqueSelector } from 'astro-swiper'
+
+window.addEventListener('load', () => {
+  const swiper = getSwiperFromUniqueSelector('#swiper-manipulation');
+  if (!swiper) {
+    console.error('Swiper instance not found');
+    return;
+  }
+
+  var appendNumber = 4;
+  var prependNumber = 1;
+  document
+    .querySelector(".prepend-2-slides")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.prependSlide([
+        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + --prependNumber + ' </div> </div>',
+        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + --prependNumber + ' </div> </div>'
+      ]);
+    });
+  document
+    .querySelector(".prepend-slide")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.prependSlide(
+        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + --prependNumber + ' </div> </div>'
+      );
+    });
+  document
+    .querySelector(".append-slide")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.appendSlide(
+        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + ++appendNumber + ' </div> </div>'
+      );
+    });
+  document
+    .querySelector(".append-2-slides")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.appendSlide([
+        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + ++appendNumber + ' </div> </div>',
+        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + ++appendNumber + ' </div> </div>',
+      ]);
+    });
+  });
+</script>
+
+<style>
+.append-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.append-buttons button {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #007aff;
+  color: #007aff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 0 10px;
+  font-size: 13px;
+}
+</style>
