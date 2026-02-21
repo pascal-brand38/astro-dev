@@ -3,18 +3,56 @@
 // MIT License
 //
 
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperButtonPrev, SwiperButtonNext, SwiperPagination } from "astro-swiper";
 import './demo.css'
+import DemoFirstSlide from "./DemoFirstSlide.astro";
 
-const filename = Astro.self.moduleId
-const lastIndex = Astro.self.moduleId!.lastIndexOf('/') + 1
-const title = filename!.substring(lastIndex, filename!.length - 6)
-
+const title='Autoheight'
 ---
 
-<div class="my-slide work-in-progress">
-  <div>
-    <div> <strong> {title} Demo </strong> </div>
-    <br>
-    <div> WORK IN PROGRESS </div>
-  </div>
-</div>
+<Swiper
+  class="my-swiper"
+  options={{
+    autoHeight: true,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  }}
+>
+  <SwiperWrapper>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 3 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 4 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 5 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 6 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 7 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 8 </div> </SwiperSlide>
+    <SwiperSlide> <div class="my-slide slide-autoheight"> Slide 9 </div> </SwiperSlide>
+  </SwiperWrapper>
+
+  <SwiperButtonPrev />
+  <SwiperButtonNext />
+  <SwiperPagination />
+</Swiper>
+
+<style is:global>
+.swiper-slide .slide-autoheight {
+  height: 200px;
+  line-height: 200px;
+  aspect-ratio: unset;
+  max-height: unset;
+}
+
+.swiper-slide:nth-child(2n) .slide-autoheight {
+  height: 300px;
+  line-height: 300px;
+}
+
+</style>
