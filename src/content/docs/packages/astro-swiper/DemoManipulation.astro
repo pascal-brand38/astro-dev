@@ -57,7 +57,7 @@ window.addEventListener('load', () => {
   var appendNumber = 4;
   var prependNumber = 1;
   document
-    .querySelector(".prepend-2-slides")
+    .querySelector(".prepend-2-slides")!
     .addEventListener("click", function (e) {
       e.preventDefault();
       swiper.prependSlide([
@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
       ]);
     });
   document
-    .querySelector(".prepend-slide")
+    .querySelector(".prepend-slide")!
     .addEventListener("click", function (e) {
       e.preventDefault();
       swiper.prependSlide(
@@ -74,7 +74,7 @@ window.addEventListener('load', () => {
       );
     });
   document
-    .querySelector(".append-slide")
+    .querySelector(".append-slide")!
     .addEventListener("click", function (e) {
       e.preventDefault();
       swiper.appendSlide(
@@ -82,7 +82,7 @@ window.addEventListener('load', () => {
       );
     });
   document
-    .querySelector(".append-2-slides")
+    .querySelector(".append-2-slides")!
     .addEventListener("click", function (e) {
       e.preventDefault();
       swiper.appendSlide([

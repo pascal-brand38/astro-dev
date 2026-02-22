@@ -66,7 +66,7 @@ const title='Autoplay Progress'
     const progressCircle = document.querySelector(".swiper-autoplay-progress .autoplay-progress svg") as HTMLElement;
     const progressContent = document.querySelector(".swiper-autoplay-progress .autoplay-progress span") as HTMLElement;
 
-    swiper!.on('autoplayTimeLeft', (swiper:Swiper, timeLeft:number, percentage:number) => {
+    swiper!.on('autoplayTimeLeft', (_swiper:Swiper, timeLeft:number, percentage:number) => {
       progressCircle!.style.setProperty("--progress", String(1 - percentage));
       progressContent!.textContent = `${Math.ceil(timeLeft / 1000)}s`;
     })
