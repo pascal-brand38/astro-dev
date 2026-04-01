@@ -16,9 +16,8 @@ const images = [
 ]
 ---
 
+<!-- main swiper, with big slides -->
 <Swiper
-  uniqueClass="myswiper-main"
-  linkToThumbUniqueClass="myswiper-thumbnail"
   options={{    // check options at https://swiperjs.com/swiper-api
     navigation: {
       nextEl: ".swiper-button-next",
@@ -29,6 +28,9 @@ const images = [
       delay: 700,
       disableOnInteraction: false,
       waitForTransition: false,
+    },
+    astro: {
+      thumbSwiperUniqueSelector: ".myswiper-thumbnail", // identify the thumbnail swiper to link with
     },
   }}>
   <SwiperWrapper>
@@ -45,9 +47,9 @@ const images = [
   <SwiperButtonNext />
 </Swiper>
 
-
+<!-- thumbnail swiper, with small slides to follow progress -->
 <Swiper
-  uniqueClass="myswiper-thumbnail"
+  class="myswiper-thumbnail"
   options={{    // check options at https://swiperjs.com/swiper-api
     spaceBetween: 10,
     slidesPerView: 4,

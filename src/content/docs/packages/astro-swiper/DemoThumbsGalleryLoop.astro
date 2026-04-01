@@ -11,9 +11,15 @@ const title="Thumbs Gallery Loop"
 
 ---
 
+{ /*
+  This demo tests how deprected thumbnail generation (prior to v2.4.0) with uniqueClass
+  and linkToThumbUniqueClass props works with looped swipers, as looped swipers require
+  duplicated slides and thus a different way to link the main swiper to the thumbnail swiper.
+*/}
 <Swiper
   uniqueClass="myswiper-thumbs-gallery-loop"
   linkToThumbUniqueClass="myswiper-thumbs-gallery-loop-thumbnail"
+  useCustomElement={false}
   options={{
     loop: true,
     spaceBetween: 10,
@@ -21,6 +27,9 @@ const title="Thumbs Gallery Loop"
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    astro: {
+      useCustomElement: false, // set it to false to test compatibility of this prop with thumbnail
+    }
   }}>
   <SwiperWrapper>
     <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>

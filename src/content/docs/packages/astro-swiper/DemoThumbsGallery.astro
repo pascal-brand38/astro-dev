@@ -12,14 +12,15 @@ const title="Thumbs Gallery"
 ---
 
 <Swiper
-  uniqueClass="myswiper-thumbs-gallery"
-  linkToThumbUniqueClass="myswiper-thumbs-gallery-thumbnail"
   options={{
     spaceBetween: 10,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    astro: {
+      thumbSwiperUniqueSelector: "#myswiper-thumbs-gallery-thumbnail", // selector of the thumbnail swiper to link to
+    }
   }}>
   <SwiperWrapper>
     <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
@@ -36,7 +37,7 @@ const title="Thumbs Gallery"
 
 
 <Swiper
-  uniqueClass="myswiper-thumbs-gallery-thumbnail"
+  id="myswiper-thumbs-gallery-thumbnail"
   options={{
     spaceBetween: 10,
     slidesPerView: 4,
@@ -54,13 +55,13 @@ const title="Thumbs Gallery"
 </Swiper>
 
 <style>
-  .myswiper-thumbs-gallery-thumbnail .swiper-slide {
+  #myswiper-thumbs-gallery-thumbnail .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
   }
 
-  .myswiper-thumbs-gallery-thumbnail .swiper-slide-thumb-active {
+  #myswiper-thumbs-gallery-thumbnail .swiper-slide-thumb-active {
     opacity: 1;
   }
 
