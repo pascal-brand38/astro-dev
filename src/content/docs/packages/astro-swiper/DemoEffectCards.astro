@@ -15,6 +15,9 @@ const title='Effect Cards'
   options={{
     effect: "cards",
     grabCursor: true,
+    cardsEffect: {
+      slideShadows: false
+    }
   }}
 >
   <SwiperWrapper>
@@ -28,10 +31,6 @@ const title='Effect Cards'
 </Swiper>
 
 <style>
-  .my-swiper-demoeffectcards .my-slide {
-    background-color: unset;
-  }
-
   .my-swiper-demoeffectcards .swiper-slide:nth-child(1n) {
     background-color: rgb(206, 17, 17);
   }
