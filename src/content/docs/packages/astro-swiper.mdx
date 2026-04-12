@@ -293,42 +293,49 @@ Main Swiper element. Inherits all `HTMLAttributes<'div'>` (class...) attributes.
 | intersectionObserver.options | IntersectionObserverInit | undefined | cf. [mdn docs](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) |
 
 <h6>`<SwiperWrapper/>`</h6>
+
 Wrapper of all slides. Inherits all `HTMLAttributes<'div'>` (class...)  attributes.
 | Name | Type | Default | Description |
 | ---- | -----|-------- | -----------|
 | addDefaultClass | Boolean | true | Add class `.swiper-wrapper` when true |
 
 <h6>`<SwiperSlide/>`</h6>
+
 A single slide. Inherits all `HTMLAttributes<'div'>` (class...) attributes.
 | Name | Type | Default | Description |
 | ---- | -----|-------- | -----------|
 | addDefaultClass | Boolean | true | Add class `.swiper-slide` when true |
 
 <h6>`<SwiperPagination/>`</h6>
+
 Pagination dots. Inherits all `HTMLAttributes<'div'>` (class...) attributes.
 | Name | Type | Default | Description |
 | ---- | -----|-------- | -----------|
 | addDefaultClass | Boolean | true | Add class `.swiper-pagination` when true |
 
 <h6>`<SwiperButtonPrev/>` and `<SwiperButtonNext/>`</h6>
+
 Navigation arrows. Inherits all `HTMLAttributes<'div'>` (class...) attributes.
 | Name | Type | Default | Description |
 | ---- | -----|-------- | -----------|
 | addDefaultClass | Boolean | true | Add class `.swiper-button-prev` or `swiper-button-next` when true |
 
 <h6>`<SwiperScrollbar/>`</h6>
+
 Scrollbar. Inherits all `HTMLAttributes<'div'>` (class...) attributes.
 | Name | Type | Default | Description |
 | ---- | -----|-------- | -----------|
 | addDefaultClass | Boolean | true | Add class `.swiper-scrollbar` when true |
 
 <h6>`<SwiperLazyPreloader/>`</h6>
+
 Slide lazy loader. To be used inside a `<SwiperSlide/>`. Inherits all `HTMLAttributes<'div'>` (class...) attributes.
 | Name | Type | Default | Description |
 | ---- | -----|-------- | -----------|
 | addDefaultClass | Boolean | true | Add class `.swiper-lazy-preloader` when true |
 
 <h6>`getSwiperFromUniqueSelector()`</h6>
+
 Function to be used in script part, to be able to retrieve the swiper instance given
 a unique selector (starting with a `.` or a `#`), once the `load` event is fired.
 This allows to use functions and events in swiper.
