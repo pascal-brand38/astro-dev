@@ -5,7 +5,7 @@
 
 import { Swiper, SwiperWrapper, SwiperSlide, } from "astro-swiper";
 import DemoFirstSlide from "./DemoFirstSlide.astro";
-import './demo.css' // .my-slide definition: colors, aspect-ratio, sizes,...
+import './demo.css' // .slide-demo definition: colors, aspect-ratio, sizes,...
 
 const title='Effect Cards'
 ---
@@ -17,12 +17,12 @@ const title='Effect Cards'
   }}
 >
   <SwiperWrapper>
-    <SwiperSlide class="my-slide slide-this-demo"> <DemoFirstSlide title={title}/> </SwiperSlide>
-    <SwiperSlide class="my-slide slide-this-demo"> <img src="/astro-dev/astro-swiper.png" alt="" /> </SwiperSlide>
-    <SwiperSlide class="my-slide slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </SwiperSlide>
-    <SwiperSlide class="my-slide slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </SwiperSlide>
-    <SwiperSlide class="my-slide slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </SwiperSlide>
-    <SwiperSlide class="my-slide slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <DemoFirstSlide title={title}/> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="/astro-dev/astro-swiper.png" alt="" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </SwiperSlide>
   </SwiperWrapper>
 </Swiper>
 

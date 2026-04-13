@@ -34,8 +34,8 @@ const title='Virtual Slides'
   }}
 >
   <SwiperWrapper>
-    <SwiperSlide> <div class="my-slide"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
-    <SwiperSlide> <div class="my-slide"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
+    <SwiperSlide> <div class="slide-demo"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
+    <SwiperSlide> <div class="slide-demo"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
   </SwiperWrapper>
 
   <SwiperButtonPrev />
@@ -57,7 +57,7 @@ import { getSwiperFromUniqueSelector } from 'astro-swiper'
 function createVirtualSlides() {
   const slides = [];
   for (var i = 0; i < 600; i += 1) {
-    slides.push('<div class="swiper-slide"> <div class="my-slide"> Slide ' + (i+3) + ' </div> </div>');
+    slides.push('<div class="swiper-slide"> <div class="slide-demo"> Slide ' + (i+3) + ' </div> </div>');
   }
   return slides;
 }
@@ -99,8 +99,8 @@ window.addEventListener('load', () => {
     .addEventListener('click', function (e) {
       e.preventDefault();
       swiper.virtual.prependSlide([
-        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + --prependNumber + ' </div> </div>',
-        '<div class="swiper-slide"> <div class="my-slide"> Slide ' + --prependNumber + ' </div> </div>'
+        '<div class="swiper-slide"> <div class="slide-demo"> Slide ' + --prependNumber + ' </div> </div>',
+        '<div class="swiper-slide"> <div class="slide-demo"> Slide ' + --prependNumber + ' </div> </div>'
       ]);
     });
 
@@ -108,7 +108,7 @@ window.addEventListener('load', () => {
     .querySelector('.vitual-append-slide')!
     .addEventListener('click', function (e) {
       e.preventDefault();
-        swiper.virtual.appendSlide('<div class="swiper-slide"> <div class="my-slide"> Slide ' + ++appendNumber + ' </div> </div>');
+        swiper.virtual.appendSlide('<div class="swiper-slide"> <div class="slide-demo"> Slide ' + ++appendNumber + ' </div> </div>');
     });
   });
 </script>
