@@ -26,15 +26,15 @@ const title='Autoheight'
   }}
 >
   <SwiperWrapper>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 3 </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 4 </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 5 </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 6 </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 7 </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 8 </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo slide-autoheight"> Slide 9 </div> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <DemoFirstSlide title={title}/> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="/astro-dev/astro-swiper.png" alt="" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 3 </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 4 </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 5 </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 6 </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 7 </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 8 </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> Slide 9 </SwiperSlide>
   </SwiperWrapper>
 
   <SwiperButtonPrev />
@@ -42,15 +42,15 @@ const title='Autoheight'
   <SwiperPagination />
 </Swiper>
 
-<style is:global>
-.swiper-slide .slide-autoheight {
+<style>
+.slide-this-demo {
   height: 200px;
   line-height: 200px;
   aspect-ratio: unset;
   max-height: unset;
 }
 
-.swiper-slide:nth-child(2n) .slide-autoheight {
+.slide-this-demo:nth-child(2n) {
   height: 300px;
   line-height: 300px;
 }

@@ -30,25 +30,25 @@ const title='Effect Cover Flow'
   }}
 >
   <SwiperWrapper>
-    <SwiperSlide> <div class="slide-demo"> <DemoFirstSlide title={title}/> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo"> <img src="/astro-dev/astro-swiper.png" alt="" /> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </div> </SwiperSlide>
-    <SwiperSlide> <div class="slide-demo"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </div> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <DemoFirstSlide title={title}/> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="/astro-dev/astro-swiper.png" alt="" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> </SwiperSlide>
+    <SwiperSlide class="slide-demo slide-this-demo"> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> </SwiperSlide>
   </SwiperWrapper>
 
   <SwiperPagination />
 </Swiper>
 
 <style>
-.my-swiper-demoeffectcoverflow .swiper-slide {
+.slide-this-demo {
   width: 75%;
   aspect-ratio: 16/9;
   max-height: 200px;
 }
 
-.my-swiper-demoeffectcoverflow .swiper-slide img {
+.slide-this-demo img {
   /* useful when an image is in the slide */
   display: block;
   width: 100%;
