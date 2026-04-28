@@ -22,5 +22,10 @@
     "astro-webtools": "^1.0.2",
     "sharp": "^0.33.5",
     "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9.6.5",
+    "pnpm": ">=7.1.0"
   }
 }
