@@ -23,7 +23,7 @@ import {
 <script>
   import { getMapFromId } from "astro-leaflet"
   import { getAstroLeafletMarkerDefaultIcon } from "astro-leaflet/client"
-  import L from "leaflet"
+  import L from "astro-leaflet/leaflet"
 
   window.addEventListener('load', () => {
     const map = getMapFromId('map-mobile')

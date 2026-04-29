@@ -17,21 +17,24 @@ importers:
       '@splidejs/splide-extension-auto-scroll':
         specifier: ^0.5.3
         version: 0.5.3
+      '@types/geojson':
+        specifier: ^7946.0.16
+        version: 7946.0.16
       astro:
         specifier: ^5.5.5
         version: 5.17.2(@types/node@25.2.3)(rollup@4.57.1)(sass-embedded@1.97.3)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
       astro-leaflet:
-        specifier: ^1.9.0
-        version: 1.10.0
+        specifier: ^1.11.0
+        version: 1.11.0
       astro-lightgallery:
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: ^2.4.0
+        version: 2.4.0
       astro-splide:
-        specifier: ^2.0.2
-        version: 2.0.2
+        specifier: ^2.1.0
+        version: 2.1.0
       astro-swiper:
-        specifier: ^2.5.2
-        version: 2.5.2
+        specifier: ^2.6.0
+        version: 2.6.0
       astro-webtools:
         specifier: ^1.0.2
         version: 1.1.0
@@ -1211,17 +1214,17 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
 
-  astro-leaflet@1.10.0:
-    resolution: {integrity: sha512-jTV3YDhlupTiINBw6trpRgEKeeTjEncI/WKUoFPblIBVDxsMtndBTEJjn2v/swbj9X6KtSvLyM4nKESNOS2Wqw==}
+  astro-leaflet@1.11.0:
+    resolution: {integrity: sha512-QXjeCWfJ2/MXaaTveqxQiYbrf8g6/OHEoIXiAPShvCZb+9MpGNz5ISH/OA3mecNNjjW1j05ZmQJTC6ywehHbOw==}
 
-  astro-lightgallery@2.3.0:
-    resolution: {integrity: sha512-lBxK4g2xWvaPt0IDf+Ew8FNuO8kN65rK25NWfbuA3Ynk+JK+EuBcFnlGDW1tSreiMPDbDbVh+IEygNwIPwtclA==}
+  astro-lightgallery@2.4.0:
+    resolution: {integrity: sha512-tmRaWk1g75fE1tHTItmgcgld5WPSM/PtfdHLXib8w7ZXCNCtKJfF+yHrghZrBB1KwiftMJUd4trL8biO7pom0A==}
 
-  astro-splide@2.0.2:
-    resolution: {integrity: sha512-R+Jh00OS+iKG5v2DUcc4/J8h3H/PKKGkmx5HQGspn2EokSF2DYpGDO2Kqozl7j2WnZLtFpfYM1loKYCPtIYu3A==}
+  astro-splide@2.1.0:
+    resolution: {integrity: sha512-//sAHaMpViSA0LVdL9dzP/RVui0jYM+DTeqGoKfT5PK4SZxPSPvo+zMc0yCsyBvUQDuezst171fcxq3CxUcJzA==}
 
-  astro-swiper@2.5.2:
-    resolution: {integrity: sha512-I8GqSAuQ45IEtUK6a6GYm2rPh+b5wynsJ7I7/C8seW/J+KRtRKtVns7NPi1h2RlGN+ISU9SEMwAsNrJXwpeczg==}
+  astro-swiper@2.6.0:
+    resolution: {integrity: sha512-X3xARd1sIvYA0z+QQ2MQpazlUaBYgrkqCp6vBFNMcdCJkTUXIJ9KzWtOYgUOFEt7UQ2FGe/CeF5RtKrVYhJF1Q==}
     engines: {node: '>=18', npm: '>=9.6.5', pnpm: '>=7.1.0'}
 
   astro-webtools@1.1.0:
@@ -3736,20 +3739,20 @@ snapshots:
       astro: 5.17.2(@types/node@25.2.3)(rollup@4.57.1)(sass-embedded@1.97.3)(sass@1.97.3)(typescript@5.9.3)(yaml@2.8.2)
       rehype-expressive-code: 0.40.2
 
-  astro-leaflet@1.10.0:
+  astro-leaflet@1.11.0:
     dependencies:
       '@types/leaflet': 1.9.21
       leaflet: 1.9.4
 
-  astro-lightgallery@2.3.0:
+  astro-lightgallery@2.4.0:
     dependencies:
       lightgallery: 2.9.0
 
-  astro-splide@2.0.2:
+  astro-splide@2.1.0:
     dependencies:
       '@splidejs/splide': 4.1.4
 
-  astro-swiper@2.5.2:
+  astro-swiper@2.6.0:
     dependencies:
       swiper: 12.1.3
 

@@ -65,7 +65,7 @@ const grades = [0, 10, 20, 50, 100, 200, 500, 1000]
 
 <script>
   import { getMapFromId, getLeafletFromId } from "astro-leaflet"
-  import type { GeoJSON } from "leaflet";
+  import type { GeoJSON } from "astro-leaflet/leaflet";
 
   function getColor(d: number) {
     return d > 1000 ? '#800026' :

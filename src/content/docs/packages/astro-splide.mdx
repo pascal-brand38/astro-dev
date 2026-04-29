@@ -53,7 +53,6 @@ Read the full doc on
 
 	```astro
 	---
-	import "@splidejs/splide/css"
 	import { Splide, SplideSlide } from 'astro-splide';
 	---
 	<Splide
@@ -93,9 +92,8 @@ Read the full doc on
 
 	```jsx
 	---
-	import "@splidejs/splide/css"
 	import { Splide, SplideSlide } from 'astro-splide';
-	import type { Splide as SplideInterface } from '@splidejs/splide'
+	import type { Splide as SplideInterface } from 'astro-splide/splide'
 	---
   <Splide
 		options={ {
@@ -138,9 +136,8 @@ Read the full doc on
 	```jsx
 	---
 	// Splide configuration  -  require npm install astro-splide
-	import "@splidejs/splide/css"
 	import { Splide, SplideTrack, SplideSlide } from 'astro-splide';
-	import type { Options } from '@splidejs/splide';
+	import type { Options } from 'astro-splide/splide';
 	const options: Options = {
 		type         : 'loop',
 		gap          : '1rem',
@@ -204,9 +201,8 @@ Read the full doc on
 
 	```diff lang="jsx" "<SplideExtension" del="AutoScroll"
 	---
-	import "@splidejs/splide/css"
 	import { SplideExtension, SplideSlide } from 'astro-splide';
-	import type { Options } from '@splidejs/splide';
+	import type { Options } from 'astro-splide/splide';
 	const options: Options = { ... }
 	---
 	<SplideExtension options={options}>
