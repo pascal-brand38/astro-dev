@@ -21,9 +21,10 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v5
       - name: Install, build, and upload your site output
-        uses: withastro/action@v5
+        uses: pascal-brand38/action@v1
         with:
             path: .
+            package-manager: pnpm@latest
             # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
             # package-manager: npm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
@@ -87,3 +88,56 @@ jobs:
         run: |
           echo "Link checker found broken links."
           exit 1
+
+  buildNpm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v5
+      - name: Install, build, and upload your site output
+        uses: pascal-brand38/action@v1
+        with:
+            path: .
+            package-manager: npm@latest
+            artifact-name: npm-build
+            # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+
+  # buildYarn:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout your repository using git
+  #       uses: actions/checkout@v5
+  #     - name: Install, build, and upload your site output
+  #       uses: withastro/action@v5
+  #       with:
+  #           path: .
+  #           package-manager: yarn@latest
+  #           # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+  #           # package-manager: npm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+
+  # buildBun:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout your repository using git
+  #       uses: actions/checkout@v5
+  #     - name: Install, build, and upload your site output
+  #       uses: withastro/action@v5
+  #       with:
+  #           path: .
+  #           package-manager: bun@latest
+  #           # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+  #           # package-manager: npm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+
+  # Deno is not supported yet by astro from out-of-the-box
+  # buildDeno:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout your repository using git
+  #       uses: actions/checkout@v5
+  #     - name: Install, build, and upload your site output
+  #       uses: withastro/action@v5
+  #       with:
+  #           path: .
+  #           package-manager: deno@latest
+  #           # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+  #           # package-manager: npm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
