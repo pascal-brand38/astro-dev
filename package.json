@@ -11,18 +11,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/starlight": "^0.32.5",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/starlight": "^0.38.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@types/geojson": "^7946.0.16",
-    "astro": "^5.5.5",
+    "astro": "^6.2.0",
     "astro-leaflet": "^1.11.0",
     "astro-lightgallery": "^2.4.0",
     "astro-splide": "^2.1.0",
     "astro-swiper": "^2.6.0",
-    "astro-webtools": "^1.0.2",
-    "sharp": "^0.33.5",
-    "typescript": "^5.8.2"
+    "astro-webtools": "^1.2.0",
+    "sharp": "^0.34.5",
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=18",
