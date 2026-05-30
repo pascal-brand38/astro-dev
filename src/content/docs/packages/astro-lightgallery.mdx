@@ -90,6 +90,8 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
   <LightGallery
     layout={{
       imgs: [
+        // srcs is NOT provided in layout.srcs, so images are rendered using <img>
+        // the images are in /public repo, and the src path is the one on the server (without /public)
         { src: "/img01.jpg", },
         { src: "/img02.jpg", },
         ...
@@ -135,7 +137,9 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
   />
   ```
 
-  Here is an example of the lightgallery with the google photos layout:
+  Here is an example of the lightgallery with the google photos layout.
+  It is using `layout.srcs` in order to use astro's `<Image>` component to render the gallery images,
+  and to have optimized images. No thumbnail specific images as `<Image>` optimizes it.
 
   <div class="not-content">
     <GooglePhotosLayout/>
@@ -158,10 +162,13 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
     layout={{
       type: 'google-photos',
       imgs: [
-        { src: "/img01.jpg", },
-        { src: "/img02.jpg", },
+        // srcs is provided via layout.srcs, so imgs will be rendered using <Image>
+        // the images are in /src repo
+        { src: "/src/images/astro-lightgallery/img01.jpg", },
+        { src: "/src/images/astro-lightgallery/img02.jpg", position: '50% 100%' },
         ...
-      ]
+      ],
+      srcs: import.meta.glob<{ default: ImageMetadata }>('/src/images/**/*.{jpg,webp}'),
       googlePhotos: {
         height: '45vw',  // default height of the gallery
         maxHeight: '45vw',

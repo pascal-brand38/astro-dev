@@ -8,15 +8,17 @@ import { LightGallery } from "astro-lightgallery";
 <LightGallery
   layout={{
     imgs: [
-      { src: "/astro-dev/images/astro-lightgallery/img01.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img02.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img03.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img04.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img05.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img06.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img07.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img08.jpg", },
-      { src: "/astro-dev/images/astro-lightgallery/img09.jpg", },
+      // srcs is NOT provided in layout.srcs, so images are rendered using <img>
+      // the images are in /public repo, and the src path is the one on the server (without /public)
+      { src: "/astro-dev/images/astro-lightgallery/img01-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img02-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img03-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img04-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img05-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img06-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img07-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img08-public.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img09-public.jpg", },
     ],
   }}
   options={{
