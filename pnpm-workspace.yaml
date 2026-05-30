@@ -3,3 +3,7 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
 minimumReleaseAge: 0
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
