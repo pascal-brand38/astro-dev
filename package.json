@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "biome format --write && prettier -w \"**/*.astro\"",
+    "lint": "biome lint"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
@@ -17,9 +19,9 @@
     "@types/geojson": "^7946.0.16",
     "astro": "^6.2.1",
     "astro-leaflet": "^1.11.0",
-    "astro-lightgallery": "^2.4.0",
+    "astro-lightgallery": "^2.5.0",
     "astro-splide": "^2.1.1",
-    "astro-swiper": "^2.6.0",
+    "astro-swiper": "^2.7.0",
     "astro-webtools": "^1.2.0",
     "sharp": "^0.34.5",
     "typescript": "^6.0.3"
@@ -28,5 +30,10 @@
     "node": ">=18",
     "npm": ">=9.6.5",
     "pnpm": ">=7.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
