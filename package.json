@@ -19,7 +19,7 @@
     "@types/geojson": "^7946.0.16",
     "astro": "^6.2.1",
     "astro-leaflet": "^1.11.0",
-    "astro-lightgallery": "^2.5.0",
+    "astro-lightgallery": "^2.5.1",
     "astro-splide": "^2.1.1",
     "astro-swiper": "^2.7.0",
     "astro-webtools": "^1.2.0",

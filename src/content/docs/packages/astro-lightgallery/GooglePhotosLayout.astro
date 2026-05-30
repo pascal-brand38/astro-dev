@@ -1,0 +1,40 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { LightGallery } from "astro-lightgallery";
+---
+
+<LightGallery
+  layout={{
+    type: 'google-photos',
+    imgs: [
+      { src: "/astro-dev/images/astro-lightgallery/img01.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img02.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img03.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img04.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img05.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img06.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img07.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img08.jpg", },
+      { src: "/astro-dev/images/astro-lightgallery/img09.jpg", },
+    ],
+    googlePhotos: {
+      height: '45vw',  // default height of the gallery
+      maxHeight: '45vw',
+      breakpoints: {
+        320: {  // on screen larger than 320px
+          height: '30vw',
+          maxHeight: '30vw',
+        },
+        720: {  // on screen larger than 720px
+          height: '200px',
+          maxHeight: '200px',
+        },
+      },
+    },
+  }}
+  options={{
+    thumbnail: true,
+  }}
+/>

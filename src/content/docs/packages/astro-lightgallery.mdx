@@ -30,6 +30,7 @@ hero:
 import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
 
 import MinimalThumbnailAnimated from './astro-lightgallery/MinimalThumbnailAnimated.astro'
+import GooglePhotosLayout from './astro-lightgallery/GooglePhotosLayout.astro'
 import ThumbnailAutoplay from './astro-lightgallery/ThumbnailAutoplay.astro'
 import ThumbnailStatic from './astro-lightgallery/ThumbnailStatic.astro'
 
@@ -102,6 +103,90 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
 	</details>
 </Card>
 
+<Card title="Google Photos Layout" icon="pencil">
+  When using `layout.type: 'google-photos'`, the gallery is displayed with
+  the same layout as Google Photos. The height and the max-height of the gallery can be customized,
+  as well as the breakpoints.
+
+  Typically, the gallery displayed withe the default parameters
+  ```jsx
+  <LightGallery
+    layout={{
+      type: 'google-photos',
+      imgs: [...],
+    }}
+  />
+  ```
+
+  which is the same as
+  ```jsx
+  <LightGallery
+    layout={{
+      type: 'google-photos',
+      imgs: [...],
+      googlePhotos: {
+        height: '45vw',
+        maxHeight: '45vw',
+        breakpoints: {
+          601: { height: '20vw', maxHeight: '205px' },
+        }
+      }
+    }}
+  />
+  ```
+
+  Here is an example of the lightgallery with the google photos layout:
+
+  <div class="not-content">
+    <GooglePhotosLayout/>
+  </div>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-lightgallery/GooglePhotosLayout.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+  ---
+  import { LightGallery } from 'astro-lightgallery'
+  ---
+  <LightGallery
+    layout={{
+      type: 'google-photos',
+      imgs: [
+        { src: "/img01.jpg", },
+        { src: "/img02.jpg", },
+        ...
+      ]
+      googlePhotos: {
+        height: '45vw',  // default height of the gallery
+        maxHeight: '45vw',
+        breakpoints: {
+          320: {  // on screen larger than 320px
+            height: '30vw',
+            maxHeight: '30vw',
+          },
+          720: {  // on screen larger than 720px
+            height: '200px',
+            maxHeight: '200px',
+          },
+        },
+      },
+    }}
+  />
+
+    options={{
+      thumbnail: true,
+    }}
+  />
+  ```
+	</details>
+</Card>
+
 
 <Card title="Enhanced Static Thumbnail" icon="pencil">
   The minimal setup presented above is enriched:
@@ -144,6 +229,7 @@ Please refer to the [lightGallery license page](https://www.lightgalleryjs.com/l
   }
 
   const layout: AstroLightGalleryLayoutType = {
+    type: 'adaptive',
     imgs: [
       {
         src: "//img01.jpg",
