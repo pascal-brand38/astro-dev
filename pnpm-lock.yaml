@@ -33,8 +33,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       astro-swiper:
-        specifier: ^2.7.0
-        version: 2.7.0
+        specifier: ^2.7.1
+        version: 2.7.1
       astro-webtools:
         specifier: ^1.2.0
         version: 1.2.0
@@ -1029,8 +1029,8 @@ packages:
   astro-splide@2.1.1:
     resolution: {integrity: sha512-xUOR2vee0J61Ur7ZwtcyY5uzzic18gXVuZImvNuQFeLqyoZoEHPnRDp/8SKKBz6eOg/S715DRG2B6EsbidA3YA==}
 
-  astro-swiper@2.7.0:
-    resolution: {integrity: sha512-tLbk4LORo3hXQCK4+j7XzFJoWRl+eVlzz0bPvqOwEK0AfUQ+NplKoUbiXx/aG17Qu9TOFu4cloO+TkospEn1bg==}
+  astro-swiper@2.7.1:
+    resolution: {integrity: sha512-emUShiQ6VH1DJloDtiPYsZqvnsQFtaQU4TitlplYta4t3VmtYGZktSBH3m+pBJplVG6d6RjiQ1/lF0t8Ldk4fw==}
     engines: {node: '>=18', npm: '>=9.6.5', pnpm: '>=7.1.0'}
 
   astro-webtools@1.2.0:
@@ -3377,7 +3377,7 @@ snapshots:
     dependencies:
       '@splidejs/splide': 4.1.4
 
-  astro-swiper@2.7.0:
+  astro-swiper@2.7.1:
     dependencies:
       swiper: 12.2.0
 

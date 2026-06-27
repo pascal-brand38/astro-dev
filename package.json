@@ -21,7 +21,7 @@
     "astro-leaflet": "^1.11.0",
     "astro-lightgallery": "^2.6.0",
     "astro-splide": "^2.1.1",
-    "astro-swiper": "^2.7.0",
+    "astro-swiper": "^2.7.1",
     "astro-webtools": "^1.2.0",
     "sharp": "^0.34.5",
     "typescript": "^6.0.3"
