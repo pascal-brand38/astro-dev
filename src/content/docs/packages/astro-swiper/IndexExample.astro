@@ -3,24 +3,22 @@
 // MIT License
 
 import { Swiper, SwiperWrapper, SwiperSlide} from "astro-swiper";
-import type { AstroSwiperType } from "astro-swiper";
+import type { AstroSwiperOptions } from "astro-swiper";
 
-const astroSwiperOptions: AstroSwiperType = {
-  options: {
-    slidesPerView: "auto",
-    autoplay: {
-      delay: 500,
-      disableOnInteraction: false,
-      waitForTransition: false,
-    },
-    speed: 400,
-    loop: true,
+const astroSwiperOptions: AstroSwiperOptions = {
+slidesPerView: "auto",
+  autoplay: {
+    delay: 500,
+    disableOnInteraction: false,
+    waitForTransition: false,
   },
+  speed: 400,
+  loop: true,
 };
 ---
 
 <!-- Slider main container -->
-<Swiper options={astroSwiperOptions.options} class="not-content">
+<Swiper options={astroSwiperOptions} class="not-content">
   <!-- Additional required wrapper -->
   <SwiperWrapper>
     <!-- Slides -->
