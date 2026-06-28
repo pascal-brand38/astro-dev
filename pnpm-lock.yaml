@@ -23,6 +23,9 @@ importers:
       astro:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@24.12.2)(rollup@4.60.2)(sass-embedded@1.99.0)(sass@1.99.0)(typescript@6.0.3)(yaml@2.8.4)
+      astro-build-time-constants:
+        specifier: ^1.0.1
+        version: 1.0.1
       astro-leaflet:
         specifier: ^1.11.0
         version: 1.11.0
@@ -1014,6 +1017,9 @@ packages:
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
+
+  astro-build-time-constants@1.0.1:
+    resolution: {integrity: sha512-nq9VmlMKIT5erJY2/SmuvJCoqZBd3lxES2fFnDXvNyI04Qk+e4oZHaLjEdJ33gNEnVc9NuXV7kxadPCbO5PDYw==}
 
   astro-expressive-code@0.41.7:
     resolution: {integrity: sha512-hUpogGc6DdAd+I7pPXsctyYPRBJDK7Q7d06s4cyP0Vz3OcbziP3FNzN0jZci1BpCvLn9675DvS7B9ctKKX64JQ==}
@@ -3358,6 +3364,8 @@ snapshots:
   array-iterate@2.0.1: {}
 
   astring@1.9.0: {}
+
+  astro-build-time-constants@1.0.1: {}
 
   astro-expressive-code@0.41.7(astro@6.2.1(@types/node@24.12.2)(rollup@4.60.2)(sass-embedded@1.99.0)(sass@1.99.0)(typescript@6.0.3)(yaml@2.8.4)):
     dependencies:

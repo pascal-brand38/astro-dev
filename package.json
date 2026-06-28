@@ -18,6 +18,7 @@
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@types/geojson": "^7946.0.16",
     "astro": "^6.2.1",
+    "astro-build-time-constants": "^1.0.1",
     "astro-leaflet": "^1.11.0",
     "astro-lightgallery": "^2.6.0",
     "astro-splide": "^2.1.1",

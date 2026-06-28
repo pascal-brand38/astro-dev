@@ -19,11 +19,13 @@ import LightGalleryIndexExample from './packages/astro-lightgallery/LightGallery
 import LeafletIndexExample from './packages/astro-leaflet/LeafletIndexExample.astro'
 import { Postit } from 'astro-webtools'
 
+import { astroBuildTimeConstants } from '../../astro-build-time-constants'
+
 ## Packages
 
 <CardGrid stagger>
 
-	<Card title="Astro Leaflet" icon="pencil">
+	<Card title={`Astro Leaflet v${astroBuildTimeConstants.custom.version.leaflet}`} icon="pencil">
 		Using leaflet in astro
 
 		<div class="not-content">
@@ -48,7 +50,7 @@ import { Postit } from 'astro-webtools'
 		</LinkButton>
 	</Card>
 
-	<Card title="Astro LightGallery" icon="pencil">
+	<Card title={`Astro LightGallery v${astroBuildTimeConstants.custom.version.lightgallery}`} icon="pencil">
 		Using lightgallery in astro, with a lot of options and custom layouts,
 		such as the google photos layout, optimized with astro's `<Image>` component, and more.
 
@@ -83,7 +85,7 @@ import { Postit } from 'astro-webtools'
 		</LinkButton>
 	</Card>
 
-	<Card title="Astro Swiper" icon="pencil">
+	<Card title={`Astro Swiper v${astroBuildTimeConstants.custom.version.swiper}`} icon="pencil">
 		Using swiper in astro
 
 		<SwiperIndexExample/>
@@ -112,7 +114,7 @@ import { Postit } from 'astro-webtools'
 		</LinkButton>
 	</Card>
 
-	<Card title="Astro Splide" icon="pencil">
+	<Card title={`Astro Splide v${astroBuildTimeConstants.custom.version.splide}`} icon="pencil">
 		Using @splidejs/splide in astro
 
 		<IndexExample/>
@@ -140,11 +142,11 @@ import { Postit } from 'astro-webtools'
 
 	</Card>
 
-	<Card title="Astro Sprite" icon="pencil">
+	<Card title={`Astro Sprite`} icon="pencil">
 		Work-in-progress
 	</Card>
 
-	<Card title="Astro Webtools" icon="pencil">
+	<Card title={`Astro Webtools v${astroBuildTimeConstants.custom.version.webtools}`} icon="pencil">
 		<div class="not-content demo-2cols demo-handwritting demo-font-l">
 			<div class="demo-col">
 				<Postit
@@ -171,7 +173,7 @@ import { Postit } from 'astro-webtools'
 		</div>
 	</Card>
 
-	<Card title="Astro Build Time Constants" icon="pencil">
+	<Card title={`Astro Build Time Constants v${astroBuildTimeConstants.custom.version.buildtimecontants}`} icon="pencil">
 		Astro Integration to get build-time constants, such as build time date,
 		as well as custom properties:
 
