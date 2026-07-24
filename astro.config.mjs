@@ -19,11 +19,11 @@ export default defineConfig({
     site: 'https://pascal-brand38.github.io',
     base: 'astro-dev',
 
-  vite: {
-    optimizeDeps: {
-      include: ['astro-leaflet > leaflet'],
-    }
-  },
+    vite: {
+      optimizeDeps: {
+        include: ['astro-leaflet > leaflet'],
+      }
+    },
 
     integrations: [starlight({
         title: 'astro-dev',
