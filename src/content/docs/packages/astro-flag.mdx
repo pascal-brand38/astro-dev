@@ -1,0 +1,82 @@
+---
+title: astro-flag
+description: Add a country flag in Astro, as an inlined svg.
+template: doc
+hero:
+  tagline: Add a country flag in Astro, as an inlined svg
+  image:
+    file: ./astro-flag/astro-flag.png
+  actions:
+    - text: astro-flag
+      link: https://github.com/pascal-brand38/astro-flag
+      icon: github
+    - text: astro-flag
+      link: https://www.npmjs.com/package/astro-flag
+      icon: seti:npm
+---
+
+import { Icon, Card, LinkButton } from '@astrojs/starlight/components';
+
+import Center from '../../../components/Center.astro'
+import FlagsFrGb from './astro-flag/FlagsFrGb.astro'
+import AllFlags from './astro-flag/AllFlags.astro'
+
+## Install
+
+```bash
+npm install astro-flag
+pnpm add astro-flag
+bun install astro-flag
+```
+
+Read the full doc on
+[Github](https://github.com/pascal-brand38/astro-flag/blob/main/README.md)
+
+
+## Examples
+
+<Card title="2 flags, with parameters" icon="pencil">
+	Adding 2 country flags:
+  * France as the default flag: shape is 4x3, and size is 32
+  * United Kingdom: shape is 1x1, and size is 48
+
+  <div class="not-content">
+	  <FlagsFrGb/>
+  </div>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-flag/FlagFrGb.astro" icon="external">
+		Full code
+	</LinkButton>
+
+	<details>
+	<summary>
+	<Icon name="astro" class="inline-icon"/> Code Snippet
+	</summary>
+
+	```astro
+	---
+  import { Flag } from "astro-flag";
+  ---
+  <Flag flagName="fr" />
+  <Flag flagName="gb" shape="1x1" width={48} />
+	```
+	</details>
+</Card>
+
+<Card title="All the flags" icon="pencil">
+	Here are all the flags, in 4x3 format
+
+  <div class="not-content">
+	  <AllFlags/>
+  </div>
+
+	<LinkButton href="https://github.com/pascal-brand38/astro-dev/blob/main/src/content/docs/packages/astro-flag/AllFlags.astro" icon="external">
+		Full code
+	</LinkButton>
+</Card>
+
+
+
+### Support us
+
+Let's star the [project](https://github.com/pascal-brand38/astro-flag) as you like it.

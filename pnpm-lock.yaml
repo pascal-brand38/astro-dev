@@ -26,6 +26,9 @@ importers:
       astro-build-time-constants:
         specifier: ^1.0.1
         version: 1.0.1
+      astro-flag:
+        specifier: ^1.0.0
+        version: 1.0.0
       astro-leaflet:
         specifier: ^1.11.0
         version: 1.11.0
@@ -1025,6 +1028,10 @@ packages:
     resolution: {integrity: sha512-hUpogGc6DdAd+I7pPXsctyYPRBJDK7Q7d06s4cyP0Vz3OcbziP3FNzN0jZci1BpCvLn9675DvS7B9ctKKX64JQ==}
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0 || ^6.0.0-beta
+
+  astro-flag@1.0.0:
+    resolution: {integrity: sha512-Cg7TvXvfuxwfdQss3nxJmvJT5C04qlVEdecip1TQQHr2P9J3l64DdF6bY7P8OCh8t4gZd4sYEhUrx05GcwUb2w==}
+    engines: {node: '>=18', npm: '>=9.6.5', pnpm: '>=7.1.0'}
 
   astro-leaflet@1.11.0:
     resolution: {integrity: sha512-QXjeCWfJ2/MXaaTveqxQiYbrf8g6/OHEoIXiAPShvCZb+9MpGNz5ISH/OA3mecNNjjW1j05ZmQJTC6ywehHbOw==}
@@ -3371,6 +3378,8 @@ snapshots:
     dependencies:
       astro: 6.2.1(@types/node@24.12.2)(rollup@4.60.2)(sass-embedded@1.99.0)(sass@1.99.0)(supports-color@8.1.1)(typescript@6.0.3)(yaml@2.8.4)
       rehype-expressive-code: 0.41.7
+
+  astro-flag@1.0.0: {}
 
   astro-leaflet@1.11.0:
     dependencies:
