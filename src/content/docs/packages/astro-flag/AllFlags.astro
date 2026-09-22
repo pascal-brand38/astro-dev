@@ -9,7 +9,7 @@ import { Flag, allFlags, type FlagName } from "astro-flag";
 
 <div class="container">
   {
-    allFlags.map((flag) => (
+    (allFlags as FlagName[]).map((flag) => (
       <div>
         <Flag flagName=`${flag}` width="100%" />
         <br>
