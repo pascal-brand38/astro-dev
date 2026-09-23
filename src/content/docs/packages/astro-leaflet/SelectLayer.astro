@@ -25,7 +25,7 @@ import { Leaflet, layerAllNames } from "astro-leaflet";
         Object.keys(layerAllNames).map((name) => {
           return (layerAllNames[name].names).map((layer) => (
               <label class='select-layer-label' for={layer.name}>
-                <input type="radio" name="layername" id={layer.name} value={layer.name}} />
+                <input type="radio" name="layername" id={layer.name} value={layer.name} />
                 {layer.name}
               </label>
           ))
