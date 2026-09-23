@@ -3,14 +3,14 @@
 export const digits2 = (number: number) => number < 10 ? '0' + number : '' + number
 export const astroBuildTimeConstants = {
   internal: {
-    epoch: 1790164709,
-    seconds: 29,
-    minutes: 58,
-    hours: 13,
+    epoch: 1790188043,
+    seconds: 22,
+    minutes: 27,
+    hours: 20,
     fullYear: 2026,
     month: 9,
     date: 23,
-    iso: "2026-09-23T11:58:29.430Z",
+    iso: "2026-09-23T18:27:22.568Z",
   },
   custom: {
     "version": {
@@ -18,7 +18,7 @@ export const astroBuildTimeConstants = {
       "splide": "2.1.1",
       "swiper": "2.10.0",
       "lightgallery": "2.6.0",
-      "leaflet": "1.11.0",
+      "leaflet": "1.12.0",
       "webtools": "1.2.0",
       "buildtimecontants": "1.0.1"
     }
