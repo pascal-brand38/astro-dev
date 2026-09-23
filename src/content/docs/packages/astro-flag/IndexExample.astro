@@ -1,0 +1,33 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import { Flag, type FlagName } from "astro-flag";
+const flagNames: FlagName[] = [ 'fr', 'gb', 'es']
+
+---
+
+<div class="container">
+  {
+    (flagNames).map((flag) => (
+      <div>
+        <Flag flagName=`${flag}` width="100%" />
+        <br>
+        {flag}
+      </div>
+    ))
+  }
+
+</div>
+
+
+<style>
+  .container {
+    font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    text-align: center;
+    font-weight: 900;
+  }
+</style>

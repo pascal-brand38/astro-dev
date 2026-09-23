@@ -5,6 +5,7 @@ import buildTimeConstants from 'astro-build-time-constants';
 
 const googleAnalyticsId = 'G-4Z4PN6KMH7'
 
+import packageFlag from './node_modules/astro-Flag/package.json'
 import packageSwiper from './node_modules/astro-swiper/package.json'
 import packageSplide from './node_modules/astro-splide/package.json'
 import packageLeaflet from './node_modules/astro-leaflet/package.json'
@@ -42,6 +43,7 @@ export default defineConfig({
                 // autogenerate: { directory: 'packages' },
                 items: [
                     // Each item here is one entry in the navigation menu.
+                    { label: 'astro-flag', slug: 'packages/astro-flag' },
                     { label: 'astro-leaflet', slug: 'packages/astro-leaflet' },
                     { label: 'astro-lightgallery', slug: 'packages/astro-lightgallery' },
                     { label: 'astro-swiper', slug: 'packages/astro-swiper' },
@@ -83,6 +85,7 @@ export default defineConfig({
 		}),
 		buildTimeConstants( {
 				version: {
+					flag: packageFlag.version,
 					splide: packageSplide.version,
 					swiper: packageSwiper.version,
 					lightgallery: packageLightgallery.version,
