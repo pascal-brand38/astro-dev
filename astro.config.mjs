@@ -5,7 +5,7 @@ import buildTimeConstants from 'astro-build-time-constants';
 
 const googleAnalyticsId = 'G-4Z4PN6KMH7'
 
-import packageFlag from './node_modules/astro-Flag/package.json'
+import packageFlag from './node_modules/astro-flag/package.json'
 import packageSwiper from './node_modules/astro-swiper/package.json'
 import packageSplide from './node_modules/astro-splide/package.json'
 import packageLeaflet from './node_modules/astro-leaflet/package.json'
