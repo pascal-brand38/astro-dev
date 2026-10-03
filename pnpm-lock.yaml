@@ -39,8 +39,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       astro-swiper:
-        specifier: ^2.10.0
-        version: 2.10.0
+        specifier: ^2.11.0
+        version: 2.11.0
       astro-webtools:
         specifier: ^1.2.0
         version: 1.2.0
@@ -1042,8 +1042,8 @@ packages:
   astro-splide@2.1.1:
     resolution: {integrity: sha512-xUOR2vee0J61Ur7ZwtcyY5uzzic18gXVuZImvNuQFeLqyoZoEHPnRDp/8SKKBz6eOg/S715DRG2B6EsbidA3YA==}
 
-  astro-swiper@2.10.0:
-    resolution: {integrity: sha512-vvgeF6Xy+ouRNPQ9xBYd7id/uwNlGFr8zmW7mHHdg1OzU+V+YjkZBTKgbjdwNgNW7K7D7BRdc4J4p3R+a8AGAQ==}
+  astro-swiper@2.11.0:
+    resolution: {integrity: sha512-pCO+sKq4mRr9jQs+EQnAD9j/Qqm7UFHBQXHyuXvwVb7tSmQ8YubKuiBaCDxJVhyXPO/z0VD3f89daS/AmR4QNQ==}
     engines: {node: '>=18', npm: '>=9.6.5', pnpm: '>=7.1.0'}
 
   astro-webtools@1.2.0:
@@ -2138,8 +2138,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  swiper@14.1.0:
-    resolution: {integrity: sha512-ppit/AqmGvThKlXy4I1/9N/gEyb9s/BDHWciWNeIxbfteFKUhPQXrYuOMKszomXKd9WiLd+/0vKdPHW+0N0mhA==}
+  swiper@14.3.0:
+    resolution: {integrity: sha512-qw0Xv1+sylM8KCQxWxV2iYAK2G6XjFGPZ/8F1baEsY8DK4A3sTnLx6jUJ0G71rDbVQ05JHMWkcWmJ5NvlxZO0w==}
     engines: {node: '>= 4.7.0'}
 
   sync-child-process@1.0.2:
@@ -3394,9 +3394,9 @@ snapshots:
     dependencies:
       '@splidejs/splide': 4.1.4
 
-  astro-swiper@2.10.0:
+  astro-swiper@2.11.0:
     dependencies:
-      swiper: 14.1.0
+      swiper: 14.3.0
 
   astro-webtools@1.2.0:
     dependencies:
@@ -5093,7 +5093,7 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.6.0
 
-  swiper@14.1.0: {}
+  swiper@14.3.0: {}
 
   sync-child-process@1.0.2:
     dependencies:
