@@ -33,8 +33,8 @@ importers:
         specifier: ^1.11.0
         version: 1.11.0
       astro-lightgallery:
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
       astro-splide:
         specifier: ^2.1.1
         version: 2.1.1
@@ -1036,8 +1036,8 @@ packages:
   astro-leaflet@1.11.0:
     resolution: {integrity: sha512-QXjeCWfJ2/MXaaTveqxQiYbrf8g6/OHEoIXiAPShvCZb+9MpGNz5ISH/OA3mecNNjjW1j05ZmQJTC6ywehHbOw==}
 
-  astro-lightgallery@3.0.0:
-    resolution: {integrity: sha512-wQdta0q800W1iCgDGp6e4z0gSU5Kh1By9VgNgp79YHiaZ8cAQSvm75jijH7A6ilv50lExvTQmzPZMWWbZLRpEQ==}
+  astro-lightgallery@3.0.1:
+    resolution: {integrity: sha512-7idSYgse6+OehWyT2VfcoxWpuiunJdbtMjs0XiCzaaWyN4fzG9tBmIT27MIC+Jvb+7Y0gEzR/cxx/BzsEpAaPQ==}
 
   astro-splide@2.1.1:
     resolution: {integrity: sha512-xUOR2vee0J61Ur7ZwtcyY5uzzic18gXVuZImvNuQFeLqyoZoEHPnRDp/8SKKBz6eOg/S715DRG2B6EsbidA3YA==}
@@ -3386,7 +3386,7 @@ snapshots:
       '@types/leaflet': 1.9.21
       leaflet: 1.9.4
 
-  astro-lightgallery@3.0.0:
+  astro-lightgallery@3.0.1:
     dependencies:
       lightgallery: 3.0.0
 
