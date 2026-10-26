@@ -33,8 +33,8 @@ importers:
         specifier: ^1.11.0
         version: 1.11.0
       astro-lightgallery:
-        specifier: ^2.6.0
-        version: 2.6.0
+        specifier: ^3.0.0
+        version: 3.0.0
       astro-splide:
         specifier: ^2.1.1
         version: 2.1.1
@@ -1036,8 +1036,8 @@ packages:
   astro-leaflet@1.11.0:
     resolution: {integrity: sha512-QXjeCWfJ2/MXaaTveqxQiYbrf8g6/OHEoIXiAPShvCZb+9MpGNz5ISH/OA3mecNNjjW1j05ZmQJTC6ywehHbOw==}
 
-  astro-lightgallery@2.6.0:
-    resolution: {integrity: sha512-EB8CwxQvTZnsYFcbpMulf/WtJWlOtYyPxLzm7j/Koy30bsr2v3+Q2MsAqj+3vGQlgyB8IY9C0Ok4IUk4BeJKDA==}
+  astro-lightgallery@3.0.0:
+    resolution: {integrity: sha512-wQdta0q800W1iCgDGp6e4z0gSU5Kh1By9VgNgp79YHiaZ8cAQSvm75jijH7A6ilv50lExvTQmzPZMWWbZLRpEQ==}
 
   astro-splide@2.1.1:
     resolution: {integrity: sha512-xUOR2vee0J61Ur7ZwtcyY5uzzic18gXVuZImvNuQFeLqyoZoEHPnRDp/8SKKBz6eOg/S715DRG2B6EsbidA3YA==}
@@ -1504,9 +1504,9 @@ packages:
   leaflet@1.9.4:
     resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
 
-  lightgallery@2.9.0:
-    resolution: {integrity: sha512-58Ud1DyhD2ao58t+kPEqSZrjFxg23tGd5ZKr75erm7q31g5xhUtWUJH3sTUkhHzlyJAKHj5eTrJ37HQRXG4Wbg==}
-    engines: {node: '>=6.0.0'}
+  lightgallery@3.0.0:
+    resolution: {integrity: sha512-UBzeo4rO1qeyG/hFRth5fzNebAnkpn5mfYzHUV3QAkOVh5mql6uK5QCq5M5wwmtdwuCeFDYsbctErxAKCkFUsQ==}
+    engines: {node: '>=18'}
 
   longest-streak@3.1.0:
     resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
@@ -3386,9 +3386,9 @@ snapshots:
       '@types/leaflet': 1.9.21
       leaflet: 1.9.4
 
-  astro-lightgallery@2.6.0:
+  astro-lightgallery@3.0.0:
     dependencies:
-      lightgallery: 2.9.0
+      lightgallery: 3.0.0
 
   astro-splide@2.1.1:
     dependencies:
@@ -4052,7 +4052,7 @@ snapshots:
 
   leaflet@1.9.4: {}
 
-  lightgallery@2.9.0: {}
+  lightgallery@3.0.0: {}
 
   longest-streak@3.1.0: {}
 
